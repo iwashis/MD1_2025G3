@@ -528,7 +528,7 @@ linewidth=1pt}
 
 
 
-\begin{zad}[Autor 1, Autor 2]
+\begin{zad}[Katarzyna Szwed, Autor 2]
     Udowodnij poniższe tożsamości na dwa sposoby: posługując się interpretacją
     kombinatoryczną albo rozwinięciem dwumianu $(1 + x)^n$:
     \begin{enumerate}
@@ -538,10 +538,71 @@ linewidth=1pt}
     \end{enumerate}
 \end{zad}
 \begin{mdframed}
+    %Rozwiązanie: Katarzyna Szwed
     \begin{enumerate}
-        \item Rozwiązanie Autora 1 podpunktu 1
-        \item Rozwiązanie Autora 1 podpunktu 2
-        \item Rozwiązanie Autora 1 podpunktu 3
+        \item Podpunkt 1
+
+        Rozważmy zbiór $X$ taki, że:
+        \[X := \{ (A, x) : x \in A \wedge A \subset [n]\}\]
+
+        Żeby policzyć jego moc najpierw wybierzemy element $x \in [n]$ na $n$ sposobów, 
+        a potem resztę elementów zbioru $A$, czyli dowolny podzbiór $[n]-\{x\}$
+        \[|X| = n \cdot 2^{n-1}\] 
+
+        Teraz rozważmy rodzinę zbiorów $\{X_k\}_{k=0}^n$:
+        \[X_k := \{(A, x) \in X : |A| = k\}\]
+
+        Żeby policzyć moc zbioru $X_k$ (dla danego $k$) najpierw wybieramy $k$-elementowy zbiór $A$ będący podzbiorem $[n]$, a potem należący
+        do niego element $x$:
+        \[|X_k| = {n \choose k} \cdot k\]  
+
+        Rodzina $X_k$ jest rozłącznym pokryciem zbioru $X$, zatem mamy:
+        \[|X| = \sum_{k=0}^{n} |X_k|\]
+        \[n \cdot 2^{n-1} = \sum_{k=0}^{n} k \cdot {n \choose k}\]
+
+        \item Podpunkt 2
+
+        Rozważmy zbiór $X$ taki, że:
+        \[X := \{(A, x_1, x_2) : A \subset [n] \wedge x_1, x_2 \in A\}\]
+
+        Żeby policzyć moc zbioru $X$ osobno policzymy przypadki kiedy $x_1 = x_2$ i $x_1 \neq x_2$.
+
+        Dla $x_1 = x_2$ wybieramy najpierw wyróżniony element na $n$ sposobów, a potem dobieramy resztę elementów z $A$, 
+        dostajemy $n2^{n-1}$.
+
+        Dla $x_1 \neq x_2$ wybieramy $x_1$ na $n$ sposobów, $x_2$ na $n-1$ sposobów, a potem dobieramy resztę elementów z $A$, 
+        dostajemy $n(n-1)2^{n-2}$. 
+        Zatem mamy:
+        \[|X| = n2^{n-1} + n(n-1)2^{n-2} = (2n + n^2 - n)2^{n-2} = (n + n^2)2^{n-2}\]
+
+        Teraz rozważmy rodzinę zbiorów $\{X_k\}_{k=0}^n$:
+        \[X_k := \{(A, x_1, x_2) \in X : |A| = k\}\]
+
+        Żeby policzyć moc zbioru $X_k$ (dla danego $k$) najpierw wybierzemy $k$-elementowy zbiór $A \subset [n]$, a potem wybierzemy z niego elementy 
+        $x_1$ i $x_2$ (przy czym mogą być one sobie równe):
+        \[|X_k| = {n \choose k} \cdot k\cdot k\]
+
+        Rodzina $X_k$ jest rozłącznym pokryciem zbioru $X$, więc otrzymujemy:
+        \[\sum_{k=0}^{n} |X_k| = |X|\]
+        \[\sum_{k=0}^{n}k^2{n \choose k}= n(n+1)2^{n-2}\]
+
+        \item Podpunkt 3
+
+        Rozważmy zbiór $X$ taki, że:
+        \[X := \{A \subset [m + n] : |A| = k\}\]
+
+        Zauważmy, że $|X| = {m+n \choose k}$.
+
+        Teraz rozważmy rodzinę zbiorów $\{X_i\}_{i=0}^n$:
+        \[X_i := \{A \in X : |A \cap [m]| = i\}\]
+        
+        Żeby policzyć moc zbioru $X_i$ (dla danego $i$) najpierw wybieramy $i$ elementów z $[m]$, a potem $k-i$ elementów z 
+        $\{m+1, m+2, ..., m+n\}$, zatem $|X_i| = {m \choose i}{n \choose k-i}$.
+
+        Rodzina $X_i$ jest rozłącznym pokryciem zbioru $X$, więc otrzymujemy:
+        \[|X| = \sum_{i=0}^{n} |X_i|\]
+        \[{m+n \choose k} = \sum_{i=0}^{k}{m \choose i}{n \choose k-i}\]
+
     \end{enumerate}
 \end{mdframed}
 \begin{mdframed}
@@ -819,7 +880,7 @@ linewidth=1pt}
 
 
 
-\begin{zad}[Autor 1, Autor 2]
+\begin{zad}[Katarzyna Szwed, Autor 2]
     Wykaż, że
     \[
         \sum_{i=0}^{n} i \left[ n \atop i \right] = n! H_n,
@@ -827,7 +888,31 @@ linewidth=1pt}
     gdzie $H_n = 1 + \frac{1}{2} + ... + \frac{1}{n}$.
 \end{zad}
 \begin{mdframed}
-    Rozwiązanie Autora 1.
+    %Rozwiązanie: Katarzyna Szwed
+    Rozważmy zbiór $X := \{(\sigma, c) : \sigma$ - permutacja zbioru $[n]$, $c$ - wyróżniony cykl z permutacji $\sigma\}$.
+
+    Rozważmy rodzinę zbiorów $\{A_i\}_{i=0}^{n}$ taką, że $A_i = \{(\sigma, c) \in X :$ permutacja $\sigma$ ma $i$ cykli$\}$. 
+    Zauważmy, że $|A_i| = i\left[ n \atop i\right]$ (najpierw liczymy liczbę permutacji $[n]$ o $i$ cyklach, a potem wybieramy
+    jeden z $i$ cykli). 
+    
+    Rodzina $A_i$ jest rozłącznym pokryciem zbioru $X$, zatem: 
+    \[|X| = \sum_{i=0}^{n} |A_i| = \sum_{i=0}^{n} i\left[ n \atop i\right]\].
+
+    Teraz rozważmy rodzinę zbiorów $\{B_k\}_{k=1}^{n}$ taką, że $B_k = \{(\sigma, c) \in X :$ cykl $c$ ma $k$ elementów$\}$. 
+    Zauważmy, że $|B_k| = {n \choose k} \frac{k!}{k} (n-k)!$, ponieważ najpierw wybieramy $k$ elementów do cyklu $c$, potem permutujemy
+    je, ale usuwamy kolejność pierwszego elementu, na koniec permutujemy resztę elementów zbioru $[n]$.
+
+    Rodzina $B_k$ jest rozłącznym pokryciem zbioru $X$, zatem:
+    \[
+        |X| = \sum_{k=1}^{n} |B_k| = \sum_{k=1}^{n} {n \choose k} \frac{k!}{k} (n-k)! = \\
+        \sum_{k=1}^n \frac{n!}{k!(n-k)!}\frac{k!}{k} (n-k)! = \sum_{k=1}^{n}\frac{n!}{k} = 
+        n! \sum_{k=1}^{n} \frac{1}{k} = n! H_n
+    \]
+
+    Otrzymujemy więc:
+    \[\sum_{i=0}^{n} i\left[ n \atop i\right] = n! H_n\]
+
+
 \end{mdframed}
 \begin{mdframed}
     Rozwiązanie Autora 2.
