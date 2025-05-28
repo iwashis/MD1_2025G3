@@ -801,11 +801,12 @@ linewidth=1pt}
 \newpage
 \section{Zestaw}          % ZESTAW 4
 
-\begin{zad}[Autor 1, Autor 2]
+\begin{zad}[Julian Sowiński, Autor 2]
     Oblicz $S(n, 2)$.
 \end{zad}
 \begin{mdframed}
-    Rozwiązanie Autora 1.
+    Liczba Stirlinga drugiego rodzaju $S(n, k)$ dla $k=2$ to tak właściwie liczba sposobów na podzielenie zbioru $n$-elementowego na 2 niepuste podzbiory.
+    $$S(n, 2) = \frac{\overbrace{2^n}^{\text{wszystkie podzbiory}} - \overbrace{2}^{\text{bez pustego i całego}}}{\underbrace{2}_{\text{nie bierzemy pod uwagę kolejności}}} = \frac{2^n - 2}{2} = 2^{n-1} - 1$$
 \end{mdframed}
 \begin{mdframed}
     Rozwiązanie Autora 2.
@@ -931,7 +932,7 @@ linewidth=1pt}
 
 
 
-\begin{zad}[Autor 1, Autor 2]
+\begin{zad}[Julian Sowiński, Autor 2]
     Wykaż, że dla dowolnego $x \in \mathbb{R}$ zachodzi:
     \begin{enumerate}
         \item $x^n = \sum_{k}S(n,k) x^{\underline{k}}$
@@ -940,8 +941,86 @@ linewidth=1pt}
 \end{zad}
 \begin{mdframed}
     \begin{enumerate}
-        \item Rozwiązanie Autora 1 podpunktu 1
-        \item Rozwiązanie Autora 1 podpunktu 2
+\item
+$$x^n = \sum_{k=0}^n S(n,k) x^{\underline{k}}$$
+Dowód indukcyjny:
+\newline \newline
+1) Dla $n=0$: \\
+L = $x^{\underline{0}} = 1$ \\
+P = $S(0,0) \cdot x^{\underline{0}} = 1 \cdot 1 = 1$ \\
+L = P
+
+2) Dla $n>0$:
+
+Założenie: $$x^n = \sum_{k=0}^n S(n,k) x^{\underline{k}}$$
+
+Teza: $$x^{n+1} = \sum_{k=0}^{n+1} S(n+1,k) x^{\underline{k}}$$
+
+Rozpoczynamy od lewej strony, używając założenia indukcyjnego:
+$$L = x \cdot x^n = x \cdot \sum_{k=0}^n S(n,k) x^{\underline{k}} = \sum_{k=0}^n S(n,k) (x \cdot x^{\underline{k}}) \quad (*)$$
+
+Zauważmy, że:
+\begin{align*}
+    \cdot x^{\underline{k}}*x &= (x-k+k) x^{\underline{k}} = (x-k) x^{\underline{k}} + k x^{\underline{k}} = x^{\underline{k+1}} + k x^{\underline{k}}
+\end{align*}
+
+Kontynuujemy z (*), podstawiając znalezioną tożsamość:
+\begin{align*}
+    (*) &= \sum_{k=0}^n S(n,k) (x^{\underline{k+1}} + k x^{\underline{k}}) \\
+    &= \sum_{k=0}^n S(n,k) x^{\underline{k+1}} + \sum_{k=0}^n k S(n,k) x^{\underline{k}}
+\end{align*}
+
+Teraz zmienimy przedziały sumowania:
+\begin{align*}
+ \star &= \sum_{k=1}^{n+1} S(n,k-1) x^{\underline{k}} + \underbrace{\sum_{k=0}^{n+1} k S(n,k) x^{\underline{k}}}_{\text{ponieważ } S(n,n+1)=0} \\
+       &= \underbrace{\sum_{k=0}^{n+1} S(n,k-1) x^{\underline{k}}}_{\text{ponieważ } S(n,-1)=0} + \sum_{k=0}^{n+1} k S(n,k) x^{\underline{k}} \\
+       &= \sum_{k=0}^{n+1} (S(n,k-1) + k S(n,k)) x^{\underline{k}} \\
+       &= \sum_{k=0}^{n+1} S(n+1,k) x^{\underline{k}} = P
+\end{align*}
+
+Co dowodzi tezy indukcyjnej.
+\newline
+
+\item $$x^{\bar{n}} = \sum_{k} \left[n \atop k \right] x^k$$
+
+Dowód indukcyjny:
+
+1) Dla $n=0$:
+\newline
+L = $x^{\overline{0}} = 1$
+\newline
+P = $\sum_{k=0}^0 \genfrac{[}{]}{0pt}{1}{0}{k} x^k = \genfrac{[}{]}{0pt}{1}{0}{0} x^0 = 1 \cdot 1 = 1$.
+\newline
+L = P
+\newline
+
+2) Dla $n>0$: 
+\newline
+Założenie:
+$$x^{\overline{n-1}} = \sum_{k=0}^{n-1} \genfrac{[}{]}{0pt}{1}{n-1}{k} x^k$$
+
+Teza:
+$$x^{\overline{n}} = \sum_{k=0}^n \genfrac{[}{]}{0pt}{1}{n}{k} x^k$$
+Rozpoczynamy od lewej strony:
+\begin{align*}
+L &= x^{\overline{n}} = (x+n-1) x^{\overline{n-1}} = (x+n-1) \sum_{k=0}^{n-1} \genfrac{[}{]}{0pt}{1}{n-1}{k} x^k \\
+&= \sum_{k=0}^{n-1} (x+n-1) \genfrac{[}{]}{0pt}{1}{n-1}{k} x^k \\
+&= \sum_{k=0}^{n-1} \genfrac{[}{]}{0pt}{1}{n-1}{k} x^{k+1} + \sum_{k=0}^{n-1} (n-1) \genfrac{[}{]}{0pt}{1}{n-1}{k} x^k \quad (*)
+\end{align*}
+
+Teraz zmieniamy przedziały sumowania, aby później zastosować wzór rekurencyjny:
+
+\begin{align*}
+(*) &= \sum_{k=0}^{n} \genfrac{[}{]}{0pt}{1}{n-1}{k-1} x^k + \sum_{k=0}^{n} (n-1) \genfrac{[}{]}{0pt}{1}{n-1}{k} x^k \\
+&= \sum_{k=0}^{n} \left(\genfrac{[}{]}{0pt}{1}{n-1}{k-1} + (n-1) \genfrac{[}{]}{0pt}{1}{n-1}{k}\right) x^k
+\end{align*}
+Stosujemy wzór rekurencyjny dla liczb Stirlinga I rodzaju:
+$$\genfrac{[}{]}{0pt}{1}{n}{k} = (n-1)\genfrac{[}{]}{0pt}{1}{n-1}{k} + \genfrac{[}{]}{0pt}{1}{n-1}{k-1}$$
+Podstawiając to do naszego wyrażenia, otrzymujemy:
+\begin{align*}
+&= \sum_{k=0}^{n} \genfrac{[}{]}{0pt}{1}{n}{k} x^k = P
+\end{align*}
+Co kończy dowód indukcyjny.
     \end{enumerate}
 \end{mdframed}
 \begin{mdframed}
