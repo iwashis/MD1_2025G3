@@ -651,7 +651,7 @@ linewidth=1pt}
 
 
 
-\begin{zad}[Autor 1, Autor 2]
+\begin{zad}[Autor 1, Karol Wójcik]
     Wykaż, że:
     \[B(n) = \sum_{i=0}^{n-1} \binom{n-1}{i}B(i)\]
 \end{zad}
@@ -659,18 +659,68 @@ linewidth=1pt}
     Rozwiązanie Autora 1.
 \end{mdframed}
 \begin{mdframed}
-    Rozwiązanie Autora 2.
+    %Rozwiązanie: Karol Wójcik
+    Z lewej strony mamy liczbę podziałów zbioru n-elementowego na niepuste podzbiory, czyli $B(n)$
+    \newline \newline
+    Spróbujmy uzyskać tą liczbę w inny sposób, najpierw utworzymy blok $k+1$ elementowy, który będzie 
+    zawierał element $n$, a pozostałe elementy podzielimy na dowolny niepusty podzbiór:
+    \newline \newline
+    Weźmy zbiór $n-1$ elementowy. Wybieramy z niego $k$ elementów, co można zrobić na $\binom{n-1}{k}$
+    sposobów. Następnie dołączamy do wybranych elementów element $n$. Pozostałe $n-k-1$ elementów
+    możemy podzielić na $B(n-k-1)$ sposobów
+    \newline
+    Sumując po $k$:
+    \newline \newline
+    \[B(n) = \sum_{k=0}^{n-1}B{(n-k-1)}\binom{n-1}{k} \]
+    
+    Zmieńmy sumowanie na $i=n-k-1$:
+    \[\sum_{i=0}^{n-1}B(i)\binom{n-1}{n-1-i} = \sum_{i=0}^{n-1}B(i)\binom{n-1}{i} \]
+    \newline
+    Otrzymaliśmy w ten sposób prawą stronę tezy, więc
+    \newline 
+    \[B(n) = \sum_{i=0}^{n-1} \binom{n-1}{i}B(i)\]
 \end{mdframed}
 
 
 
 
-\begin{zad}[Autor 1, Autor 2]
+\begin{zad}[Karol Wójcik, Autor 2]
     Wykaż, że dla $n, k \in \mathbb{N}$ zachodzi:
     \[S(n,k+1)=\frac{1}{(k+1)!} \sum_{0<i_0<...<i_{k-1}<n} \binom{n}{i_{k-1}}\binom{i_{k-1}}{i_{k_2}}...\binom{i_1}{i_0}     \]
 \end{zad}
 \begin{mdframed}
-    Rozwiązanie Autora 1.
+    % Rozwiązanie: Karol Wójcik
+    Zapiszmy tezę jako:
+    \[(k+1)! \cdot S(n,k+1) = \sum_{0<i_0<...<i_{k-1}<n} \binom{n}{i_{k-1}}\binom{i_{k-1}}{i_{k_2}}...\binom{i_1}{i_0} \]
+    \newline \newline
+    Lewa strona tezy przedstawia liczbę sposobów podziału zbioru n-elementowego na $k+1$ niepustych,
+    uporządkowanych podzbiorów. $S(n,k+1)$ zlicza liczbę podziałów na $k+1$ nieuporządkowanych podzbiorów,
+    a mnożenie przez $(k+1)!$ nadaje tym podzbiorom kolejność.
+    \newline \newline
+    Spróbujmy skonstruować to w inny sposób. Rozważmy ściśle rosnący ciąg liczb całkowitych $i_0$, $i_1$ $\dots$,$i_{k-1}$,
+    taki, że $0<$ $i_0$ oraz $i_{k-1}$ $<n$
+    Teraz wybierzmy $i_{k-1}$ elementów ze zbioru n-elementowego. Można to zrobić na $\binom{n}{i_{k-1}}$ sposobów,
+    następnie z tego wybranego zbioru $i_{k-1}$ elementowego wybieramy $i_{k-2}$ elementów na $\binom{i_{k-1}}{i_{k-2}}$ sposobów.
+    Kontynuujemy ten proces, aż ze zbioru $i_1$ elementowego wybierzemy $i_0$ elementów na $\binom{i_1}{i_0}$ sposobów.
+    W ten sposób uzyskujemy łańcuch zagnieżdżonych podzbiorów:
+    \newline
+    \[[i_0]\subset [i_1]\subset \dots \subset [i_{k-1}] \subset [n] \]
+    \newline
+    gdzie $|[i_j]| = i_j$
+    \newline
+    Taki łańcuch podzbiorów to uporządkowana kolekcja $k+1$ rozłącznych, niepustych podzbiorów zbioru $[n]$.
+    Iloczyn $\binom{n}{i_{k-1}}\binom{i_{k-1}}{i_{k_2}}...\binom{i_1}{i_0}$ zlicza liczbę sposobów przeprowadzania tej sekwencji wyborów.
+    Sumując po wszystich możliwych ciągach $i_0$, $i_1$ $\dots$,$i_{k-1}$ otrzymujemy 
+    \newline
+    \[\sum_{0<i_0<...<i_{k-1}<n} \binom{n}{i_{k-1}}\binom{i_{k-1}}{i_{k_2}}...\binom{i_1}{i_0} \]
+    \newline
+    co obejmuje wszystkie możliwe sposoby podziały zbioru $[n]$ na $k+1$ niepustych, uporządkowanych podzbiorów.
+    \newline
+    Zatem prawa strona również zlicza liczbę sposobów podziału zbioru n-elementowego na $k+1$ niepustych, uporządkowanych podzbiorów.
+    \newline
+    Zatem
+    \newline 
+    \[(k+1)! \cdot S(n,k+1) = \sum_{0<i_0<...<i_{k-1}<n} \binom{n}{i_{k-1}}\binom{i_{k-1}}{i_{k_2}}...\binom{i_1}{i_0} \]
 \end{mdframed}
 \begin{mdframed}
     Rozwiązanie Autora 2.
@@ -1025,7 +1075,7 @@ linewidth=1pt}
 
 
 
-\begin{zad}[Autor 1, Autor 2]
+\begin{zad}[Karol Wójcik, Autor 2]
     Wykaż, że dla $n \geq 3$ zachodzi tożsamość
     \[
         D(n) = (n-1)(D(n-1) + D(n-2))
@@ -1033,7 +1083,30 @@ linewidth=1pt}
     gdzie $D(n)$ jest liczbą permutacji zboru $[n]$ bez punktów stałych.
 \end{zad}
 \begin{mdframed}
-    Rozwiązanie Autora 1.
+    % Rozwiązanie: Karol Wójcik
+    Dla $n \ge 3$:   $D(n) = (n-1)(D(n-1)+D(n-2))$
+\newline \newline
+    D(n) - liczba nieporządków
+\newline \newline
+    $D(1) = 0$      $D(2) = 1$
+\newline \newline
+    $D_n$ -- zbiór nieporządków na $n$ elementach
+    \newline \newline
+    Weźmy zbiór $D_n = X \cup Y$, $X \cap Y = \emptyset$.
+
+    $X$ -- zbiór, gdzie $n$ znajduje się w 2-elementowym cyklu, 
+
+    $Y$ -- zbiór, gdzie $n$ znajduje się w $>$ 2-elementowym cyklu
+    \newline \newline
+    $X = \{ (i,n) \ast \sigma \mid \sigma \text{ jest permutacją na } [n] \setminus \{i,n\} \text{ bez punktów stałych, } i \in [n-1] \}$
+
+    $|X| = \lvert [n-1] \rvert \cdot \lvert D(n-2) \rvert = (n-1)D(n-2)$
+    \newline \newline
+    $Y = \{ \sigma \mid \sigma(j)=n, \sigma(n)=i, i \neq j \}$
+
+    $|Y| = (n-1)D(n-1)$
+\newline \newline
+$D(n) = |X \cup Y| = (n-1)(D(n-1) + D(n-2))$
 \end{mdframed}
 \begin{mdframed}
     Rozwiązanie Autora 2.
