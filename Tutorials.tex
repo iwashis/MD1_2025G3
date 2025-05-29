@@ -346,7 +346,7 @@ linewidth=1pt}
 \newpage
 \section{Zestaw}          % ZESTAW 2
 
-\begin{zad}[Filip Sajko, Autor 2]
+\begin{zad}[Filip Sajko, Bartłomiej Sokołowski]
     Na ile sposobów można ustawić $n$ wież na szachownicy
     $n \times n$ tak, by żadne dwie nie znajdowały się w
     polu wzajemnego rażenia.
@@ -358,7 +358,13 @@ linewidth=1pt}
         (n-1) \cdot ... \cdot 2 \cdot 2 \cdot 1 \cdot 1 =  n! \cdot n!\]
 \end{mdframed}
 \begin{mdframed}
-    Rozwiązanie Autora 2.
+    %Rozwiązanie: Bartłomiej Sokołowski
+    Musimy wybrać $n$ pozycji z $n^2$ dostępnych pól na szachownicy. Wybierając 
+    $1$ pozycję automatycznie eliminujemy całą kolumnę oraz wiersz, w którym znajduje się wybrane pole.
+    \item Pierwszą wieżę wybieramy z $n \times n = n^2$ dostępnych pozycji.
+    \item Następną wieżę wybieramy na $(n-1) \times (n-1) = (n-1)^2$ sposobów, ponieważ wykluczamy wybraną już kolumnę i wiersz.
+    \item Powtarzając proces $n$ razy dostajemy:
+    \[n \times n \times (n-1) \times (n - 1) \times ... \times 1 \times 1 = n! \times n! = (n!)^2\] 
 \end{mdframed}
 
 
@@ -475,12 +481,21 @@ linewidth=1pt}
 
 
 
-\begin{zad}[Autor 1, Autor 2]
+\begin{zad}[Bartłomiej Sokołowski, Autor 2]
     (Reguła sumowania równoległego). Udowodnij, że dla $n, k \in \mathbb{N}$
     zachodzi \[ \sum_{j= 0}^{n}\binom{n+j}{j} = \binom{n+k+1}{k}   \]
 \end{zad}\
 \begin{mdframed}
-    Rozwiązanie Autora 1.
+    %Rozwiązanie: Bartłomiej Sokołowski 
+    Przeprowadzimy dowód indukcyjny. 
+    \item k = 0:
+    \item \[ L = \sum_{j=0}^{0}\binom{n+j}{j} = \binom{n}{0} = 0 \] 
+    \item \[P = \binom{n+0+1}{0} = \binom{n+1}{0} = 0\]
+    \item Zał. indukcyjne :
+    \item \[\sum_{j=0}^{k}\binom{n+j}{j} = \binom{n+k+1}{k}\]
+    \item Teza indukcyjna :
+    \item \[\sum_{j=0}^{k+1}\binom{n+j}{j} = \binom{n+k+2}{k+1}\]
+    \item \[\sum_{j=0}^{k+1}\binom{n+j}{j} = \sum_{j=0}^{k}\binom{n+j}{j} + \binom{n+k+1}{k+1} = \binom{n+k+1}{k} + \binom{n+k+1}{k+1} = \binom{n+k+2}{k+1}\]
 \end{mdframed}
 \begin{mdframed}
     Rozwiązanie Autora 2.
@@ -651,12 +666,21 @@ linewidth=1pt}
 
 
 
-\begin{zad}[Autor 1, Autor 2]
+\begin{zad}[Bartłomiej Sokołowski , Autor 2]
     Wykaż, że:
     \[B(n) = \sum_{i=0}^{n-1} \binom{n-1}{i}B(i)\]
 \end{zad}
 \begin{mdframed}
-    Rozwiązanie Autora 1.
+    %Rozwiązanie: Bartłomiej Sokołowski 
+    \item Dowód:
+    \item Niech $X = \pi([n])$, wtedy $|X| = B(n)$
+    \item Niech $X_i = \{\pi([n]) : \exists_{A \in \pi([n])} (n \in A \land |A| = i + 1)\}$
+    \item Jest to zbiór wszystkich podziałów, które zawierają n oraz mają wielkość i+1
+    \item Jest to rozłączne pokrycie zbioru X 
+    \item \[ |X_i| = \binom{n-1}{i} \times B(n-i-1)\]
+    \item gdzie $\binom{n-1}{i}$ reprezentuje wybór $i$ elementów z bloku z $n$, a $B(n-i-1)$ reprezentuje podzielenie pozostałych elementów na bloki.
+    \item \[ |X| = \sum_{i=0}^{n-1} |X_i| = \sum_{i=0}^{n-1}\binom{n-1}{i} \times B(n-i-1) = \sum_{i=0}^{n-1} \binom{n-1}{n-i-1} \times B(n-i-1) = \sum_{i=0}^{n-1} \binom{n-1}{i} \times B(i)\]
+    \item Ostatnie przejście to sumowanie ale od drugiej strony, dlatego można je wykonać.
 \end{mdframed}
 \begin{mdframed}
     Rozwiązanie Autora 2.
@@ -814,21 +838,13 @@ linewidth=1pt}
 
 
 
-\begin{zad}[Konstanty Sobczyński, Krzysztof Wójtowicz]
+\begin{zad}[Autor 1, Krzysztof Wójtowicz]
     Wykaż, że mamy dokładnie
     \[\frac{n!}{1^{\lambda_1} \cdot 2^{\lambda_2} \cdot  ... \cdot n^{\lambda_n} \cdot \lambda_1! \cdot ... \cdot \lambda_n!}\]
     permutacji zbioru $[n]$ o typie $1^{\lambda_1} \cdot 2^{\lambda_2} \cdot ... \cdot n^{\lambda_n} $  (mających $\lambda_i$ cykli długości i dla $i \in [n]$).
 \end{zad}
 \begin{mdframed}
-    Najpierw rozważmy wszystkie możliwe permutacje zbioru $[n]$. Jest ich $n!$.
-    \newline \newline
-    Aby uzyskać permutacje o typie $1^{\lambda_1} \cdot 2^{\lambda_2} \cdot ... \cdot n^{\lambda_n}$, dzielimy nasz ciag (operujemy na jednym ciągu, ale jest to uogólnienie na wszystkie powstałe po $n!$ permutacjach) na kolejno $\lambda_1$ cykli długości $1$, $\lambda_2$ cykli długości $2$, ..., $\lambda_n$ cykli długości $n$.
-    Jednak aby były to permutacje, to musimy podzielić początkowe $n!$ przez $\lambda_i!$ dla $i \in [n]$, ponieważ cykle długości $i$ są dla nas nierozrónialne, to znaczy, że dla na przykład n = 3 i $\lambda_1 = 3$ otrzymamy (1)(2)(3) oraz (2)(1)(3) jako różne permutacje, ale dla nas to to samo.
-    \newline \newline
-    Dodatkowo musimy podzielić przez $i^{\lambda_i}$, ponieważ w każdej uzyskanej permutacji chwilowo wyróżniamy element pierwszy (tzn przykladowo cykle (13) i (31) są dla nas różne), więc każdy z tych cykli musimy podzielić przez $i$. 
-    \newline \newline
-    Zatem otrzymujemy wzór:
-    \[\frac{n!}{1^{\lambda_1} \cdot 2^{\lambda_2} \cdot  ... \cdot n^{\lambda_n} \cdot \lambda_1! \cdot ... \cdot \lambda_n!}\ \; \; \; \; \blacksquare\]
+    Rozwiązanie Autora 1.
 \end{mdframed}
 \begin{mdframed}
     Niech $A$ będzie zbiorem wszystkich permutacji zbioru $[n]$ o typie jak w poleceniu.
@@ -854,8 +870,7 @@ linewidth=1pt}
 
 
 
-\begin{zad}[Maciej Wełpa, Konstanty Sobczyński]
-
+\begin{zad}[Maciej Wełpa, Autor 2]
     Posługując się interpretacją kombinatoryczną, wykaż tożsamość:
     \[S(n+1,m+1) = \sum_k \binom{n}{k}S(k,m)\]
 \end{zad}
@@ -866,8 +881,7 @@ linewidth=1pt}
     n elementów wybieramy n-k (\(\binom{n}{k}\) =\(\binom{n}{n-k}\)), które będą w zbiorze nr m+1 z elementem n+1. Pozostałe k elementów dzielimy na m niepustych podzbiorów. Używamy sumy, aby rozważyć wszystkie możliwości podzielenia elementów.
 \end{mdframed}
 \begin{mdframed}
-    Rozważmy takie S(n+1,m+1), że $n+1 \in A$. $|A| = k+1$ gdzie $ 0 \leq k \leq n$. Wówczas na $\binom{n}{k}$ sposobów możemy wybrać $k$ elementów z $n$ pozostałych elementów zbioru $A$. pozostałe $m$ podziałów uzyskujemy z $n-k$ elementów. Zatem $S(n-k,m)$ sposobów. Otrzymaliśmy, że: dla $n+1 \in A, |A| = k+1$ mamy $\binom{n}{k}S(k,m)$ sposobów. Zatem sumujemy po $k$ (bo przypadki są rozłączne i pokrywają wszystkie możliwe podziały na m+1 podzbiorów) i mamy:
-    \[S(n+1,m+1) = \sum_k \binom{n}{k}S(n-k,m) = \sum_k \binom{n}{n-k}S(n-k,m) = \sum_k \binom{n}{k}S(k,m)\ \; \; \; \; \blacksquare\]
+    Rozwiązanie Autora 2.
 \end{mdframed}
 
 
@@ -981,7 +995,7 @@ linewidth=1pt}
 
 
 
-\begin{zad}[Autor 1, Konstanty Sobczyński]
+\begin{zad}[Autor 1, Autor 2]
     Wykaż, że mamy
     \[
         \sum_{j=0}^{m}(-1)^j \binom{m}{j}(m-j)^n
@@ -992,21 +1006,7 @@ linewidth=1pt}
     Rozwiązanie Autora 1.
 \end{mdframed}
 \begin{mdframed}
-    Skorzystamy z zasady włączeń i wyłączeń. 
-    Niech $U$ - zbiór funkcji z $[n]$ w $[m]$.
-    \newline \newline
-    Niech $A_i$ - zbiór funkcji $[n]$ w $[m]$, $f \in [m]$, takich, że $i \not\in Im(f)$.
-    \newline \newline
-    Niech $W$ - zbiór surjekcji z $[n]$ w $[m]$.
-    \newline \newline
-    Wówczas $|W| = |U| - |\bigcup_{i=1}^{m} A_i|$.
-    $|U| = m^n$ - każda funkcja z $[n]$ w $[m]$ ma $m$ możliwości dla każdego elementu, więc $m^n$.
-    \newline \newline
-    $|\bigcup_{i=1}^{m} A_i| = \sum_{\substack{I \subseteq [m] \\ I \neq \emptyset}} (-1)^{|I|+1} |\bigcap_{i \in I} A_i| = \sum_{\substack{I \subseteq [m] \\ I \neq \emptyset}} (-1)^{|I|+1} (m - |I|)^n = \sum_{j=1}^{m}(-1)^{j+1}
-    \binom{m}{j}(m-j)^n$
-    \newline \newline
-    Zatem $|W| = m^n - \sum_{j=1}^{m}(-1)^{j+1} \binom{m}{j}(m-j)^n = \sum_{j=0}^{m}(-1)^j \binom{m}{j}(m-j)^n\; \; \; \; \blacksquare$.
-
+    Rozwiązanie Autora 2.
 \end{mdframed}
 
 
