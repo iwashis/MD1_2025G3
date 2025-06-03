@@ -1167,7 +1167,7 @@ Po wyznaczeniu tych stałych, każdy z ułamków prostych powinno przekształci�
 \begin{zad}[Maciej Wełpa, Autor 2]
 \end{zad}
 \begin{mdframed}
-    \subsection*{Wyjaśnienie właściwości funkcji tworzącej $a(x) \cdot \frac{1}{1-x}$}
+    \textbf{Wyjaśnienie funkcji tworzącej $a(x) \cdot \frac{1}{1-x}$}\\
 Niech $a(x)$ będzie funkcją tworzącą ciągu $(a_0, a_1, a_2, \ldots)$, czyli $a(x) = \sum_{n=0}^{\infty} a_n x^n$.
 Rozważmy funkcję $\frac{1}{1-x}$, która jest funkcją tworzącą ciągu $(1, 1, 1, \ldots)$, czyli $\frac{1}{1-x} = \sum_{n=0}^{\infty} 1 \cdot x^n$.
 Iloczyn dwóch funkcji tworzących odpowiada splotowi ciągów, dla których są one funkcjami tworzącymi. 
@@ -1180,9 +1180,10 @@ Dalsze przekształcenie:
 $$ = \sum_{i=0}^{\infty} \left( \sum_{j=0}^{i} a_j x^i \right) $$
 Wyciągając $x^i$ przed wewnętrzną sumę:
 $$ = \sum_{i=0}^{\infty} \left[ x^i \left( \sum_{j=0}^{i} a_j \right) \right] $$
-Widać, że suma ta to ciąg sum częściowych szeregu.
+Widać, że suma ta to ciąg sum częściowych szeregu.\\
 
-\subsection*{Wyznaczenie wzoru zwartego na $\sum_{k=1}^n k^2$}
+\textbf{Wyznaczenie wzoru zwartego na $\sum_{k=1}^n k^2$}
+
 Aby wyznaczyć wzór zwarty na $\sum_{k=1}^n k^2$, możemy wykorzystać tę obserwację, że szukamy funkcji tworzącej dla ciągu sum częściowych.
 Najpierw potrzebujemy funkcji tworzącej dla ciągu $a_k = k^2$.
 Wiemy, że (różniczkowanie szeregów, a następnie mnożenie przez x):
@@ -1215,11 +1216,7 @@ $$S(n) = \frac{n(n+1)(2n+1)}{6}$$
 \end{zad}
 \begin{mdframed}
 
-    \section*{Rozwiązania Rekurencji Liniowych za Pomocą Funkcji Tworzących}
-
-    Poniżej przedstawiono rozwiązania podanych rekurencji liniowych z wykorzystaniem funkcji tworzących, odwzorowując styl i kolejność kroków z przedstawionych zdjęć.
-    
-    \subsection*{Przykład (vii)}
+    \textbf{Przykład (vii)}\\
     Dana rekurencja:
     $a_0 = 1, a_1 = 1,$
     $a_{n+2} = a_{n+1} + 2a_n + (-1)^n \quad \text{dla } n \ge 0.$
@@ -1264,7 +1261,7 @@ $$S(n) = \frac{n(n+1)(2n+1)}{6}$$
     Można to również zapisać jako:
     $$ a_n = \frac{ (3n+2)(-1)^{n+1} + 7 \cdot 2^n }{9} $$
     
-    \subsection*{Przykład (viii)}
+    \textbf{Przykład (viii)}\\
 Dana rekurencja:
 $a_0 = 1, a_1 = 1,$
 $a_{n+2} = a_{n+1} + 6a_n - n \quad \text{dla } n \ge 0.$
@@ -1306,7 +1303,7 @@ $$ a_n = \frac{99 \cdot 3^n + 76 \cdot (-2)^n - 25 - 30n - 30}{180} $$
 $$ a_n = \frac{99 \cdot 3^n + 76 \cdot (-2)^n - 30n - 55}{180} $$
 
     
-\subsection*{Przykład (ix)}
+\textbf{Przykład (ix)}\\
 Dana rekurencja:
 $a_0 = 1, a_1 = 1,$
 $a_{n+1} = 2a_n + 4^n \quad \text{dla } n \ge 0.$
