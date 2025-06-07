@@ -743,13 +743,53 @@ linewidth=1pt}
 
 
 
-\begin{zad}[Autor 1, Autor 2]
+\begin{zad}[Bartosz Wójcik, Autor 2]
     Wykaż, że liczba podziałów zbioru $(n - 1)$  elementowego jest równa
     liczbie podziałów zbioru $\{1, ..., n\}$ niezawierających sąsiednich liczb w jednym bloku.
 \end{zad}
+
 \begin{mdframed}
-    Rozwiązanie Autora 1.
+    % Rozwiązanie: Bartosz Wójcik
+    Niech $X$ będzie zbiorem podziałów zbioru $[n]$, takich że sąsiednie liczby nie 
+    znajdują się w jednym bloku. Niech $Y$ będzie zbiorem podziałów zbioru $[n - 1]$. 
+    Niech $ f : X \rightarrow Y$ będzie funkcją taką że jeśli $f(x) = y$:
+    \begin{itemize}
+        \item Dla każdego $i$, które należy do tego samego bloku co $n$ w zbiorze $x$ w zbiorze \
+        $y$ istnieje blok $A$ taki że $i, i + 1 \in A$
+        \item Jeśli $i$ należy do bloku $B$ w zbiorze $x$, który nie zawiera $n$ to istnieje blok \
+        $B' \in y$, taki że $B \subseteq B'$
+    \end{itemize}
+    Przykładowo:
+    
+    $$\
+    \{\{2, 4\}, \{1, 3\}\} \mapsto \{\{1, 2, 3\}\} \
+    $$
+
+    Funkcja $f$ jest dobrze zdefiniowana, ponieważ dla każdego $i$ jednoznacznie wyznaczony jest blok, 
+    w którym się znajdzie - jeśli $i$ należało do bloku z $n$, to zostanie przerzucone do bloku z $i + 1$ 
+    ($i + 1$ nie może się znajdować w tym samym bloku co $n$, ponieważ elementy nie sąsiadują). W przeciwnym 
+    wypadku $i$ zostaje w tym bloku co było.
+
+    Udowodnimy, że $f$ jest bijekcją. Niech $x_1, x_2 \in X$. Niech każdy blok $A_i$ będzie indeksowany najwyższym elementem 
+    w danym bloku. Dla danego podziału $x$ indeksowanie bloków się nie zmienia (poza blokiem $A_n$, który znika), ponieważ 
+    bloki po funkcji $f$ tylko zyskują elementy niższe niż najwyższy element. Załóżmy, że $x_1 \neq x_2$. Jeśli $x_1$ i $x_2$ 
+    różnią sie na bloku $A_n$ (który zawsze należy do podziału) to $f(x_1)$ będzie miało różny zbiór elementów, które ze sobą sąsiadują.
+    W przeciwnym wypadku istnieją $i_1$ oraz $i_2$, które w $x_1$ są w tym samym bloku, a w $x_2$ nie (lub na odwrót). Funkcja f nie 
+    przestawia tych elementów, więc $f(x_1) \neq f(x_2)$.
+
+    Rozważmy $y \in Y$. Znajdziemy $x \in X$, takie że $f(x) = y$. Rozważmy zbiór $S$ wszystkich elementów, które mają swojego sąsiada w tym 
+    samym bloku w $y$. Skonstruujmy podział $x$ w następujący sposób:
+
+    \begin{itemize}
+        \item Utwórzmy nowy blok $A_n$, taki że $n \in A_n$
+        \item Weźmy najmniejszy element z $S$ i dodajmy go do $A_n$. Proces powtórzmy dla kolejnego najmniejszego elementu w $S$, takiego że \
+        ten element nie ma już swojego sąsiada w $A_n$. Procedura kończy się, kiedy skoonstruowany podział nie ma już elementów sąsiadujących.
+    \end{itemize}
+
+    Wtedy $f(x) = y$, więc $f$ jest bijekcją, co kończy dowód.
+
 \end{mdframed}
+
 \begin{mdframed}
     Rozwiązanie Autora 2.
 \end{mdframed}
@@ -1110,13 +1150,63 @@ Co kończy dowód indukcyjny.
 
 
 
-\begin{zad}[Autor 1, Autor 2]
+\begin{zad}[Bartosz Wójcik, Autor 2]
     Ile jest ciągów długości $2n$ takich, że każda liczba $i \in [n]$
     występuje dokładnie dwa razy oraz każde sąsiednie dwa wyrazy są różne.
 \end{zad}
+
 \begin{mdframed}
-    Rozwiązanie Autora 1.
+    % Rozwiązanie: Bartosz Wójcik
+
+    Niech $\Omega$ będzie zbiorem ciągów długości $2n$, że każda liczba $i \in [n]$ 
+    występuje dokładnie dwa razy. 
+    Niech $X \subseteq \Omega$ będzie zbiorem ciągów, w których żadne sąsiadujące wyrazy 
+    nie są równe (zbiór jak w treści zadania).
+    Niech $A_i \subseteq \Omega$, będzie rodziną zbiorów, 
+    takich że:
+
+    $$ A_i = \{a \in X \vert\text{ liczba i sąsiaduje ze sobą w ciągu a }\} $$
+    
+    Zbiór $X$ zawiera wszystkie ciągi, które należą do $\Omega$, ale nie należą do żadnego
+    $A_i$:
+
+    $$ X = \Omega \setminus \bigcup_{i = 1}^{n} A_i$$
+    
+    Obliczmy moc sumy $A_i$:
+    
+    $$ (*) \
+    |\bigcup_{i = 1}^{n} A_i| = \sum_{\emptyset\neq I \subseteq [n]} (-1)^{|I| + 1} \
+    |\bigcap_{i \in I} A_i|
+    $$
+
+    Wybierzmy ciąg $a \in \bigcap_{i \in I} A_i$. Wszystkie $i \in I$ sąsiadują ze sobą, 
+    więc można je potraktować jako jeden znak. W ciągu $a$ mamy więc $2n - |I|$ znaków, 
+    które można przepermutować na $(2n - |I|)!$ sposobów. Każdą parę $\notin I$ można ustawić na 2 
+    sposoby każdą. Sumarycznie:
+    $$\
+    |\bigcap_{i \in I} A_i| = \frac{(2n - |I|)!}{2^{n - |I|}}\
+    $$
+
+    Zmieńmy indeksowanie sumy $(*)$ z indeksowania po zbiorach $I$ na indeksowanie po mocy zbioru $I$. 
+    Jest $\binom{n}{i}$ zbiorów $I \subseteq [n], |I| = i$:
+
+    $$(*)\
+    \sum_{\emptyset\neq I \subseteq [n]} (-1)^{|I| + 1} \
+    |\bigcap_{i \in I} A_i| = \
+    \sum_{i = 1}^{n} (-1)^{i + 1} \binom{n}{i} \frac{(2n - i)!}{2^{n - i}}\
+    $$
+
+    Dodatkowo $|\Omega| = \frac{(2n)!}{2^{n}}$. Otrzymujemy:
+
+    $$(*)\
+    |X| = \frac{(2n)!}{2^{n}} - \sum_{i = 1}^{n} (-1)^{i + 1} \binom{n}{i} \frac{(2n - i)!}{2^{n - i}} = \
+    \sum_{i = 0}^{n} (-1)^{i} \binom{n}{i} \frac{(2n - i)!}{2^{n - i}} \
+    $$
+    co było do policzenia. $\blacksquare$
+
+
 \end{mdframed}
+
 \begin{mdframed}
     Rozwiązanie Autora 2.
 \end{mdframed}
