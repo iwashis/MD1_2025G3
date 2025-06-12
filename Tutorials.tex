@@ -1002,7 +1002,7 @@ linewidth=1pt}
 
 
 
-\begin{zad}[Autor 1, Autor 2]
+\begin{zad}[Krzysztof Wojczakowski, Autor 2]
     Zakładając, że zachodzi równość:
     \[
         (x_1 + ... + x_k)^n = \sum_{n_1+...+n_k=n}\binom{n}{n_1 n_2 ... n_k}x_1^{n_1}\cdot...\cdot x_k^{n_k}
@@ -1010,7 +1010,37 @@ linewidth=1pt}
     podaj ile wynosi $\binom{n}{n_1 n_2 ... n_k}$.
 \end{zad}
 \begin{mdframed}
-    Rozwiązanie Autora 1.
+    %Rozwiązanie: Krzysztof Wojczakowski
+    Pomyślmy najpierw o przykładzie 
+    \( (x + y)^n \) i pomyślmy o tym w takim sensie , że mamy $x+y$ elementów i chcemy je podzielić na n zbiorów. Czyli 
+    każdemu elementowi ze złączonych zbiorów przypisujemy jeden ze zbiorów od 1 do n.
+    Teraz przedstawmy jak by wyglądała prawa strona : \newline
+    \[
+    \sum_{i=0}^{n} \binom{n}{i} x^i y^{n-i} 
+    \]
+    Oznacza to, że wybieramy i elementów z n które będą elementami ze zbioru x, a resztę elementów wybieramy ze zbioru y. Później te wybrane elementy nadal dzielimy na n zbiorów, ale można powiedzieć, że jest to bardziej "uporządkowany" sposób, bo teraz kontrolujemy ile elementów bierzemy z każdego zbioru.
+    Na końcu sumujemy po wszystkich możliwościach, tak aby dostać każde ułożenie.
+    Analogicznie możemy to rozszerzyć na k zbiorów, czyli:
+    \[
+        (x_1 + ... + x_k)^n =\sum_{n_1 + n_2 + \dots + n_k = n}^{n} 
+\binom{n}{n_1} x^{n_1} 
+\binom{n - n_1}{n_2} x^{n_2} 
+\cdots 
+\binom{n - n_1 - n_2 - \dots - n_{k-1}}{n_k} x^{n_k}
+\]
+\[
+= \sum_{n_1 + n_2 + \dots + n_k = n}^{n}
+\frac{n!}{n_1! (n - n_1)!}
+\cdot 
+\frac{(n - n_1)!}{n_2! (n - n_1 - n_2)!}
+\cdot 
+\frac{(n - n_1 - n_2)!}{n_3! (n - n_1 - n_2 - n_3)!}
+\cdots x^{n_1} x^{n_2} \cdots x^{n_k} \]
+ teraz zauważmy, że w takim wypadku :
+    \[
+        \binom{n}{n_1 n_2 ... n_k} = \frac{n!}{n_1! (n - n_1)!} \cdot \frac{(n - n_1)!}{n_2! (n - n_1 - n_2)!} \cdots = \frac{n!}{n_1! n_2! \cdots n_k!}
+    \]
+
 \end{mdframed}
 \begin{mdframed}
     Rozwiązanie Autora 2.
@@ -2140,12 +2170,39 @@ Ponoć Profesor coś zakręcił i nie ma tego zestawu.
     Rozwiązanie Autora 2.
 \end{mdframed}
 
-\begin{zad}
+\begin{zad}[Krzysztof Wojczakowski]
     Niech $P(x)$ będzie funkcją tworząca ciągu $p(n)$, gdzie $p(n)$ jest ilością wszystkich podziałów $n$. Wykaż, że:
     \[P(x) = 1 + \sum_{k=1}^{\infty}\frac{x^{k^2}}{(1-x)^2(1-x^2)^2\cdot ... \cdot (1-x^k)^2}\]
 \end{zad}
 \begin{mdframed}
-    Rozwiązanie Autora 1.
+    %Rozwiązanie Krzysztof Wojczakowski.
+    \[
+    P(x) = (1 + x + x^2 + \dots)(1 + x^2 + x^4 + \dots)(1 + x^3 + x^6 + \dots) \cdots = \frac{1}{1 - x} \cdot \frac{1}{1 - x^2} \cdot \frac{1}{1 - x^3} \cdots
+    \]
+    Analogicznie do przykładu 9.3, mamy kwadrat Durfee, ale tym razem dwa \textbf{różne ramiona}.
+    
+    \begin{enumerate}
+        \item Wybór kwadratu o boku \( k \):
+        \[
+        \sum_{k=0}^{\infty} x^{k^2}
+        \]
+        
+        \item Wybór elementów do ramion :
+        \[
+        \left( (1 + x + x^2 + \ldots)(1 + x^2 + x^4 + \ldots)\ldots(1 + x^k + x^{2k} + \ldots) \right)^2 
+        = \] 
+        \[  = \left( \frac{1}{(1 - x)^2} \cdot \frac{1}{(1 - x^2)^2} \cdot \ldots \cdot \frac{1}{(1 - x^k)^2} \right)
+        \]
+
+        \[
+        \mathcal{P}(x) = \sum_{k=0}^{\infty} \frac{x^{k^2}}{(1 - x)^2 (1 - x^2)^2 \ldots (1 - x^k)^2} 
+        = 1 + \sum_{k=0}^{\infty} \frac{x^{k^2}}{(1 - x)^2 (1 - x^2)^2 \ldots (1 - x^k)^2}
+        \]
+    \end{enumerate}
+    \begin{center}
+    \includegraphics[width=\linewidth]{images/zadanie95.png}
+    \end{center}
+    
 \end{mdframed}
 \begin{mdframed}
     Rozwiązanie Autora 2.
@@ -2255,17 +2312,25 @@ Sytuacja taka sama jak w 7 zestawie.
 \end{mdframed}
 
 
-\begin{zad}
+\begin{zad}[Autor 1, Krzysztof Wojczakowski]
     Udowodnij, że dowolne drzewo $T$ ma przynajmniej $\Delta(T)$ liści.
 \end{zad}
 \begin{mdframed}
     Rozwiązanie Autora 1.
 \end{mdframed}
 \begin{mdframed}
-    Rozwiązanie Autora 2.
+    %Rozwiązanie Krzysztof Wojczakowski.
+    Zrobimy to w inny sposób , niż w rozwiązaniu 1. Po pierwsze warto udowodnić, że w każdym drzewie liście są zawsze co najmniej dwa. Niech P będzie najdłuższą ścieżką w drzewie $T$. Niech x,y oznaczają końce tej ścieżki. Wtedy $x$ i $y$ są liśćmi, ponieważ w przeciwnym razie istniałby wierzchołek $z$, który jest połączony z $x$ lub $y$, co naruszyłoby założenie, że P jest najdłuższą ścieżką lub pokazywało by, że $T$ nie jest drzewem, bo by istniał cykl. 
+    Teraz załóżmy przez zaprzeczenie, że istnieją drzewa takie że liczba liści $<=$ $\Delta(T_0)$. 
+    Niech $T_0$ będzie takim drzewem o najmniejszej liczbie liści spełniającym naszą antytezę i niech v będzie liściem w $T_0$. Tworzymy sobie drzewo $T`$ poprzez usunięcie liścia $v$. Z tego że $T_0$ było minimalnym drzewem spełniającym antytezę, to $T'$ ma co najmniej $\Delta(T_0)$ liści. Zastanówmy się z czym mógł być połączony liść $v$ w drzewie $T_0$.
+    \begin{enumerate}
+        \item Jeśli $v$ był połączony z wierzchołkiem $u$, który jest liściem, to w $T'$ mamy tyle samo liści co w $T_0$, ponieważ usunięcie liścia $v$ nie zmienia liczby liści. W takim wypadku $T_0$ nie mogło spełniać antytezy.
+        \item Jeśli $v$ był połączony z wierzchołkiem $w$, który jest wierzchołkiem mającym stopień $\Delta(T')$, to oznacza, że w drzewie $T_0$ mieliśmy co najmniej $\Delta(T_0) + 1$ liści, ponieważ usunięcie liścia $v$ zmniejsza stopień wierzchołka $w$ o 1, ale zmniejsza też liczbę liści o jeden. 
+        \item Jeśli $v$ był połączony z wierzchołkiem $w$, który nie jest liściem ani nie ma stopnia $\Delta(T')$, to oznacza że w drzewie $T_0$ mieliśmy co najmniej $\Delta(T') + 1$ liści .
+    \end{enumerate}
 \end{mdframed}
 
-\begin{zad}
+\begin{zad}[Krzysztof Wojczakowski]
     Niech $\T$ będzie dowolnym podzbiorem poddrzew drzewa $T$. Pokaż, że
     \begin{enumerate}
         \item jeśli każde dwa drzewa w $\T$ mają niepuste przecięcie (wierzchołkowo) to istnieje
@@ -2277,7 +2342,24 @@ Sytuacja taka sama jak w 7 zestawie.
     \end{enumerate}
 \end{zad}
 \begin{mdframed}
-    Rozwiązanie Autora 1.
+    %Rozwiązanie Krzysztof Wojczakowski.
+    a) Zrobimy to indukcyjnie . Niech n oznacza liczbe drzew w rodzinie 
+    \newline
+    Krok 1: Dla n=2 oczywiscie krok indukcyjny działa bo mamy tylko dwa drzewa więc ich przecięcie jest niepuste, bo mają przynajmniej jeden wspólny wierzchołek.
+    \newline
+    Krok 2: Załóżmy, że dla n nasze założenie jest spełnione. 
+    Zastanówmy co jeśli "dosstawiamy" kolejne drzewo $T_{n+1}$ do rodziny $\T$. 
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{images/zdjecie114.png}
+    \end{center}
+     Na początlu niech zielona kropka oznacza jakiś wierzchołek który należy do rodziny $\T$ i jest wspólny dla wszystkich drzew w rodzinie $\T$.
+    Następnie niech $T_{n+1}$ będzie drzewem, które dodajemy do rodziny $\T$.
+    Jeśli zielona kropka należy do $T_{n+1}$ to mamy wierzchołek, który należy do wszystkich drzew w $\T$ , ale jeśli nie to to nowe drzewo $T_{n+1}$ musi mieć wspólny wierzchołek z każdym innym drzewem w $\T$, i wygląda to mniej więcej jak fioletowe drzewo na rysunku.
+    \newline
+    Ale wtedy zauważmy że jeśli weżmiemy dwa wierzchołki (czerwone kropki na rysunku) z dwóch różnych drzew w $\T$ to one muszą być połączone ścieżką, która przechodzi przez zieloną kropkę, ponieważ każde drzewo w $\T$ ma niepuste przecięcie z każdym innym drzewem w $\T$ , ale teraz można jeszcze znaleźć ścieżkę która idzie przez nasze fioletowe drzewo $T_{n+1}$ bo ma one niepuste przecięcie z każdym innym drzewem w $\T$. W takim wypadku powstaje nam cykl , więc dochodzimy do sprzeczności, ponieważ rodzina $\T$ jest rodzina drzew, więc nie może zawierać cykli.
+    \newline 
+    Kończąc indukcję, udwodniliśmy że istnieje wierzchołek należący do wszystkich drzew w $\T$.
+
 \end{mdframed}
 \begin{mdframed}
     Rozwiązanie Autora 2.
