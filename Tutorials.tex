@@ -39,6 +39,9 @@ linewidth=1pt}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\C}{\mathbb{C}}
+%           Pisane
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\T}{\mathcal{T}}
 
 \newtheorem{zad}{Zadanie}[section]
 
@@ -118,18 +121,18 @@ linewidth=1pt}
 \begin{mdframed}
     \begin{enumerate}
         % Rozwiązanie: Krzysztof Wójtowicz
-        \item Zauważymy, że każda kolejna prosta przecina wszystkie poprzednie proste, 
-        a co za tym idzie również obszary, które są do nich "przyległe", dzieląc je na 
-        dwa. Każda poprzednia prosta ma dwa takie obszary, więc ich ogólna liczba to 
-        (odejmujemy obszary wspólne, czyli te "pośrodku" dwóch prostych, by ich nie duplikować): 
-        \[2(n-1) - (n-1-1) = n\] Zatem każda kolejna prosta dodaje n nowych obszarów: 
-        \[P(n) = P(n-1) + n = P(0) + \sum_{k=1}^{n} k = 1 + \frac{n(n+1)}{2}\]
-        gdzie $P(n)$ to liczba obszarów dla n prostych.
-        \newline
+        \item Zauważymy, że każda kolejna prosta przecina wszystkie poprzednie proste,
+              a co za tym idzie również obszary, które są do nich "przyległe", dzieląc je na
+              dwa. Każda poprzednia prosta ma dwa takie obszary, więc ich ogólna liczba to
+              (odejmujemy obszary wspólne, czyli te "pośrodku" dwóch prostych, by ich nie duplikować):
+              \[2(n-1) - (n-1-1) = n\] Zatem każda kolejna prosta dodaje n nowych obszarów:
+              \[P(n) = P(n-1) + n = P(0) + \sum_{k=1}^{n} k = 1 + \frac{n(n+1)}{2}\]
+              gdzie $P(n)$ to liczba obszarów dla n prostych.
+              \newline
         \item Liczbę obszarów ograniczonych otrzymamy odejmując liczbę obszarów nieograniczonych z wyniku z podpunku 1.
-        Każda prosta ma dwa "przyległe" obszary nieograniczone, więc liczba wszystkich takich obszarów to $2n$,
-        zatem liczba wszystkich obszarów ograniczonych to:
-        \[1 + \frac{n(n+1)}{2} - 2n = \frac{n^2 - 3n + 2}{2} = \frac{(n-1)(n-2)}{2}\]
+              Każda prosta ma dwa "przyległe" obszary nieograniczone, więc liczba wszystkich takich obszarów to $2n$,
+              zatem liczba wszystkich obszarów ograniczonych to:
+              \[1 + \frac{n(n+1)}{2} - 2n = \frac{n^2 - 3n + 2}{2} = \frac{(n-1)(n-2)}{2}\]
     \end{enumerate}
 \end{mdframed}
 \begin{mdframed}
@@ -226,12 +229,12 @@ linewidth=1pt}
     \newline
     W grupie $n$ osób każda osoba może mieć od $0$ do $n-1$ znajomych, ale wtedy:
     \begin{enumerate}
-    \item Jeśli ktoś ma $0$ znajomych to maksymalna liczba znajomych to $n-2$, bo osoba mająca $n-1$ znajomych
-    musiałaby być znajomym z osobą, która ma ich $0$, co jest niemożliwe
-    \item Jeśli minimalna liczba znajomych to $1$ to wtedy maksymalna liczba znajomych to $n-1$
+        \item Jeśli ktoś ma $0$ znajomych to maksymalna liczba znajomych to $n-2$, bo osoba mająca $n-1$ znajomych
+              musiałaby być znajomym z osobą, która ma ich $0$, co jest niemożliwe
+        \item Jeśli minimalna liczba znajomych to $1$ to wtedy maksymalna liczba znajomych to $n-1$
     \end{enumerate}
     W obydwu przypadkach mamy $n-1$ wartości oraz $n$ osób. Zatem na mocy zasady Dirichleta conajmniej dwie
-    osoby muszą mieć tę samą liczbę znajomych. 
+    osoby muszą mieć tę samą liczbę znajomych.
     $\blacksquare$
 \end{mdframed}
 \begin{mdframed}
@@ -241,14 +244,25 @@ linewidth=1pt}
 
 
 
-\begin{zad}[Autor 1, Autor 2]
+\begin{zad}[Karol Sęk, Autor 2]
     Przy okrągłym stole jest $n$ miejsc oznaczonych proporczykami różnych
     państw. Ambasadorowie tych państw usiedli przy tym stole tak, że żaden z nich nie siadł
     przy właściwym proporczyku. Wykaż, że można tak obrócić stołem, że co najmniej 2
     ambasadorów znajdzie się przed proporczykiem swojego państwa.
 \end{zad}
 \begin{mdframed}
-    Rozwiązanie Autora 1.
+    Rozważmy permutację $f:[n] \rightarrow [n]$ , taką że $\forall_{\small k\in[n]} f(k) \ne k$.\\
+    Funkcja $f$ reprezentuje przyporządkowanie ambasadorów do proporczyków.\\
+    Rozważmy permutacje $g:[n] \rightarrow [n]$ o wzorze $(12345...(n-1)n)$.\\
+    Niech $i \in \N$, $f_i = f \circ g \circ g ... \circ g$ (złożenie f z g $i$ razy);\\
+    Zauważmy, że $\forall_{\small k\in[n]}$ $\exists_{\small i\in[n]}$ $ f_i(k) = k$.\\
+    W kontekście treści zadania, oznacza to, że dla każdego ambasadora istnieje obrót o $i$ miejsc, taki, że
+    ten ambasador siedzi przy własciwym proporczyku. \\
+    Zauważmy, że $f_n = f$ $f_{n+1} = f_1$ $f_{n+2} = f_2$ ...\\
+    Oznacza to, że istnieje dokładnie tylko $n-1$ różnych funkcji $f_i$.\\
+    Jeżeli przyporządkujemy każdej liczbie $k \in [n]$  liczbę $i \in [n-1]$ , taką, że $f_i(k) =k$, to na mocy \dots\\
+    zasady Dirichleta będą istnieć dwie liczby z takim samym przyporządkowanym $i$.\\
+     $\blacksquare$
 \end{mdframed}
 \begin{mdframed}
     Rozwiązanie Autora 2.
@@ -359,12 +373,12 @@ linewidth=1pt}
 \end{mdframed}
 \begin{mdframed}
     %Rozwiązanie: Bartłomiej Sokołowski
-    Musimy wybrać $n$ pozycji z $n^2$ dostępnych pól na szachownicy. Wybierając 
+    Musimy wybrać $n$ pozycji z $n^2$ dostępnych pól na szachownicy. Wybierając
     $1$ pozycję automatycznie eliminujemy całą kolumnę oraz wiersz, w którym znajduje się wybrane pole.
     \item Pierwszą wieżę wybieramy z $n \times n = n^2$ dostępnych pozycji.
     \item Następną wieżę wybieramy na $(n-1) \times (n-1) = (n-1)^2$ sposobów, ponieważ wykluczamy wybraną już kolumnę i wiersz.
     \item Powtarzając proces $n$ razy dostajemy:
-    \[n \times n \times (n-1) \times (n - 1) \times ... \times 1 \times 1 = n! \times n! = (n!)^2\] 
+    \[n \times n \times (n-1) \times (n - 1) \times ... \times 1 \times 1 = n! \times n! = (n!)^2\]
 \end{mdframed}
 
 
@@ -467,11 +481,11 @@ linewidth=1pt}
 \end{zad}
 \begin{mdframed}
     % Rozwiązanie: Maciej Wełpa
-    \textbf{Lewa strona:} 
+    \textbf{Lewa strona:}
     Niech X to zbiór wszystkich k + 1 elementów z ze zbioru n + 1 elementów, \\
-    \(|X|\) = \(\binom{n + 1}{k + 1}\). \\ 
+    \(|X|\) = \(\binom{n + 1}{k + 1}\). \\
     \textbf{Prawa strona:} Niech \( X_j \) to podzbiory \(|k+1|\) elementowe ze zbioru X, które
-    zawierają maksymalny element j+1. np. dla k = 2 \( X_3 \) = \{1, 2, 4\}, \( X_4 \) = \{1, 3, 5\} 
+    zawierają maksymalny element j+1. np. dla k = 2 \( X_3 \) = \{1, 2, 4\}, \( X_4 \) = \{1, 3, 5\}
     - ostatni element jest największy, pozostałe dwa to wybrane z \{1...j\}. Rozważamy j elementów mniejszych od j+1, spośród nich wybieramy k elementów - mamy \(\binom{j}{k}\) możliwości. Sumując po j dodajemy do siebie wszystkie możliwości.
 \end{mdframed}
 \begin{mdframed}
@@ -487,9 +501,9 @@ linewidth=1pt}
 \end{zad}\
 \begin{mdframed}
     %Rozwiązanie: Bartłomiej Sokołowski 
-    Przeprowadzimy dowód indukcyjny. 
+    Przeprowadzimy dowód indukcyjny.
     \item k = 0:
-    \item \[ L = \sum_{j=0}^{0}\binom{n+j}{j} = \binom{n}{0} = 0 \] 
+    \item \[ L = \sum_{j=0}^{0}\binom{n+j}{j} = \binom{n}{0} = 0 \]
     \item \[P = \binom{n+0+1}{0} = \binom{n+1}{0} = 0\]
     \item Zał. indukcyjne :
     \item \[\sum_{j=0}^{k}\binom{n+j}{j} = \binom{n+k+1}{k}\]
@@ -509,8 +523,8 @@ linewidth=1pt}
 \end{zad}
 \begin{mdframed}
     %Rozwiązanie: Krzysztof Wojczakowski
-    Zauważmy, że te funkcje tworza tak jakby jakby ciąg , który ma być niemalejący. 
-    Możemy to zobrazować jako kratę gdzie wartości na dole to liczby od 1 do n , a idąc do góry 
+    Zauważmy, że te funkcje tworza tak jakby jakby ciąg , który ma być niemalejący.
+    Możemy to zobrazować jako kratę gdzie wartości na dole to liczby od 1 do n , a idąc do góry
     mozemy tylko iść w prawo lub w górę. , gdie tyle ile kresek w górę przy danej liczbie to tyle ile razy tą liczbę wybieramy.
     \vspace{0.3em} % mały odstęp w pionie
 
@@ -535,12 +549,12 @@ linewidth=1pt}
 \end{zad}
 \begin{mdframed}
     %Rozwiązanie: Krzysztof Wojczakowski
-    Zauważmy, że jeżeli mamy mamy do wybrania $k$ elementow , to równolegle to oznacza , że 
+    Zauważmy, że jeżeli mamy mamy do wybrania $k$ elementow , to równolegle to oznacza , że
     musimy zrobić $k-1$ "przerw" pomiędzy nimi. Wygląda to tak:
-    \verb|_0_0_0_..._0_0_| 
-    gdzie zero to oznacza ze liczby nie bierzemy, a podłoga oznacza, że bierzemy. 
+    \verb|_0_0_0_..._0_0_|
+    gdzie zero to oznacza ze liczby nie bierzemy, a podłoga oznacza, że bierzemy.
     Zostaje nam $n-(k+1)$ miejsc do wyboru, czyli $n-k+1$ miejsc.
-    w takim razie ilość $k$ elementowych podzbiorów jest : 
+    w takim razie ilość $k$ elementowych podzbiorów jest :
     \( \binom{n-k+1}{k} \)
 
 \end{mdframed}
@@ -549,21 +563,54 @@ linewidth=1pt}
 \end{mdframed}
 
 
-\begin{zad}[Autor 1, Autor 2]
+\begin{zad}[Karol Sęk, Wiktor Szymonek]
     Posługując się interpretacją kombinatoryczną udowodnij, że:
     \[ \sum_{i=0}^{k} \binom{n}{i} \binom{n-i}{k-i} = 2^k \binom{n}{k} \]
 \end{zad}
 \begin{mdframed}
-    Rozwiązanie Autora 1.
+    Niech $n \in \N , k \in \N$. \\
+    Rozważmy zbiór:
+    $$P=\{(x,y) \in P_k([n]) \times P([n]) \space|\space y \subseteq x \}.$$
+    Oczywiście $|P| = \binom{n}{k}2^k =2^k\binom{n}{k}$. \\
+
+    Niech $i \in [k] \cup \{0\}$.\\
+    Rozważmy rodzinę zbiorów $L_i = \{(x,y) \in P \space| \space |y| = i\}$. \\
+    Zauważmy, że ta rodzina tworzy rozłączne pokrycie P.\\
+    Oznacza to, że $\bigcup_{\small i \in [k]} \space L_i = P$\\
+
+    Chcemy policzyć $|L_i|$.\\
+    Drugi element pary uporządkowanej $L_i$ "$y$" jest podzbiorem $i$ elementowym $[n]$ $\implies \binom{n}{i}$.\\
+    Pierwszy element pary uporządkowanej $L_i$ "$x$" musi zawierać $y$ i być mocy $k$.\\
+    Należy więc z pozostałych $n-i$ elementów wybrać $k-i$ elementów $\implies \binom{n-i}{k-i}$.\\
+
+    Ostatecznie $|L_i| =  \binom{n}{i} \binom{n-i}{k-i}$.\\
+    $|\bigcup_{\small i \in [k]} \space L_i | = \sum_{i=0}^{k}\binom{n}{i} \binom{n-i}{k-i}$\\
+    $\bigcup_{\small i \in [k]} \space L_i = P \implies \sum_{i=0}^{k}\binom{n}{i} \binom{n-i}{k-i} = 2^k\binom{n}{k}$\\
 \end{mdframed}
 \begin{mdframed}
-    Rozwiązanie Autora 2.
+    % Rozwiązanie: Wiktor Szymonek
+    Niech: \(A = \left[n\right]\) oraz \(B = \left\{(x,y) : x\subseteq A \land |x| = k \land y\subseteq x  \right\} \) 
+    \bigskip Ustalmy ile wynosi \(|B|\):
+    \begin{enumerate}
+        \item Z jednej strony:
+        Ilość możliwych \(x\), czyli \(k\)-elementowych podzbiorów \(\left[n\right]\) wynosi \(\binom{n}{k}\).
+        Z każdego takiego \(x\) chcemy wybrać \(y\) będący jego dowolnym podzbiorem. Jest ich \(2^k\)
+        Zatem par uporządkowanych \((x,y)\) jest:
+        \[|B| = 2^k \binom{n}{k}\]
+        \item Z drugiej strony: 
+        Weźmy \(i \in \left\{0,1,\dots,k \right\} \). Wiemy, że zawsze będzie istnieć \(i\)-elementowe przecięcie \(x \cap y = y\), zatem możemy najpierw wybrać przecięcie a następnie dobrać kolejne elementy do \(x\).
+        Wybierzmy pewne \(i\) elementów z \(\left[n\right]\) i umieśćmy je zarówno w \(x\) jak i w \(y\) na \(\binom{n}{i}\) sposobów. Następnie dobierzmy pozostałe \(k-i\) elementy, które powinny się znaleźć w \(x\)
+        na \(\binom{n-i}{k-i}\) sposobów. Mamy takich par:
+        \[\binom{n}{i} \binom{n-i}{k-i}\]
+        Aby zliczyć wszystkie możliwe pary, musimy uwzględnić wszystkie możliwe \(i\), stąd otrzymujemy:
+        \[|B| = \sum_{i=0}^{k} \binom{n}{i} \binom{n-i}{k-i}\]
+        \qed
+    \end{enumerate}
 \end{mdframed}
 
 
 
-
-\begin{zad}[Katarzyna Szwed, Autor 2]
+\begin{zad}[Katarzyna Szwed, Mateusz Rabantek]
     Udowodnij poniższe tożsamości na dwa sposoby: posługując się interpretacją
     kombinatoryczną albo rozwinięciem dwumianu $(1 + x)^n$:
     \begin{enumerate}
@@ -577,74 +624,168 @@ linewidth=1pt}
     \begin{enumerate}
         \item Podpunkt 1
 
-        Rozważmy zbiór $X$ taki, że:
-        \[X := \{ (A, x) : x \in A \wedge A \subset [n]\}\]
+              Rozważmy zbiór $X$ taki, że:
+              \[X := \{ (A, x) : x \in A \wedge A \subset [n]\}\]
 
-        Żeby policzyć jego moc najpierw wybierzemy element $x \in [n]$ na $n$ sposobów, 
-        a potem resztę elementów zbioru $A$, czyli dowolny podzbiór $[n]-\{x\}$
-        \[|X| = n \cdot 2^{n-1}\] 
+              Żeby policzyć jego moc najpierw wybierzemy element $x \in [n]$ na $n$ sposobów,
+              a potem resztę elementów zbioru $A$, czyli dowolny podzbiór $[n]-\{x\}$
+              \[|X| = n \cdot 2^{n-1}\]
 
-        Teraz rozważmy rodzinę zbiorów $\{X_k\}_{k=0}^n$:
-        \[X_k := \{(A, x) \in X : |A| = k\}\]
+              Teraz rozważmy rodzinę zbiorów $\{X_k\}_{k=0}^n$:
+              \[X_k := \{(A, x) \in X : |A| = k\}\]
 
-        Żeby policzyć moc zbioru $X_k$ (dla danego $k$) najpierw wybieramy $k$-elementowy zbiór $A$ będący podzbiorem $[n]$, a potem należący
-        do niego element $x$:
-        \[|X_k| = {n \choose k} \cdot k\]  
+              Żeby policzyć moc zbioru $X_k$ (dla danego $k$) najpierw wybieramy $k$-elementowy zbiór $A$ będący podzbiorem $[n]$, a potem należący
+              do niego element $x$:
+              \[|X_k| = {n \choose k} \cdot k\]
 
-        Rodzina $X_k$ jest rozłącznym pokryciem zbioru $X$, zatem mamy:
-        \[|X| = \sum_{k=0}^{n} |X_k|\]
-        \[n \cdot 2^{n-1} = \sum_{k=0}^{n} k \cdot {n \choose k}\]
+              Rodzina $X_k$ jest rozłącznym pokryciem zbioru $X$, zatem mamy:
+              \[|X| = \sum_{k=0}^{n} |X_k|\]
+              \[n \cdot 2^{n-1} = \sum_{k=0}^{n} k \cdot {n \choose k}\]
 
         \item Podpunkt 2
 
-        Rozważmy zbiór $X$ taki, że:
-        \[X := \{(A, x_1, x_2) : A \subset [n] \wedge x_1, x_2 \in A\}\]
+              Rozważmy zbiór $X$ taki, że:
+              \[X := \{(A, x_1, x_2) : A \subset [n] \wedge x_1, x_2 \in A\}\]
 
-        Żeby policzyć moc zbioru $X$ osobno policzymy przypadki kiedy $x_1 = x_2$ i $x_1 \neq x_2$.
+              Żeby policzyć moc zbioru $X$ osobno policzymy przypadki kiedy $x_1 = x_2$ i $x_1 \neq x_2$.
 
-        Dla $x_1 = x_2$ wybieramy najpierw wyróżniony element na $n$ sposobów, a potem dobieramy resztę elementów z $A$, 
-        dostajemy $n2^{n-1}$.
+              Dla $x_1 = x_2$ wybieramy najpierw wyróżniony element na $n$ sposobów, a potem dobieramy resztę elementów z $A$,
+              dostajemy $n2^{n-1}$.
 
-        Dla $x_1 \neq x_2$ wybieramy $x_1$ na $n$ sposobów, $x_2$ na $n-1$ sposobów, a potem dobieramy resztę elementów z $A$, 
-        dostajemy $n(n-1)2^{n-2}$. 
-        Zatem mamy:
-        \[|X| = n2^{n-1} + n(n-1)2^{n-2} = (2n + n^2 - n)2^{n-2} = (n + n^2)2^{n-2}\]
+              Dla $x_1 \neq x_2$ wybieramy $x_1$ na $n$ sposobów, $x_2$ na $n-1$ sposobów, a potem dobieramy resztę elementów z $A$,
+              dostajemy $n(n-1)2^{n-2}$.
+              Zatem mamy:
+              \[|X| = n2^{n-1} + n(n-1)2^{n-2} = (2n + n^2 - n)2^{n-2} = (n + n^2)2^{n-2}\]
 
-        Teraz rozważmy rodzinę zbiorów $\{X_k\}_{k=0}^n$:
-        \[X_k := \{(A, x_1, x_2) \in X : |A| = k\}\]
+              Teraz rozważmy rodzinę zbiorów $\{X_k\}_{k=0}^n$:
+              \[X_k := \{(A, x_1, x_2) \in X : |A| = k\}\]
 
-        Żeby policzyć moc zbioru $X_k$ (dla danego $k$) najpierw wybierzemy $k$-elementowy zbiór $A \subset [n]$, a potem wybierzemy z niego elementy 
-        $x_1$ i $x_2$ (przy czym mogą być one sobie równe):
-        \[|X_k| = {n \choose k} \cdot k\cdot k\]
+              Żeby policzyć moc zbioru $X_k$ (dla danego $k$) najpierw wybierzemy $k$-elementowy zbiór $A \subset [n]$, a potem wybierzemy z niego elementy
+              $x_1$ i $x_2$ (przy czym mogą być one sobie równe):
+              \[|X_k| = {n \choose k} \cdot k\cdot k\]
 
-        Rodzina $X_k$ jest rozłącznym pokryciem zbioru $X$, więc otrzymujemy:
-        \[\sum_{k=0}^{n} |X_k| = |X|\]
-        \[\sum_{k=0}^{n}k^2{n \choose k}= n(n+1)2^{n-2}\]
+              Rodzina $X_k$ jest rozłącznym pokryciem zbioru $X$, więc otrzymujemy:
+              \[\sum_{k=0}^{n} |X_k| = |X|\]
+              \[\sum_{k=0}^{n}k^2{n \choose k}= n(n+1)2^{n-2}\]
 
         \item Podpunkt 3
 
-        Rozważmy zbiór $X$ taki, że:
-        \[X := \{A \subset [m + n] : |A| = k\}\]
+              Rozważmy zbiór $X$ taki, że:
+              \[X := \{A \subset [m + n] : |A| = k\}\]
 
-        Zauważmy, że $|X| = {m+n \choose k}$.
+              Zauważmy, że $|X| = {m+n \choose k}$.
 
-        Teraz rozważmy rodzinę zbiorów $\{X_i\}_{i=0}^n$:
-        \[X_i := \{A \in X : |A \cap [m]| = i\}\]
-        
-        Żeby policzyć moc zbioru $X_i$ (dla danego $i$) najpierw wybieramy $i$ elementów z $[m]$, a potem $k-i$ elementów z 
-        $\{m+1, m+2, ..., m+n\}$, zatem $|X_i| = {m \choose i}{n \choose k-i}$.
+              Teraz rozważmy rodzinę zbiorów $\{X_i\}_{i=0}^n$:
+              \[X_i := \{A \in X : |A \cap [m]| = i\}\]
 
-        Rodzina $X_i$ jest rozłącznym pokryciem zbioru $X$, więc otrzymujemy:
-        \[|X| = \sum_{i=0}^{n} |X_i|\]
-        \[{m+n \choose k} = \sum_{i=0}^{k}{m \choose i}{n \choose k-i}\]
+              Żeby policzyć moc zbioru $X_i$ (dla danego $i$) najpierw wybieramy $i$ elementów z $[m]$, a potem $k-i$ elementów z
+              $\{m+1, m+2, ..., m+n\}$, zatem $|X_i| = {m \choose i}{n \choose k-i}$.
+
+              Rodzina $X_i$ jest rozłącznym pokryciem zbioru $X$, więc otrzymujemy:
+              \[|X| = \sum_{i=0}^{n} |X_i|\]
+              \[{m+n \choose k} = \sum_{i=0}^{k}{m \choose i}{n \choose k-i}\]
 
     \end{enumerate}
 \end{mdframed}
 \begin{mdframed}
     \begin{enumerate}
-        \item Rozwiązanie Autora 2 podpunktu 1
-        \item Rozwiązanie Autora 2 podpunktu 2
-        \item Rozwiązanie Autora 2 podpunktu 3
+        %rozwiązanie: Mateusz Rabantek
+        \textbf{Podpunkt 1:}
+
+        Zacznijmy od rozwinięcia dwumianu Newtona:
+        \begin{equation}
+        (1+x)^n = \sum_{k=0}^{n} \binom{n}{k} x^k
+        \end{equation}
+
+        Różniczkujemy obie strony względem $x$:
+        \begin{equation}
+        \frac{d}{dx}(1+x)^n = \frac{d}{dx}\sum_{k=0}^{n} \binom{n}{k} x^k
+        \end{equation}
+
+        \begin{equation}
+        n(1+x)^{n-1} = \sum_{k=0}^{n} k \binom{n}{k} x^{k-1}
+        \end{equation}
+
+        Podstawiamy $x = 1$:
+        \begin{equation}
+        n \cdot 2^{n-1} = \sum_{k=0}^{n} k \binom{n}{k} \cdot 1^{k-1} = \sum_{k=0}^{n} k \binom{n}{k}
+        \end{equation}
+
+        Zatem:
+        \begin{equation}
+        \boxed{\sum_{k=0}^{n} k \binom{n}{k} = n2^{n-1}}
+        \end{equation}
+        \newline
+        \textbf{Podpunkt 2:}
+
+        Z podpunktu 1 wiemy, że:
+        \begin{equation}
+        n(1+x)^{n-1} = \sum_{k=0}^{n} k \binom{n}{k} x^{k-1}
+        \end{equation}
+
+        Mnożymy obie strony przez $x$:
+        \begin{equation}
+        nx(1+x)^{n-1} = \sum_{k=0}^{n} k \binom{n}{k} x^k
+        \end{equation}
+
+        Różniczkujemy obie strony względem $x$:
+        \begin{equation}
+        \frac{d}{dx}[nx(1+x)^{n-1}] = \frac{d}{dx}\sum_{k=0}^{n} k \binom{n}{k} x^k
+        \end{equation}
+
+        \begin{equation}
+        n(1+x)^{n-1} + nx(n-1)(1+x)^{n-2} = \sum_{k=0}^{n} k^2 \binom{n}{k} x^{k-1}
+        \end{equation}
+
+        Podstawiamy $x = 1$:
+        \begin{equation}
+        n \cdot 2^{n-1} + n(n-1) \cdot 2^{n-2} = \sum_{k=0}^{n} k^2 \binom{n}{k}
+        \end{equation}
+
+        Upraszczamy lewą stronę:
+        \begin{align}
+        n \cdot 2^{n-1} + n(n-1) \cdot 2^{n-2} &= n \cdot 2^{n-2} \cdot 2 + n(n-1) \cdot 2^{n-2} \\
+        &= 2^{n-2}[2n + n(n-1)] \\
+        &= 2^{n-2}[2n + n^2 - n] \\
+        &= 2^{n-2}(n + n^2)
+        \end{align}
+
+        Zatem:
+        \begin{equation}
+        \boxed{\sum_{k=0}^{n} k^2 \binom{n}{k} = (n + n^2)2^{n-2}}
+        \end{equation}
+        \newline
+
+        \textbf{Podpunkt 3:}
+
+        Rozważmy iloczyn dwóch rozwinięć dwumianowych:
+        \begin{equation}
+        (1+x)^m \cdot (1+x)^n = (1+x)^{m+n}
+        \end{equation}
+
+        Lewa strona:
+        \begin{equation}
+        (1+x)^m \cdot (1+x)^n = \left(\sum_{i=0}^{m} \binom{m}{i} x^i\right) \cdot \left(\sum_{j=0}^{n} \binom{n}{j} x^j\right)
+        \end{equation}
+
+        Przy mnożeniu tych sum, współczynnik przy $x^k$ otrzymujemy jako sumę wszystkich iloczynów postaci $\binom{m}{i} \binom{n}{j}$, gdzie $i + j = k$. Oznacza to, że $j = k - i$, więc:
+
+        Współczynnik przy $x^k$ w lewej stronie:
+        \begin{equation}
+        \sum_{i=0}^{k} \binom{m}{i} \binom{n}{k-i}
+        \end{equation}
+
+        Prawa strona:
+        \begin{equation}
+        (1+x)^{m+n} = \sum_{k=0}^{m+n} \binom{m+n}{k} x^k
+        \end{equation}
+
+        Współczynnik przy $x^k$ w prawej stronie to $\binom{m+n}{k}$.
+
+        Porównując współczynniki przy $x^k$ w obu stronach równania:
+        \begin{equation}
+        \boxed{\sum_{i=0}^{k} \binom{m}{i} \binom{n}{k-i} = \binom{m+n}{k}}
+        \end{equation}
     \end{enumerate}
 \end{mdframed}
 
@@ -697,7 +838,7 @@ linewidth=1pt}
     \item Niech $X = \pi([n])$, wtedy $|X| = B(n)$
     \item Niech $X_i = \{\pi([n]) : \exists_{A \in \pi([n])} (n \in A \land |A| = i + 1)\}$
     \item Jest to zbiór wszystkich podziałów, które zawierają n oraz mają wielkość i+1
-    \item Jest to rozłączne pokrycie zbioru X 
+    \item Jest to rozłączne pokrycie zbioru X
     \item \[ |X_i| = \binom{n-1}{i} \times B(n-i-1)\]
     \item gdzie $\binom{n-1}{i}$ reprezentuje wybór $i$ elementów z bloku z $n$, a $B(n-i-1)$ reprezentuje podzielenie pozostałych elementów na bloki.
     \item \[ |X| = \sum_{i=0}^{n-1} |X_i| = \sum_{i=0}^{n-1}\binom{n-1}{i} \times B(n-i-1) = \sum_{i=0}^{n-1} \binom{n-1}{n-i-1} \times B(n-i-1) = \sum_{i=0}^{n-1} \binom{n-1}{i} \times B(i)\]
@@ -707,7 +848,7 @@ linewidth=1pt}
     %Rozwiązanie: Karol Wójcik
     Z lewej strony mamy liczbę podziałów zbioru n-elementowego na niepuste podzbiory, czyli $B(n)$
     \newline \newline
-    Spróbujmy uzyskać tą liczbę w inny sposób, najpierw utworzymy blok $k+1$ elementowy, który będzie 
+    Spróbujmy uzyskać tą liczbę w inny sposób, najpierw utworzymy blok $k+1$ elementowy, który będzie
     zawierał element $n$, a pozostałe elementy podzielimy na dowolny niepusty podzbiór:
     \newline \newline
     Weźmy zbiór $n-1$ elementowy. Wybieramy z niego $k$ elementów, co można zrobić na $\binom{n-1}{k}$
@@ -717,12 +858,12 @@ linewidth=1pt}
     Sumując po $k$:
     \newline \newline
     \[B(n) = \sum_{k=0}^{n-1}B{(n-k-1)}\binom{n-1}{k} \]
-    
+
     Zmieńmy sumowanie na $i=n-k-1$:
     \[\sum_{i=0}^{n-1}B(i)\binom{n-1}{n-1-i} = \sum_{i=0}^{n-1}B(i)\binom{n-1}{i} \]
     \newline
     Otrzymaliśmy w ten sposób prawą stronę tezy, więc
-    \newline 
+    \newline
     \[B(n) = \sum_{i=0}^{n-1} \binom{n-1}{i}B(i)\]
 \end{mdframed}
 
@@ -755,7 +896,7 @@ linewidth=1pt}
     \newline
     Taki łańcuch podzbiorów to uporządkowana kolekcja $k+1$ rozłącznych, niepustych podzbiorów zbioru $[n]$.
     Iloczyn $\binom{n}{i_{k-1}}\binom{i_{k-1}}{i_{k_2}}...\binom{i_1}{i_0}$ zlicza liczbę sposobów przeprowadzania tej sekwencji wyborów.
-    Sumując po wszystich możliwych ciągach $i_0$, $i_1$ $\dots$,$i_{k-1}$ otrzymujemy 
+    Sumując po wszystich możliwych ciągach $i_0$, $i_1$ $\dots$,$i_{k-1}$ otrzymujemy
     \newline
     \[\sum_{0<i_0<...<i_{k-1}<n} \binom{n}{i_{k-1}}\binom{i_{k-1}}{i_{k_2}}...\binom{i_1}{i_0} \]
     \newline
@@ -764,7 +905,7 @@ linewidth=1pt}
     Zatem prawa strona również zlicza liczbę sposobów podziału zbioru n-elementowego na $k+1$ niepustych, uporządkowanych podzbiorów.
     \newline
     Zatem
-    \newline 
+    \newline
     \[(k+1)! \cdot S(n,k+1) = \sum_{0<i_0<...<i_{k-1}<n} \binom{n}{i_{k-1}}\binom{i_{k-1}}{i_{k_2}}...\binom{i_1}{i_0} \]
 \end{mdframed}
 \begin{mdframed}
@@ -801,40 +942,40 @@ linewidth=1pt}
 
 \begin{mdframed}
     % Rozwiązanie: Bartosz Wójcik
-    Niech $X$ będzie zbiorem podziałów zbioru $[n]$, takich że sąsiednie liczby nie 
-    znajdują się w jednym bloku. Niech $Y$ będzie zbiorem podziałów zbioru $[n - 1]$. 
+    Niech $X$ będzie zbiorem podziałów zbioru $[n]$, takich że sąsiednie liczby nie
+    znajdują się w jednym bloku. Niech $Y$ będzie zbiorem podziałów zbioru $[n - 1]$.
     Niech $ f : X \rightarrow Y$ będzie funkcją taką że jeśli $f(x) = y$:
     \begin{itemize}
         \item Dla każdego $i$, które należy do tego samego bloku co $n$ w zbiorze $x$ w zbiorze \
-        $y$ istnieje blok $A$ taki że $i, i + 1 \in A$
+              $y$ istnieje blok $A$ taki że $i, i + 1 \in A$
         \item Jeśli $i$ należy do bloku $B$ w zbiorze $x$, który nie zawiera $n$ to istnieje blok \
-        $B' \in y$, taki że $B \subseteq B'$
+              $B' \in y$, taki że $B \subseteq B'$
     \end{itemize}
     Przykładowo:
-    
+
     $$\
-    \{\{2, 4\}, \{1, 3\}\} \mapsto \{\{1, 2, 3\}\} \
+        \{\{2, 4\}, \{1, 3\}\} \mapsto \{\{1, 2, 3\}\} \
     $$
 
-    Funkcja $f$ jest dobrze zdefiniowana, ponieważ dla każdego $i$ jednoznacznie wyznaczony jest blok, 
-    w którym się znajdzie - jeśli $i$ należało do bloku z $n$, to zostanie przerzucone do bloku z $i + 1$ 
-    ($i + 1$ nie może się znajdować w tym samym bloku co $n$, ponieważ elementy nie sąsiadują). W przeciwnym 
+    Funkcja $f$ jest dobrze zdefiniowana, ponieważ dla każdego $i$ jednoznacznie wyznaczony jest blok,
+    w którym się znajdzie - jeśli $i$ należało do bloku z $n$, to zostanie przerzucone do bloku z $i + 1$
+    ($i + 1$ nie może się znajdować w tym samym bloku co $n$, ponieważ elementy nie sąsiadują). W przeciwnym
     wypadku $i$ zostaje w tym bloku co było.
 
-    Udowodnimy, że $f$ jest bijekcją. Niech $x_1, x_2 \in X$. Niech każdy blok $A_i$ będzie indeksowany najwyższym elementem 
-    w danym bloku. Dla danego podziału $x$ indeksowanie bloków się nie zmienia (poza blokiem $A_n$, który znika), ponieważ 
-    bloki po funkcji $f$ tylko zyskują elementy niższe niż najwyższy element. Załóżmy, że $x_1 \neq x_2$. Jeśli $x_1$ i $x_2$ 
+    Udowodnimy, że $f$ jest bijekcją. Niech $x_1, x_2 \in X$. Niech każdy blok $A_i$ będzie indeksowany najwyższym elementem
+    w danym bloku. Dla danego podziału $x$ indeksowanie bloków się nie zmienia (poza blokiem $A_n$, który znika), ponieważ
+    bloki po funkcji $f$ tylko zyskują elementy niższe niż najwyższy element. Załóżmy, że $x_1 \neq x_2$. Jeśli $x_1$ i $x_2$
     różnią sie na bloku $A_n$ (który zawsze należy do podziału) to $f(x_1)$ będzie miało różny zbiór elementów, które ze sobą sąsiadują.
-    W przeciwnym wypadku istnieją $i_1$ oraz $i_2$, które w $x_1$ są w tym samym bloku, a w $x_2$ nie (lub na odwrót). Funkcja f nie 
+    W przeciwnym wypadku istnieją $i_1$ oraz $i_2$, które w $x_1$ są w tym samym bloku, a w $x_2$ nie (lub na odwrót). Funkcja f nie
     przestawia tych elementów, więc $f(x_1) \neq f(x_2)$.
 
-    Rozważmy $y \in Y$. Znajdziemy $x \in X$, takie że $f(x) = y$. Rozważmy zbiór $S$ wszystkich elementów, które mają swojego sąsiada w tym 
+    Rozważmy $y \in Y$. Znajdziemy $x \in X$, takie że $f(x) = y$. Rozważmy zbiór $S$ wszystkich elementów, które mają swojego sąsiada w tym
     samym bloku w $y$. Skonstruujmy podział $x$ w następujący sposób:
 
     \begin{itemize}
         \item Utwórzmy nowy blok $A_n$, taki że $n \in A_n$
         \item Weźmy najmniejszy element z $S$ i dodajmy go do $A_n$. Proces powtórzmy dla kolejnego najmniejszego elementu w $S$, takiego że \
-        ten element nie ma już swojego sąsiada w $A_n$. Procedura kończy się, kiedy skoonstruowany podział nie ma już elementów sąsiadujących.
+              ten element nie ma już swojego sąsiada w $A_n$. Procedura kończy się, kiedy skoonstruowany podział nie ma już elementów sąsiadujących.
     \end{itemize}
 
     Wtedy $f(x) = y$, więc $f$ jest bijekcją, co kończy dowód.
@@ -860,12 +1001,12 @@ linewidth=1pt}
     Spośród pozostałych n-1 wybieramy i na lewe poddrzewo, a pozostałe n-1-i na prawe. W ten sposób możemy postępować rekurencyjnie\\
     Załóżmy funkcję \( T(k) \), która liczy ilość drzew. Jest ona rekurencyjna, bo każdy nowy korzeń może utworzyć nowe drzewo, a ilość korzeni lewo/prawo może się zmieniać, więc aby policzyć wszystkie możliwości skorzystamy z sumy.
     \[
-    T(n) = \sum_{i=0}^{n-1} T(i) \cdot T(n-1-i)
+        T(n) = \sum_{i=0}^{n-1} T(i) \cdot T(n-1-i)
     \]
     a to odpowiada rekurencyjnemu wzorowi Catalana.
     \begin{center}
-    \includegraphics[width=0.7\textwidth]{images/zad36.jpeg}
-\end{center}
+        \includegraphics[width=0.7\textwidth]{images/zad36.jpeg}
+    \end{center}
 
 \end{mdframed}
 \begin{mdframed}
@@ -875,7 +1016,7 @@ linewidth=1pt}
 
 
 
-\begin{zad}[Autor 1, Autor 2]
+\begin{zad}[Mateusz Rabantek, Autor 2]
     Triangulacją $n$ -- wierzchołkowego wielokąta wypukłego nazywamy zbiór
     $(n - 3)$ wzajemnie nieprzecinających się jego przekątnych, które dzielą jego obszar na
     $(n - 2)$ trójkątów.
@@ -887,8 +1028,30 @@ linewidth=1pt}
 \end{zad}
 \begin{mdframed}
     \begin{enumerate}
-        \item Rozwiązanie Autora 1 podpunktu 1
-        \item Rozwiązanie Autora 1 podpunktu 2
+        %rozwiązanie: Mateusz Rabantek
+        \textbf{Podpunkt 1:}\newline
+        $n+2$ wierzchołków\newline
+        $T_{n+2}$ - triangulacje z krawędzią kończącą się w 1. Weźmy bok 12 - jest on częścią pewnego trójkąta $12i$. Jeśli $T_{n+2}$ = wszystkie triangulacje, 
+        $T_{n+2}^{i}$ = te triangulacje z $T_n+2$, które zawierają trójkąt 12i. Stąd ${T_{n+2}^{i}}$ są parami rozłączne oraz $T_{n+2}$ = $\bigcup_{i=3}^{n+2} T_{n+2}^{i}$
+        \newline
+        Mamy: 
+        \[|T_{n+2}| = 
+        \sum_{i=3}^{n+2} |T_{n+2}^{i}| = \sum_{i=3}^{n+2} \left( |T_{i-1}| \cdot |T_{n+3-i}| \right)
+        \]
+        $|T_2|$ = 1, $|T_3|$ = 1. Otrzymujemy rekurencje dla liczb Catalana z przesuniętymi indeksami.
+        \newline
+        \newline
+        \textbf{Podpunkt 2:}\newline
+        $n$ wierzchołków\newline
+        Wybierzmy bok 12 i zauważmy, że 12 jest częscią pewnego trójkąta 12i.\newline
+        \textbf{i = 3,n:}\newline
+             Zauważmy, że w przypadku $i = 3$, krawędź musi być częscią trójkąta 134 lub 13n. Stąd liczba triangulacji $2^{n-4}$ (analogicznie dla i=n)
+        \newline
+        \textbf{i $\neq$ 3, i $\neq$ n}\newline
+            Wybieramy lewa/prawa strone: $2^{i-4}$ $\cdot$ $2^{n-i-1}$ = $2^{n-5}$\newline
+        \textbf{Wynik:} $2^{n-4}$ + $2^{n-4}$ + $(n-4)$ $\cdot$ $2^{n-5}$ = $n2^{n-5}$
+
+
     \end{enumerate}
 \end{mdframed}
 \begin{mdframed}
@@ -956,7 +1119,7 @@ linewidth=1pt}
     permutacji zbioru $[n]$ o typie $1^{\lambda_1} \cdot 2^{\lambda_2} \cdot ... \cdot n^{\lambda_n} $  (mających $\lambda_i$ cykli długości i dla $i \in [n]$).
 \end{zad}
 \begin{mdframed}
-        Najpierw rozważmy wszystkie możliwe permutacje zbioru $[n]$. Jest ich $n!$.
+    Najpierw rozważmy wszystkie możliwe permutacje zbioru $[n]$. Jest ich $n!$.
     \newline \newline
     Aby uzyskać permutacje o typie $1^{\lambda_1} \cdot 2^{\lambda_2} \cdot ... \cdot n^{\lambda_n}$, dzielimy nasz ciag (operujemy na jednym ciągu, ale jest to uogólnienie na wszystkie powstałe po $n!$ permutacjach) na kolejno $\lambda_1$ cykli długości $1$, $\lambda_2$ cykli długości $2$, ..., $\lambda_n$ cykli długości $n$.
     Jednak aby były to permutacje, to musimy podzielić początkowe $n!$ przez $\lambda_i!$ dla $i \in [n]$, ponieważ cykle długości $i$ są dla nas nierozrónialne, to znaczy, że dla na przykład n = 3 i $\lambda_1 = 3$ otrzymamy (1)(2)(3) oraz (2)(1)(3) jako różne permutacje, ale dla nas to to samo.
@@ -964,19 +1127,19 @@ linewidth=1pt}
     Dodatkowo musimy podzielić przez $i^{\lambda_i}$, ponieważ w każdej uzyskanej permutacji chwilowo wyróżniamy element pierwszy (tzn przykladowo cykle (13) i (31) są dla nas różne), więc każdy z tych cykli musimy podzielić przez $i$. 
     \newline \newline
     Zatem otrzymujemy wzór:
-    \[\frac{n!}{1^{\lambda_1} \cdot 2^{\lambda_2} \cdot  ... \cdot n^{\lambda_n} \cdot \lambda_1! \cdot ... \cdot \lambda_n!}\ \; \; \; \; \blacksquare\].
+    \[\frac{n!}{1^{\lambda_1} \cdot 2^{\lambda_2} \cdot  ... \cdot n^{\lambda_n} \cdot \lambda_1! \cdot ... \cdot \lambda_n!}\ \; \; \; \; \blacksquare\]
 \end{mdframed}
 \begin{mdframed}
     Niech $A$ będzie zbiorem wszystkich permutacji zbioru $[n]$ o typie jak w poleceniu.
     Niech $a_i \in [n]$, policzymy ilość cykli długości $k$: $(a_1,a_2,\ldots,a_k)$ w zbiorze $n$ elementowych:
     \[\binom{n}{k} \cdot \frac{k!}{k} = \frac{n!}{(n-k)! \cdot k}\]
-    Wybieramy $k$ elementów do cyklu i następnie wybieramy ich kolejność (pierwszy element 
+    Wybieramy $k$ elementów do cyklu i następnie wybieramy ich kolejność (pierwszy element
     nie ma znaczenia w cyklu), stąd powyższy wynik.
     \newline \newline
     Policzymy ilość wszystkich możliwych cykli długości $1,2,\ldots,n$:
-    \[\underbrace{\frac{n!}{(n-1)! \cdot 1} \cdot \frac{(n-1)!}{(n-2)! \cdot 1} \cdot \ldots}_{\lambda_1} \cdot 
-    \underbrace{\frac{(n-\lambda_1)!}{(n-\lambda_1-2)! \cdot 2} \cdot \ldots}_{\lambda_2} \cdot \ldots = 
-    \frac{n!}{1^{\lambda_1} \cdot 2^{\lambda_2} \cdot \ldots \cdot n^{\lambda_n}} \]
+    \[\underbrace{\frac{n!}{(n-1)! \cdot 1} \cdot \frac{(n-1)!}{(n-2)! \cdot 1} \cdot \ldots}_{\lambda_1} \cdot
+        \underbrace{\frac{(n-\lambda_1)!}{(n-\lambda_1-2)! \cdot 2} \cdot \ldots}_{\lambda_2} \cdot \ldots =
+        \frac{n!}{1^{\lambda_1} \cdot 2^{\lambda_2} \cdot \ldots \cdot n^{\lambda_n}} \]
     Czyli mnożymy ilość możliwych cykli $k$ elementowych dla $\lambda_k$ ich ilości.
     \newline \newline
     W celu otrzymania liczby $|A|$ musimy jeszcze uzwględnić brak znaczenia kolejności
@@ -984,7 +1147,7 @@ linewidth=1pt}
     \[{\lambda_1}! \cdot {\lambda_2}! \cdot \ldots \cdot {\lambda_n}!\]
     Zatem liczba wszystkich permutacji $a \in A$:
     \[|A| = \frac{n!}{1^{\lambda_1} \cdot 2^{\lambda_2} \cdot \ldots \cdot n^{\lambda_n}
-    \cdot {\lambda_1}! \cdot {\lambda_2}! \cdot \ldots \cdot {\lambda_n}!} \; \; \; \; \blacksquare\]
+            \cdot {\lambda_1}! \cdot {\lambda_2}! \cdot \ldots \cdot {\lambda_n}!} \; \; \; \; \blacksquare\]
 \end{mdframed}
 
 
@@ -997,11 +1160,11 @@ linewidth=1pt}
 \begin{mdframed}
     % Rozwiązanie: Maciej Wełpa
     \textbf{Lewa strona:} Podział zbioru n+1-elementowego na m+1 niepustych podzbiorów\\
-    \textbf{Prawa strona:} Bierzemy n+1 element i tworzymy z niego nowy zbiór (domyślnie podzbiór nr m+1). Z pozostałych 
+    \textbf{Prawa strona:} Bierzemy n+1 element i tworzymy z niego nowy zbiór (domyślnie podzbiór nr m+1). Z pozostałych
     n elementów wybieramy n-k (\(\binom{n}{k}\) =\(\binom{n}{n-k}\)), które będą w zbiorze nr m+1 z elementem n+1. Pozostałe k elementów dzielimy na m niepustych podzbiorów. Używamy sumy, aby rozważyć wszystkie możliwości podzielenia elementów.
 \end{mdframed}
 \begin{mdframed}
-        Rozważmy takie S(n+1,m+1), że $n+1 \in A$. $|A| = k+1$ gdzie $ 0 \leq k \leq n$. Wówczas na $\binom{n}{k}$ sposobów możemy wybrać $k$ elementów z $n$ pozostałych elementów zbioru $A$. pozostałe $m$ podziałów uzyskujemy z $n-k$ elementów. Zatem $S(n-k,m)$ sposobów. Otrzymaliśmy, że: dla $n+1 \in A, |A| = k+1$ mamy $\binom{n}{k}S(k,m)$ sposobów. Zatem sumujemy po $k$ (bo przypadki są rozłączne i pokrywają wszystkie możliwe podziały na m+1 podzbiorów) i mamy:
+    Rozważmy takie S(n+1,m+1), że $n+1 \in A$. $|A| = k+1$ gdzie $ 0 \leq k \leq n$. Wówczas na $\binom{n}{k}$ sposobów możemy wybrać $k$ elementów z $n$ pozostałych elementów zbioru $A$. pozostałe $m$ podziałów uzyskujemy z $n-k$ elementów. Zatem $S(n-k,m)$ sposobów. Otrzymaliśmy, że: dla $n+1 \in A, |A| = k+1$ mamy $\binom{n}{k}S(k,m)$ sposobów. Zatem sumujemy po $k$ (bo przypadki są rozłączne i pokrywają wszystkie możliwe podziały na m+1 podzbiorów) i mamy:
     \[S(n+1,m+1) = \sum_k \binom{n}{k}S(n-k,m) = \sum_k \binom{n}{n-k}S(n-k,m) = \sum_k \binom{n}{k}S(k,m)\ \; \; \; \; \blacksquare\]
 \end{mdframed}
 
@@ -1036,21 +1199,21 @@ linewidth=1pt}
     %Rozwiązanie: Katarzyna Szwed
     Rozważmy zbiór $X := \{(\sigma, c) : \sigma$ - permutacja zbioru $[n]$, $c$ - wyróżniony cykl z permutacji $\sigma\}$.
 
-    Rozważmy rodzinę zbiorów $\{A_i\}_{i=0}^{n}$ taką, że $A_i = \{(\sigma, c) \in X :$ permutacja $\sigma$ ma $i$ cykli$\}$. 
+    Rozważmy rodzinę zbiorów $\{A_i\}_{i=0}^{n}$ taką, że $A_i = \{(\sigma, c) \in X :$ permutacja $\sigma$ ma $i$ cykli$\}$.
     Zauważmy, że $|A_i| = i\left[ n \atop i\right]$ (najpierw liczymy liczbę permutacji $[n]$ o $i$ cyklach, a potem wybieramy
-    jeden z $i$ cykli). 
-    
-    Rodzina $A_i$ jest rozłącznym pokryciem zbioru $X$, zatem: 
+    jeden z $i$ cykli).
+
+    Rodzina $A_i$ jest rozłącznym pokryciem zbioru $X$, zatem:
     \[|X| = \sum_{i=0}^{n} |A_i| = \sum_{i=0}^{n} i\left[ n \atop i\right]\].
 
-    Teraz rozważmy rodzinę zbiorów $\{B_k\}_{k=1}^{n}$ taką, że $B_k = \{(\sigma, c) \in X :$ cykl $c$ ma $k$ elementów$\}$. 
+    Teraz rozważmy rodzinę zbiorów $\{B_k\}_{k=1}^{n}$ taką, że $B_k = \{(\sigma, c) \in X :$ cykl $c$ ma $k$ elementów$\}$.
     Zauważmy, że $|B_k| = {n \choose k} \frac{k!}{k} (n-k)!$, ponieważ najpierw wybieramy $k$ elementów do cyklu $c$, potem permutujemy
     je, ale usuwamy kolejność pierwszego elementu, na koniec permutujemy resztę elementów zbioru $[n]$.
 
     Rodzina $B_k$ jest rozłącznym pokryciem zbioru $X$, zatem:
     \[
         |X| = \sum_{k=1}^{n} |B_k| = \sum_{k=1}^{n} {n \choose k} \frac{k!}{k} (n-k)! = \\
-        \sum_{k=1}^n \frac{n!}{k!(n-k)!}\frac{k!}{k} (n-k)! = \sum_{k=1}^{n}\frac{n!}{k} = 
+        \sum_{k=1}^n \frac{n!}{k!(n-k)!}\frac{k!}{k} (n-k)! = \sum_{k=1}^{n}\frac{n!}{k} =
         n! \sum_{k=1}^{n} \frac{1}{k} = n! H_n
     \]
 
@@ -1066,7 +1229,7 @@ linewidth=1pt}
 
 
 
-\begin{zad}[Julian Sowiński, Autor 2]
+\begin{zad}[Julian Sowiński, Wiktor Szymonek]
     Wykaż, że dla dowolnego $x \in \mathbb{R}$ zachodzi:
     \begin{enumerate}
         \item $x^n = \sum_{k}S(n,k) x^{\underline{k}}$
@@ -1075,92 +1238,160 @@ linewidth=1pt}
 \end{zad}
 \begin{mdframed}
     \begin{enumerate}
-\item
-$$x^n = \sum_{k=0}^n S(n,k) x^{\underline{k}}$$
-Dowód indukcyjny:
-\newline \newline
-1) Dla $n=0$: \\
-L = $x^{\underline{0}} = 1$ \\
-P = $S(0,0) \cdot x^{\underline{0}} = 1 \cdot 1 = 1$ \\
-L = P
+        \item
+              $$x^n = \sum_{k=0}^n S(n,k) x^{\underline{k}}$$
+              Dowód indukcyjny:
+              \newline \newline
+              1) Dla $n=0$: \\
+              L = $x^{\underline{0}} = 1$ \\
+              P = $S(0,0) \cdot x^{\underline{0}} = 1 \cdot 1 = 1$ \\
+              L = P
 
-2) Dla $n>0$:
+              2) Dla $n>0$:
 
-Założenie: $$x^n = \sum_{k=0}^n S(n,k) x^{\underline{k}}$$
+              Założenie: $$x^n = \sum_{k=0}^n S(n,k) x^{\underline{k}}$$
 
-Teza: $$x^{n+1} = \sum_{k=0}^{n+1} S(n+1,k) x^{\underline{k}}$$
+              Teza: $$x^{n+1} = \sum_{k=0}^{n+1} S(n+1,k) x^{\underline{k}}$$
 
-Rozpoczynamy od lewej strony, używając założenia indukcyjnego:
-$$L = x \cdot x^n = x \cdot \sum_{k=0}^n S(n,k) x^{\underline{k}} = \sum_{k=0}^n S(n,k) (x \cdot x^{\underline{k}}) \quad (*)$$
+              Rozpoczynamy od lewej strony, używając założenia indukcyjnego:
+              $$L = x \cdot x^n = x \cdot \sum_{k=0}^n S(n,k) x^{\underline{k}} = \sum_{k=0}^n S(n,k) (x \cdot x^{\underline{k}}) \quad (*)$$
 
-Zauważmy, że:
-\begin{align*}
-    \cdot x^{\underline{k}}*x &= (x-k+k) x^{\underline{k}} = (x-k) x^{\underline{k}} + k x^{\underline{k}} = x^{\underline{k+1}} + k x^{\underline{k}}
-\end{align*}
+              Zauważmy, że:
+              \begin{align*}
+                  \cdot x^{\underline{k}}*x & = (x-k+k) x^{\underline{k}} = (x-k) x^{\underline{k}} + k x^{\underline{k}} = x^{\underline{k+1}} + k x^{\underline{k}}
+              \end{align*}
 
-Kontynuujemy z (*), podstawiając znalezioną tożsamość:
-\begin{align*}
-    (*) &= \sum_{k=0}^n S(n,k) (x^{\underline{k+1}} + k x^{\underline{k}}) \\
-    &= \sum_{k=0}^n S(n,k) x^{\underline{k+1}} + \sum_{k=0}^n k S(n,k) x^{\underline{k}}
-\end{align*}
+              Kontynuujemy z (*), podstawiając znalezioną tożsamość:
+              \begin{align*}
+                  (*) & = \sum_{k=0}^n S(n,k) (x^{\underline{k+1}} + k x^{\underline{k}})                   \\
+                      & = \sum_{k=0}^n S(n,k) x^{\underline{k+1}} + \sum_{k=0}^n k S(n,k) x^{\underline{k}}
+              \end{align*}
 
-Teraz zmienimy przedziały sumowania:
-\begin{align*}
- \star &= \sum_{k=1}^{n+1} S(n,k-1) x^{\underline{k}} + \underbrace{\sum_{k=0}^{n+1} k S(n,k) x^{\underline{k}}}_{\text{ponieważ } S(n,n+1)=0} \\
-       &= \underbrace{\sum_{k=0}^{n+1} S(n,k-1) x^{\underline{k}}}_{\text{ponieważ } S(n,-1)=0} + \sum_{k=0}^{n+1} k S(n,k) x^{\underline{k}} \\
-       &= \sum_{k=0}^{n+1} (S(n,k-1) + k S(n,k)) x^{\underline{k}} \\
-       &= \sum_{k=0}^{n+1} S(n+1,k) x^{\underline{k}} = P
-\end{align*}
+              Teraz zmienimy przedziały sumowania:
+              \begin{align*}
+                  \star & = \sum_{k=1}^{n+1} S(n,k-1) x^{\underline{k}} + \underbrace{\sum_{k=0}^{n+1} k S(n,k) x^{\underline{k}}}_{\text{ponieważ } S(n,n+1)=0} \\
+                        & = \underbrace{\sum_{k=0}^{n+1} S(n,k-1) x^{\underline{k}}}_{\text{ponieważ } S(n,-1)=0} + \sum_{k=0}^{n+1} k S(n,k) x^{\underline{k}}  \\
+                        & = \sum_{k=0}^{n+1} (S(n,k-1) + k S(n,k)) x^{\underline{k}}                                                                             \\
+                        & = \sum_{k=0}^{n+1} S(n+1,k) x^{\underline{k}} = P
+              \end{align*}
 
-Co dowodzi tezy indukcyjnej.
-\newline
+              Co dowodzi tezy indukcyjnej.
+              \newline
 
-\item $$x^{\bar{n}} = \sum_{k} \left[n \atop k \right] x^k$$
+        \item $$x^{\bar{n}} = \sum_{k} \left[n \atop k \right] x^k$$
 
-Dowód indukcyjny:
+              Dowód indukcyjny:
 
-1) Dla $n=0$:
-\newline
-L = $x^{\overline{0}} = 1$
-\newline
-P = $\sum_{k=0}^0 \genfrac{[}{]}{0pt}{1}{0}{k} x^k = \genfrac{[}{]}{0pt}{1}{0}{0} x^0 = 1 \cdot 1 = 1$.
-\newline
-L = P
-\newline
+              1) Dla $n=0$:
+              \newline
+              L = $x^{\overline{0}} = 1$
+              \newline
+              P = $\sum_{k=0}^0 \genfrac{[}{]}{0pt}{1}{0}{k} x^k = \genfrac{[}{]}{0pt}{1}{0}{0} x^0 = 1 \cdot 1 = 1$.
+              \newline
+              L = P
+              \newline
 
-2) Dla $n>0$: 
-\newline
-Założenie:
-$$x^{\overline{n-1}} = \sum_{k=0}^{n-1} \genfrac{[}{]}{0pt}{1}{n-1}{k} x^k$$
+              2) Dla $n>0$:
+              \newline
+              Założenie:
+              $$x^{\overline{n-1}} = \sum_{k=0}^{n-1} \genfrac{[}{]}{0pt}{1}{n-1}{k} x^k$$
 
-Teza:
-$$x^{\overline{n}} = \sum_{k=0}^n \genfrac{[}{]}{0pt}{1}{n}{k} x^k$$
-Rozpoczynamy od lewej strony:
-\begin{align*}
-L &= x^{\overline{n}} = (x+n-1) x^{\overline{n-1}} = (x+n-1) \sum_{k=0}^{n-1} \genfrac{[}{]}{0pt}{1}{n-1}{k} x^k \\
-&= \sum_{k=0}^{n-1} (x+n-1) \genfrac{[}{]}{0pt}{1}{n-1}{k} x^k \\
-&= \sum_{k=0}^{n-1} \genfrac{[}{]}{0pt}{1}{n-1}{k} x^{k+1} + \sum_{k=0}^{n-1} (n-1) \genfrac{[}{]}{0pt}{1}{n-1}{k} x^k \quad (*)
-\end{align*}
+              Teza:
+              $$x^{\overline{n}} = \sum_{k=0}^n \genfrac{[}{]}{0pt}{1}{n}{k} x^k$$
+              Rozpoczynamy od lewej strony:
+              \begin{align*}
+                  L & = x^{\overline{n}} = (x+n-1) x^{\overline{n-1}} = (x+n-1) \sum_{k=0}^{n-1} \genfrac{[}{]}{0pt}{1}{n-1}{k} x^k                   \\
+                    & = \sum_{k=0}^{n-1} (x+n-1) \genfrac{[}{]}{0pt}{1}{n-1}{k} x^k                                                                   \\
+                    & = \sum_{k=0}^{n-1} \genfrac{[}{]}{0pt}{1}{n-1}{k} x^{k+1} + \sum_{k=0}^{n-1} (n-1) \genfrac{[}{]}{0pt}{1}{n-1}{k} x^k \quad (*)
+              \end{align*}
 
-Teraz zmieniamy przedziały sumowania, aby później zastosować wzór rekurencyjny:
+              Teraz zmieniamy przedziały sumowania, aby później zastosować wzór rekurencyjny:
 
-\begin{align*}
-(*) &= \sum_{k=0}^{n} \genfrac{[}{]}{0pt}{1}{n-1}{k-1} x^k + \sum_{k=0}^{n} (n-1) \genfrac{[}{]}{0pt}{1}{n-1}{k} x^k \\
-&= \sum_{k=0}^{n} \left(\genfrac{[}{]}{0pt}{1}{n-1}{k-1} + (n-1) \genfrac{[}{]}{0pt}{1}{n-1}{k}\right) x^k
-\end{align*}
-Stosujemy wzór rekurencyjny dla liczb Stirlinga I rodzaju:
-$$\genfrac{[}{]}{0pt}{1}{n}{k} = (n-1)\genfrac{[}{]}{0pt}{1}{n-1}{k} + \genfrac{[}{]}{0pt}{1}{n-1}{k-1}$$
-Podstawiając to do naszego wyrażenia, otrzymujemy:
-\begin{align*}
-&= \sum_{k=0}^{n} \genfrac{[}{]}{0pt}{1}{n}{k} x^k = P
-\end{align*}
-Co kończy dowód indukcyjny.
+              \begin{align*}
+                  (*) & = \sum_{k=0}^{n} \genfrac{[}{]}{0pt}{1}{n-1}{k-1} x^k + \sum_{k=0}^{n} (n-1) \genfrac{[}{]}{0pt}{1}{n-1}{k} x^k \\
+                      & = \sum_{k=0}^{n} \left(\genfrac{[}{]}{0pt}{1}{n-1}{k-1} + (n-1) \genfrac{[}{]}{0pt}{1}{n-1}{k}\right) x^k
+              \end{align*}
+              Stosujemy wzór rekurencyjny dla liczb Stirlinga I rodzaju:
+              $$\genfrac{[}{]}{0pt}{1}{n}{k} = (n-1)\genfrac{[}{]}{0pt}{1}{n-1}{k} + \genfrac{[}{]}{0pt}{1}{n-1}{k-1}$$
+              Podstawiając to do naszego wyrażenia, otrzymujemy:
+              \begin{align*}
+                   & = \sum_{k=0}^{n} \genfrac{[}{]}{0pt}{1}{n}{k} x^k = P
+              \end{align*}
+              Co kończy dowód indukcyjny.
     \end{enumerate}
 \end{mdframed}
 \begin{mdframed}
     \begin{enumerate}
-        \item Rozwiązanie Autora 2 podpunktu 1
-        \item Rozwiązanie Autora 2 podpunktu 2
+        \item
+        %Rozwiązanie: Wiktor Szymonek
+        Intepretacja kombinatoryczna (historyjka + zarys rozwiązania formalnego): \newline
+        Najpierw udowodnimy następującą tożsamość dla \( x \in \mathbb{N} \):
+
+        \bigskip
+
+        Rozważmy problem rozmieszczenia $n$ osób w $x$ pokojach, przy czym każda osoba musi znaleźć się w jakimś pokoju. Dozwolone jest, aby w pokoju znajdowało się dowolnie wiele osób (w tym zero lub wszystkie).
+
+        \begin{itemize}
+            \item Z jednej strony, każda z $n$ osób ma do wyboru jeden z $ x$ pokoi. Stąd liczba wszystkich możliwych rozmieszczeń wynosi:
+            \[x^n\]
+
+            \item Z drugiej strony, możemy zliczyć możliwości inną procedurą. Najpierw dzielimy $n$ osób na $k$ grup (niepustych oraz rozłącznych), gdzie \( k = 1, 2, \dots, n \). Takich podziałów jest oczywiście: \( S(n,k) \).
+
+            Następnie każdą z tych $k$ grup umieszczamy w jednym z $x$ dostępnych pokoi. Możemy to zrobić na
+            \[x^{\underline{k}} = x(x-1)(x-2)\dots(x-k+1)\]
+            sposobów (kolejno wybieramy unikalny pokój dla każdej grupy).
+
+            Zatem dla ustalonego $k$, liczba możliwych rozmieszczeń to:
+            \[S(n,k) \cdot x^{\underline{k}}\]
+
+            Sumując po wszystkich możliwych wartościach $k$, otrzymujemy:
+            \[\sum_{k=1}^n S(n,k) \cdot x^{\underline{k}}\]
+        \end{itemize}
+
+        \bigskip
+
+        Porównując oba równoważne sposoby zliczania, stwierdzamy, że:
+        \[x^n = \sum_{k=1}^n S(n,k) \cdot x^{\underline{k}}\]
+        Zatem udowodniliśmy, że równość ta zachodzi dla wszystkich \( x \in \mathbb{N} \). Ponieważ obie strony są wielomianami stopnia \( n \), a równość zachodzi dla nieskończenie wielu wartości naturalnych, stąd zgodnie z zasadniczym twierdzeniem algebry równość ta jest prawdziwa dla wszystkich liczb rzeczywistych (a nawet zespolonych).
+        \qed
+        \bigskip \newline
+        \textbf{(Bardziej formalnie można zrobić to zadanie rozważając zbiór wszystkich funkcji \(f:\left[ n \right] \longmapsto_{} \left[ x \right] \). Zliczenie z lewej strony trywialne a z drugiej zauważamy, że możemy podzielić dziedzinę na niepuste, rozłączne podzbiory argumentów o tych samych wartościach \(f\))}
+        \bigskip \bigskip
+        \item 
+        Tak jak w podpunkcie 1. udowodnię najpierw że dla \( x \in \mathbb{N} \)
+        \[x^{\bar{n}} = \sum_{k} \left[n \atop k \right] x^k\]
+        Niech \( x \in \mathbb{N} \)
+        Rozważmy problem rozmieszczenia $n$ gości przy $k$ okrągłych stołach ponumerowanych liczbami ze zbioru \(\{1,2,\dots,x\}\), wg następujących zasad:
+        \begin{itemize}
+            \item różne stoły mogą mieć ten sam numer,
+            \item przy stołach liczy się wzajemne położenie gości ale nie rozróżniamy rotacji
+        \end{itemize}
+        \bigskip
+        Mając na uwadze te założenia spróbujmy zliczyć możliwości:
+        \begin{itemize}
+            \item Z jednej strony rozważmy następującą procedurę:
+            \newline
+            Zakładając, że mamy wcześniej ustalony porządek sadzania gości, weźmy pierwszego,
+             usadźmy go przy stole i wybierzmy numer stołu. Możemy to zrobić na $x$ sposobów.
+            Biorąc drugiego gościa mamy wybór - możemy usadzić go przy nowym stole wybierając
+             numer lub posadzić go po prawej stronie pierwszego gościa - możemy to zrobić na
+              $x+1$ sposobów. Kolejnego gościa - analogicznie
+            - możemy usadzić przy nowym stole i wybrać mu numer lub posadzić go po prawej stronie
+             pierwszego lub po prawej stronie drugiego - mamy $x+2$ opcji. Proces powtarzamy do wyczerpania ludzi.
+              Zauważając, że w $i$-tym kroku mamy $x+i-1$ możliwości możemy 
+              łatwo zliczyć wszystkie kombinacje, których jest:
+            \[{\displaystyle \prod_{i=1}^{n} (x+i-1)} = x(x+1)(x+2)\dots(x+n-1) = x^{\bar{n}}\]
+            \item Licząc z drugiej strony:
+            Rozważmy ustawienie gości dla $k$ stołów. Ustawienia ludzi przy stole można rozróżnić ustalając kto znajduje się po prawej stronie danego gościa, zatem możemy każdemu ustawieniu przyporządkować pewien cykl.
+            Zatem aby zliczyć ilość ustawień gości dla danej ilości stołów wystarczy wyznaczyć ilość wszystkich permutacji gości, którzy podzieleni są na k cykli, czyli  \(\left[n \atop k \right]\). Dla każdego stołu musimy dodatkowo wybrać numer, stąd ostateczny wynik to:
+            \[\left[n \atop k \right] x^k\]
+            Ponieważ stołów może być \(k = 1,2,\dots, n\) jeśli zsumujemy wszystkie takie przypadki otrzymamy finalny wynik:
+            \[\sum_{k=1}^{n} \left[n \atop k \right] x^k\]
+        \end{itemize}
+        \bigskip
+        Udowodniliśmy równość dla \( x \in \mathbb{N} \), jednak jak w 1. zachodzi ona również dla \( x \in \mathbb{R} \)
+        \qed \bigskip
+        \newline \textbf{(Sposób bardziej formalny polegałby na zamianie problemu gości i stolików na problem permutacji \(\left[ n \right] \) podzielonych na ponumerowane cykle (liczbami ze zbioru \(\left[ x \right] \)) - sposób analogiczny i raczej wymagający mniej pisania.)}
     \end{enumerate}
 \end{mdframed}
 
@@ -1194,7 +1425,7 @@ Co kończy dowód indukcyjny.
 
 
 
-\begin{zad}[Autor 1, Konstanty Sobczyński]
+\begin{zad}[Karol Sęk, Konstanty Sobczyński]
     Wykaż, że mamy
     \[
         \sum_{j=0}^{m}(-1)^j \binom{m}{j}(m-j)^n
@@ -1202,7 +1433,33 @@ Co kończy dowód indukcyjny.
     suriekcji ze zbioru $[n]$ w zbiór $[m]$.
 \end{zad}
 \begin{mdframed}
-    Rozwiązanie Autora 1.
+    Niech $X = \{f \in [m]^{[n]}| \forall_{i \in [m]} \exists_{j \in [n]} f(j) = i\}$\\
+    Niech $U = [m]^{[n]}$\\
+    Niech $i \in [m]$ oraz $X_i = \{f \in [m]^{[n]}| \exists_{j \in [n]} f(j) = i\}$\\
+    Zauważmy, że $\bigcap_{i = 1}^{m} X_i = X$\\
+
+    Korzystając z zasady włączeń i wyłączeń:\\
+
+    $$|\bigcap_{i = 1}^{m} X_i| = \sum_{I \subseteq [n]} (-1)^{|I|} |\bigcap_{i \in I} (U \setminus X_i)|$$\\
+
+    Zauważmy, że\\
+    $$|U \setminus X_i| = (m-1)^{n}$$\\
+    $U \setminus X_i$ jest zbiorem wszystkich funkcji z $[n]$ do $[m]$ takich, że wartość $i \in [m]$ jest nieosiągalna \dots\\
+    jest to więc zbiór wszystkich funkcji gdzie przeciwdziedzina jest mniejsza o jeden element.\\
+
+    Analogicznie\\
+    $$|\bigcap_{i \in I} (U \setminus X_i)| = (m-[I])^n$$\\
+
+    Podstawiając do wzoru:\\
+    $$\sum_{I \subseteq [n]} (-1)^{|I|} |\bigcap_{i \in I} (U \setminus X_i)| =\sum_{I \subseteq [n]} (-1)^{|I|} (m-[I])^n$$\\
+
+    Zauważmy, że we wzorze znaczenie ma tylko moc I, możemy go więc uprościć w zależności od $|I|$\\
+
+    $$|\bigcap_{i = 1}^{m} X_i| = \sum_{j=0}^{m}(-1)^j \binom{m}{j}(m-j)^n$$\\
+    $$|\bigcap_{i = 1}^{m} X_i| = |X|$$\\
+
+    $\blacksquare$\\
+
 \end{mdframed}
 \begin{mdframed}
     Skorzystamy z zasady włączeń i wyłączeń. 
@@ -1231,49 +1488,49 @@ Co kończy dowód indukcyjny.
 \begin{mdframed}
     % Rozwiązanie: Bartosz Wójcik
 
-    Niech $\Omega$ będzie zbiorem ciągów długości $2n$, że każda liczba $i \in [n]$ 
-    występuje dokładnie dwa razy. 
-    Niech $X \subseteq \Omega$ będzie zbiorem ciągów, w których żadne sąsiadujące wyrazy 
+    Niech $\Omega$ będzie zbiorem ciągów długości $2n$, że każda liczba $i \in [n]$
+    występuje dokładnie dwa razy.
+    Niech $X \subseteq \Omega$ będzie zbiorem ciągów, w których żadne sąsiadujące wyrazy
     nie są równe (zbiór jak w treści zadania).
-    Niech $A_i \subseteq \Omega$, będzie rodziną zbiorów, 
+    Niech $A_i \subseteq \Omega$, będzie rodziną zbiorów,
     takich że:
 
     $$ A_i = \{a \in X \vert\text{ liczba i sąsiaduje ze sobą w ciągu a }\} $$
-    
+
     Zbiór $X$ zawiera wszystkie ciągi, które należą do $\Omega$, ale nie należą do żadnego
     $A_i$:
 
     $$ X = \Omega \setminus \bigcup_{i = 1}^{n} A_i$$
-    
+
     Obliczmy moc sumy $A_i$:
-    
+
     $$ (*) \
-    |\bigcup_{i = 1}^{n} A_i| = \sum_{\emptyset\neq I \subseteq [n]} (-1)^{|I| + 1} \
-    |\bigcap_{i \in I} A_i|
+        |\bigcup_{i = 1}^{n} A_i| = \sum_{\emptyset\neq I \subseteq [n]} (-1)^{|I| + 1} \
+        |\bigcap_{i \in I} A_i|
     $$
 
-    Wybierzmy ciąg $a \in \bigcap_{i \in I} A_i$. Wszystkie $i \in I$ sąsiadują ze sobą, 
-    więc można je potraktować jako jeden znak. W ciągu $a$ mamy więc $2n - |I|$ znaków, 
-    które można przepermutować na $(2n - |I|)!$ sposobów. Każdą parę $\notin I$ można ustawić na 2 
+    Wybierzmy ciąg $a \in \bigcap_{i \in I} A_i$. Wszystkie $i \in I$ sąsiadują ze sobą,
+    więc można je potraktować jako jeden znak. W ciągu $a$ mamy więc $2n - |I|$ znaków,
+    które można przepermutować na $(2n - |I|)!$ sposobów. Każdą parę $\notin I$ można ustawić na 2
     sposoby każdą. Sumarycznie:
     $$\
-    |\bigcap_{i \in I} A_i| = \frac{(2n - |I|)!}{2^{n - |I|}}\
+        |\bigcap_{i \in I} A_i| = \frac{(2n - |I|)!}{2^{n - |I|}}\
     $$
 
-    Zmieńmy indeksowanie sumy $(*)$ z indeksowania po zbiorach $I$ na indeksowanie po mocy zbioru $I$. 
+    Zmieńmy indeksowanie sumy $(*)$ z indeksowania po zbiorach $I$ na indeksowanie po mocy zbioru $I$.
     Jest $\binom{n}{i}$ zbiorów $I \subseteq [n], |I| = i$:
 
     $$(*)\
-    \sum_{\emptyset\neq I \subseteq [n]} (-1)^{|I| + 1} \
-    |\bigcap_{i \in I} A_i| = \
-    \sum_{i = 1}^{n} (-1)^{i + 1} \binom{n}{i} \frac{(2n - i)!}{2^{n - i}}\
+        \sum_{\emptyset\neq I \subseteq [n]} (-1)^{|I| + 1} \
+        |\bigcap_{i \in I} A_i| = \
+        \sum_{i = 1}^{n} (-1)^{i + 1} \binom{n}{i} \frac{(2n - i)!}{2^{n - i}}\
     $$
 
     Dodatkowo $|\Omega| = \frac{(2n)!}{2^{n}}$. Otrzymujemy:
 
     $$(*)\
-    |X| = \frac{(2n)!}{2^{n}} - \sum_{i = 1}^{n} (-1)^{i + 1} \binom{n}{i} \frac{(2n - i)!}{2^{n - i}} = \
-    \sum_{i = 0}^{n} (-1)^{i} \binom{n}{i} \frac{(2n - i)!}{2^{n - i}} \
+        |X| = \frac{(2n)!}{2^{n}} - \sum_{i = 1}^{n} (-1)^{i + 1} \binom{n}{i} \frac{(2n - i)!}{2^{n - i}} = \
+        \sum_{i = 0}^{n} (-1)^{i} \binom{n}{i} \frac{(2n - i)!}{2^{n - i}} \
     $$
     co było do policzenia. $\blacksquare$
 
@@ -1297,16 +1554,16 @@ Co kończy dowód indukcyjny.
 \begin{mdframed}
     % Rozwiązanie: Karol Wójcik
     Dla $n \ge 3$:   $D(n) = (n-1)(D(n-1)+D(n-2))$
-\newline \newline
+    \newline \newline
     D(n) - liczba nieporządków
-\newline \newline
+    \newline \newline
     $D(1) = 0$      $D(2) = 1$
-\newline \newline
+    \newline \newline
     $D_n$ -- zbiór nieporządków na $n$ elementach
     \newline \newline
     Weźmy zbiór $D_n = X \cup Y$, $X \cap Y = \emptyset$.
 
-    $X$ -- zbiór, gdzie $n$ znajduje się w 2-elementowym cyklu, 
+    $X$ -- zbiór, gdzie $n$ znajduje się w 2-elementowym cyklu,
 
     $Y$ -- zbiór, gdzie $n$ znajduje się w $>$ 2-elementowym cyklu
     \newline \newline
@@ -1317,8 +1574,8 @@ Co kończy dowód indukcyjny.
     $Y = \{ \sigma \mid \sigma(j)=n, \sigma(n)=i, i \neq j \}$
 
     $|Y| = (n-1)D(n-1)$
-\newline \newline
-$D(n) = |X \cup Y| = (n-1)(D(n-1) + D(n-2))$
+    \newline \newline
+    $D(n) = |X \cup Y| = (n-1)(D(n-1) + D(n-2))$
 \end{mdframed}
 \begin{mdframed}
     Rozwiązanie Autora 2.
@@ -1373,30 +1630,234 @@ $D(n) = |X \cup Y| = (n-1)(D(n-1) + D(n-2))$
 
 
 \newpage
-\section{Zestaw}          % Zestaw 6
-% Nothing here. Tylko work in progress...
+\section{Zestaw 6}          % Zestaw 6
+
+\begin{zad}(nie kolos)
+    Wykaż, że spośród dowolnych trzech permutacji zbioru $[n]$
+    istnieją dwie zawierające wspólny podciąg o długości co najmniej $n^{\frac{1}{3}}$.
+\end{zad}
+\begin{mdframed}
+
+\end{mdframed}
+\begin{mdframed}
+
+\end{mdframed}
+
+
+\begin{zad}[Katarzyna Szwed, Autor 2]
+    Niech $I$ będzie rodziną $n$ przedziałów osi rzeczywistej.
+    Wykaż, że $I$ zawiera co najmniej $\sqrt{n}$ przedziałów
+    parami rozłącznych lub $I$ zawiera co najmniej $\sqrt{n}$
+    przedziałów takich, że wszystkie posiadają wspólny punkt.
+
+    Rodzina podzbiorów $\mathcal{F}$ jest przecinająca się, jeśli
+    dla dowolnych $A, B \in \mathcal{F}$ mamy $A \cap B \neq \emptyset$
+\end{zad}
+\begin{mdframed}
+    % Rozwiązanie: Katarzyna Szwed
+    Zdefiniujmy relację
+    \[ X \preceq Y \; \Leftrightarrow \; \forall(x\in X,y\in Y)(x<y) \; \vee \; X = Y \]
+    gdzie $X$ i $Y$ - przedziały.
+
+    Relacja $\preceq$ jest relacją częściowego porządku, ponieważ:
+    \begin{enumerate}
+        \item jest zwrotna ($X = Y \Rightarrow X \preceq Y$)
+        \item jest antysymetryczna
+        \[
+        X \neq Y \wedge X \preceq Y \Rightarrow \forall(x\in X,y\in Y)(x<y) \Rightarrow 
+        \]
+        \[
+        \Rightarrow \neg \exists(x \in X, y \in Y)(x > y) \Rightarrow Y \npreceq X
+        \]
+        \item jest przechodnia\
+        \[
+        X \preceq Y \wedge Y \preceq Z \Rightarrow 
+        \]\[
+        \Rightarrow (\forall(x\in X,y\in Y)(x<y) \; \vee \; X = Y) \wedge 
+        (\forall(y\in Y,z\in Z)(y<z) \; \vee \; Y = Z) \Rightarrow
+        \]\[
+        \Rightarrow (\forall(x\in X, z \in Z)(x<z) \vee X = Z) \Rightarrow 
+        \]\[
+        \Rightarrow X \preceq Z
+        \]
+    \end{enumerate}
+    Zatem $P := (I, \preceq)$ jest posetem. Z lematu udowodnionego na wykładzie wiemy, że: 
+
+    \[height(P) \cdot width(P) \geq |I| = n\]
+
+    Zatem:
+
+    \[
+    height(P) \geq \sqrt{n} \;\vee \;width(P) \geq \sqrt{n}
+    \]
+
+    Przy czym $height(P)$ to długość najdłuższego łańcucha, w tym przypadku liczność największego podzbioru $I$ takiego, 
+    że przedziały do niego należące są parami rozłączne, a $width(P)$ to długość najdłuższego antyłańcucha, 
+    tutaj będzie to liczność największego takiego podzbioru $I$, że każde dwa przedziały do niego należące mają wspólny punkt, 
+    czyli przecięcie po wszyskich przedziałach należących do tego podzbioru nie jest zbiorem pustym.
+
+\end{mdframed}
+\begin{mdframed}
+
+\end{mdframed}
+
+
+\begin{zad}[Katarzyna Szwed, Wiktor Szymonek]
+    Niech $\mathcal{F}$ będzie maksymalną przecinającą się rodziną podzbiorów $[n]$.
+    Wykaż, że:
+    \[ |\mathcal{F}| = 2^{n-1} \]
+\end{zad}
+\begin{mdframed}
+    % Rozwiązanie: Katarzyna Szwed
+    Weźmy $A \subset [n]$. Zauważmy, że $A \cap ([n] - A) = \emptyset$. 
+    Zatem tylko jeden z tych zbiorów może należeć do $\mathcal{F}$, czyli $|\mathcal{F}| \leq 2^{n-1}$.
+
+    Zauważmy, że rodzina zbiorów $\{A \subset [n] : n \in A\}$ spełnia warunek zadania, zatem $|\mathcal{F}| \geq 2^{n-1}$. 
+    Oznacza to, że $|\mathcal{F}| = 2^{n-1}$.
+\end{mdframed}
+\begin{mdframed}
+    % Rozwiązanie: Wiktor Szymonek
+    Rozważmy następujący zbiór:
+    \[M = \left\{A\in M : 1 \in A\right\}\]
+    Wówczas dla dowolnego $A,B \in M$ zachodzi $1 \in A \cap B \implies A\cap B \ne \emptyset$ zatem $M$ jest przecinającą się rodziną.
+    \newline Udowodnię, że $M$ jest maksymalną taką rodziną. Załóżmy, że zbiór $X \subseteq P([n])$ 
+    jest w relacji "$\subseteq$" ostro większy od $M$ i jest zbiorem o szukanych własnościach.
+    \newline Zatem $M \neq X$ $\land$ $M \subset X \implies \exists_{x \in X}$  $ 1 \notin x$. Zauważmy, że 
+    \( \left\{1\right\} \in M \implies \left\{1\right\} \in X\) oraz $\left\{1\right\} \cap x = \emptyset$ 
+    co daje sprzeczność. Stąd $M$ jest maksymalnym takim zbiorem.
+    \newline Moc zbioru wszystkich podzbiorów $[n]$ zawierających 1 to $2^{n-1}$ stąd:
+    \[|\mathcal{F}| = |M| = 2^{n-1}\]
+    \qed
+\end{mdframed}
+
+
+
+
+\begin{zad}[Katarzyna Szwed, Wiktor Szymonek]
+    Niech $\mathcal{F}$ będzie maksymalną rodziną podzbiorów zbioru $[n]$ taką,
+    że dla dowolnych $A, B \in \mathcal{F}$ mamy $A \cup B \neq [n]$. Wyznacz $|\mathcal{F}|$.
+\end{zad}
+\begin{mdframed}
+    % Rozwiązanie: Katarzyna Szwed
+    Weźmy $A \subset [n]$. Zauważmy, że istnieje dokładnie jeden zbiór $B$ taki, że $B \subset [n] \wedge A \cap B = [n]$. 
+    Zatem tylko jeden z tych zbiorów może należeć do $\mathcal{F}$, czyli $|\mathcal{F}| \leq 2^{n-1}$.
+
+    Zauważmy, że rodzina wszystkich podzbiorów $[n-1]$ spełnia warunek z zadania, zatem $|\mathcal{F}| \geq 2^{n-1}$. 
+    Oznacza to, że $|\mathcal{F}| = 2^{n-1}$.
+\end{mdframed}
+\begin{mdframed}
+    % Rozwiązanie: Wiktor Szymonek
+    Dowód analogiczny jak 6.3: \bigskip
+    \newline Rozważmy następujący zbiór:
+    \[M = \left\{A\in M : 1 \notin A\right\}\]
+    Wówczas dla dowolnego $A,B \in M$ zachodzi $1 \notin A \cup B \implies A\cup B \ne [n]$
+    \newline Udowodnię, że $M$ jest zbiorem maksymalnym o takich własnościach. Załóżmy, że zbiór $X \subseteq P([n])$ 
+    jest w relacji "$\subseteq$" ostro większy od $M$ i jest zbiorem o szukanych własnościach.
+    \newline Zatem $M \neq X$ $\land$ $M \subset X \implies \exists_{x \in X}$  $ 1 \in x$, ponadto ponieważ
+    $M$ zawiera w sobie wszystkie podzbiory $[n]$ nie zawierające jedynki to wiemy że $[n]-x \in M \implies [n]-x \in X$ 
+    oraz $[n]\cup([n]-x) = [n]$ co daje sprzeczność. Stąd $M$ jest maksymalnym takim zbiorem.
+    \qed
+    \newline Moc zbioru wszystkich podzbiorów $[n]$ nie zawierających 1 to $2^{n-1}$ stąd:
+    \[|\mathcal{F}| = |M| = 2^{n-1}\]
+\end{mdframed}
+
+
+\begin{zad}
+    Rodzina podzbiorów $\mathcal{F}$ zbioru $[n]$ jest rozróżniająca jeśli dla dowolnych
+    $x \neq y \in [n]$ istnieje $F \in \mathcal{F }$ taki, że $|F \cap \{x,y\}| = 1$.
+    Rodzina podzbiorów $\mathcal{F }$ zbioru $[n]$ jest silenie rozróżniająca jeśli dla
+    dowolnych $ x \neq y \in [n]$ istnieje $F_1,F_2 \in \mathcal{F }$ takie, że $x \in F_1-F_2$ i $y \in F_2 - F_1$.
+    \begin{enumerate}
+        \item Jaki jest rozmiar najmniejszej rodziny rozróżniającej $[n]$?
+        \item Jaki jest rozmiar najmniejszej rodziny silnie rozróżniającej $[n]$?
+    \end{enumerate}
+\end{zad}
+\begin{mdframed}
+
+\end{mdframed}
+\begin{mdframed}
+
+\end{mdframed}
+
+
+\begin{zad}
+    Niech $1 \leq s < r < n$ i niech $\mathcal{F }$ będzie rodziną podzbiorów $r$--elementowych
+    zbioru $[n]$ taką, że dla dowolnych $A \neq B \in \mathcal{F }$ mamy $ |A \cap B| \leq s$.
+    Wykaż, że \[|\mathcal{F }| \leq \frac{\binom{n}{s+1}}{\binom{r}{s+1}}.\]
+\end{zad}
+\begin{mdframed}
+
+\end{mdframed}
+\begin{mdframed}
+
+\end{mdframed}
+
+
+
+
+
+
+
+
+
+
+
+
 
 \newpage
-\section{Zestaw}          % Zestaw 7
+\section{Zestaw 7}          % Zestaw 7
 % Nothing here. Tylko work in progress...
+Nie ma XD
+
+Ponoć Profesor coś zakręcił i nie ma tego zestawu.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \newpage
 \section{Zestaw}          % Zestaw 8
 
-\begin{zad}[Krzysztof Wójtowicz, Autor 2]
+\begin{zad}[Krzysztof Wójtowicz, Karol Sęk]
     Wykorzystaj funkcje tworzące aby policzyć na ile sposobów można wyciągnąć 70 kul z urny zawierającej 30 kul czerwonych, 40 kul niebieskich i 50 kul białych. Kule tego samego koloru są nierozróżnialne. Kolejność wyciągania jest nieistotna.
 \end{zad}
 \begin{mdframed}
     Zapiszemy funkcje tworzące $C(x)$, $N(x)$ oraz $B(x)$ odpowiednio dla kul czerwonych(1), niebieskich(2) oraz białych(3):
     \begin{align}
-    C(x) = 1 + x + x^2 + \dots + x^{30} = \frac{1 - x^{31}}{1 - x} \\
-    N(x) = 1 + x + x^2 + \dots + x^{40} = \frac{1 - x^{41}}{1 - x} \\
-    B(x) = 1 + x + x^2 + \dots + x^{50} = \frac{1 - x^{51}}{1 - x}
+        C(x) = 1 + x + x^2 + \dots + x^{30} = \frac{1 - x^{31}}{1 - x} \\
+        N(x) = 1 + x + x^2 + \dots + x^{40} = \frac{1 - x^{41}}{1 - x} \\
+        B(x) = 1 + x + x^2 + \dots + x^{50} = \frac{1 - x^{51}}{1 - x}
     \end{align}
     Stworzymy funkcję $K(x)$, która będzie generować nam ciąg liczby sposóbów wyciągania danej ilości kul, odpowiedzią dla 70 kul będzie współczynnik przy $x^{70}$.
     \begin{gather*}
-    K(x) = C(x) \cdot N(x) \cdot B(x) = \frac{(1 - x^{31})(1 - x^{41})(1 - x^{51})}{(1 - x)^3} = \\
-    = (1 - x^{31} - x^{41} - x^{51} + x^{72} + x^{82} + x^{92} - x^{123}) \cdot \sum_{k=0}^{\infty} \binom{k+2}{2}x^k
+        K(x) = C(x) \cdot N(x) \cdot B(x) = \frac{(1 - x^{31})(1 - x^{41})(1 - x^{51})}{(1 - x)^3} = \\
+        = (1 - x^{31} - x^{41} - x^{51} + x^{72} + x^{82} + x^{92} - x^{123}) \cdot \sum_{k=0}^{\infty} \binom{k+2}{2}x^k
     \end{gather*}
     Po wymnożeniu $x^{70}$ wystąpi cztery razy:
     \begin{enumerate}
@@ -1412,7 +1873,39 @@ $D(n) = |X \cup Y| = (n-1)(D(n-1) + D(n-2))$
 
 \end{mdframed}
 \begin{mdframed}
-    Rozwiązanie Autora 2.
+    Niech ciąg $r_n$ wyznacza ilość wyborów $n$ czerwonych kul\\
+    Funkcja tworząca dla $r_n$ ma postać \\
+    $$R(x) = 1 + x + x^2 + ... + x^{30} = \frac{1-x^{31}}{1-x}$$\\
+
+    Niech ciąg $b_n$ wyznacza ilośc wyborów $n$ niebieskich kul\\
+    Funkcja tworząca dla $b_n$ ma postać \\
+    $$B(X) = 1 + x + x^2 + ... + x^{40} = \frac{1-x^{41}}{1-x}$$\\
+
+    Niech ciąg $w_n$ wyznacza ilośc wyborów $n$ niebieskich kul\\
+    Funkcja tworząca dla $w_n$ ma postać \\
+    $$W(X) = 1 + x + x^2 + ... + x^{50} = \frac{1-x^{51}}{1-x}$$\\
+
+    Niech ciąg $o_n = r_n \star b_b \star w_n$ jest splotem tych ciągów, wyznacza on ilość wyborów $n$ kul o dowolnym kolorze\\
+    Funkcja tworząca dla $o_n$ ma postać\\
+    $$O(X) = R(X)*B(X)*W(X) = \frac{(1-x^{31})(1-x^{41})(1-x^{51})}{(1-x)^3} =$$
+    $$(1-x^{31})(1-x^{41})(1-x^{51}) * \sum_{i=0}^{\infty}\binom{n+2}{2}x^n$$
+
+    Zauważmy, że liczbę 70 można przedstawić poprzez następujące podziały:\\
+
+    $$70 = 0 + 0 + 0 + 70$$
+    $$70 = 0 + 0 + 51 + 19$$
+    $$70 = 0 + 41 + 0 + 29$$
+    $$70 = 31 + 0 + 0 + 39$$
+
+    Opowiadają tym podziałom następujące współczynniki\\
+
+    $$1*1*1*\binom{72}{2}$$
+    $$1*1*(-1)*\binom{21}{2}$$
+    $$1*(-1)*1*\binom{31}{2}$$
+    $$(-1)*1*1*\binom{41}{2}$$
+
+    Po zsumowaniu otrzymujemy wynik $1061$\\
+
 \end{mdframed}
 
 \begin{zad}[Krzysztof Wójtowicz, Autor 2]
@@ -1457,27 +1950,95 @@ $D(n) = |X \cup Y| = (n-1)(D(n-1) + D(n-2))$
     Rozwiązanie Autora 2.
 \end{mdframed}
 
-\begin{zad}[Filip Sajko, Autor 2]
-    Polecenie
+\begin{zad}[Filip Sajko]
+    Wyznacz funkcje tworzące następujących ciągów. (Znajdź zwartą postać
+    tych funkcji, to jest bez nieskończonych sum.)
+    \begin{enumerate}
+        \item$(0,0,0,0,-6,6,-6,6...)$
+        \item$(1,0,1,0...)$
+        \item $(1,2,1,4,1,8...)$
+        \item $(\binom{c}{0}, \binom{c}{1}, \binom{c}{2}, ...)$
+        \item $(1, \binom{c}{1}, \binom{c+1}{1}, \binom{c+2}{2}, ...)$
+        \item $(1, c, c^2, ...)$
+        \item $(1, \binom{m+1}{m}, \binom{m+2}{m},...)$
+        \item $(0, 1, \frac{1}{2}, \frac{1}{3},...)$
+        \item $(1, 1, \frac{1}{2!}, \frac{1}{3!},...)$
+    \end{enumerate}
 \end{zad}
 \begin{mdframed}
-    Rozwiązanie Autora 1.
+    \begin{enumerate}
+
+        \item$(0,0,0,0,-6,6,-6,6...)$
+              \[-6x^4 + 6x^5 - 6x^6 + 6x^7 = \]
+
+              \[ = -6x^4(1-x+x^2-x^3 + ...) = \frac{-6x^4+6x^5}{1-x^2} = \frac{-6x^4}{1+x} \]
+
+        \item$(1,0,1,0...)$
+              \[1+x^2+x^4+... = \frac{1}{1-x^2}\]
+
+        \item $(1,2,1,4,1,8...)$
+              \[1 + 2x + 1x^2 + 4x^3 + 1x^4 + 8x^5 + ... = (1 + x^2 + x^4 + x^6 +...) + (2x+4x^3+8x^5 + ...) = \frac{1}{1-x^2} + \frac{2x}{1-2x^2} \]
+
+        \item $(\binom{c}{0}, \binom{c}{1}, \binom{c}{2}, ...)$
+              \[1+ \binom{c}{1}+ \binom{c+1}{1}x+ \binom{c+2}{2}x^2 + ... = \sum_{n}^{}\binom{c}{n}x^n = (1+x)^c \]
+
+        \item $(1, \binom{c}{1}, \binom{c+1}{1}, \binom{c+2}{2}, ...)$
+              \[a_n = \binom{c+n-1}{n-1}\]
+              \[1 + \sum_{n \geq 1}^{} \binom{c+n-1}{n-1}x^n = 1 + x \sum_{n-1 \leq 0 }^{}\binom{c+n-1}{n-1}x^{n-1} = 1 + \frac{1}{(1-x)^{c+1}}\]
+
+        \item $(1, c, c^2, ...)$
+              \[1+cx+c^2x^2+...=1+(cx)^2+(cx)^3+ ... = \frac{1}{1-cx}\]
+
+        \item $(1, \binom{m+1}{m}, \binom{m+2}{m},...)$
+              \[a_n = \binom{m+n}{m}  = \binom{n+m}{n} \]
+              \[\sum_{}^{}a_nx^n = \sum \binom{m+n}{n}x^n = \frac{1}{(1-x)^{m+1}}\]
+
+        \item $(0, 1, \frac{1}{2}, \frac{1}{3},...)$
+              \[0+ 1+ \frac{1}{2}+ \frac{1}{3}+... = 1 + \sum_{n=1}^{}\frac{x^n}{n} = 1 - \ln (1-x)\]
+
+        \item $(1, 1, \frac{1}{2!}, \frac{1}{3!},...)$
+              \[1 + 1x+ \frac{1}{2!}x + ... = \sum_{}^{}\frac{x^n}{n!} = e^x\]
+    \end{enumerate}
 \end{mdframed}
 \begin{mdframed}
     Rozwiązanie Autora 2.
 \end{mdframed}
 
-\begin{zad}[Filip Sajko, Autor 2]
-    Polecenie
+\begin{zad}[Filip Sajko, Julian Sowiński]
+    Niech $G(z)$ będzie funkcją tworzącą ciągu $\{g_n\}_{n \geq 0}$.
+    Jaki ciąg generuje funkcja $G(z) + G(-z)$, a jaki $G(z) - G(-z)$?
 \end{zad}
 \begin{mdframed}
-    Rozwiązanie Autora 1.
+    \[G( z) = g_0 + g_1x + g_2x^2 + g_3x^3  + ...\]
+    \[G(-z) = g_0 - g_1x + g_2x^2  - g_3x^3 + ...\]
+    Stąd, po prostu dodając i odejmując stronami otrzymujemy:
+    \[G(z) + G(-z) = 2(g_0 + g_2x^2 + g_4x^4 + ...)\]
+    \[G(z) - G(-z) = 2(g_1x + g_3x^3 + g_5x^5 + ...)\]
 \end{mdframed}
 \begin{mdframed}
-    Rozwiązanie Autora 2.
+    $$ G(z) = g_0 + g_1 z + g_2 z^2 + g_3 z^3 + g_4 z^4 + \dots $$
+    
+    \subsection*{a) Funkcja tworząca $G(z) + G(-z)$}
+    
+    Najpierw zapiszmy postać funkcji $G(-z)$, podstawiając $-z$ w miejsce $z$:
+    $$ G(-z) = \sum_{n=0}^{\infty} g_n (-z)^n = g_0 - g_1 z + g_2 z^2 - g_3 z^3 + g_4 z^4 - \dots $$
+    Teraz dodajmy obie funkcje stronami. Zauważmy, że wszystkie wyrazy z nieparzystymi potęgami $z$ się skrócą:
+    $$ G(z) + G(-z) = (g_0 + g_1 z + g_2 z^2 + \dots) + (g_0 - g_1 z + g_2 z^2 - \dots) $$
+    $$ G(z) + G(-z) = (g_0+g_0) + (g_1-g_1)z + (g_2+g_2)z^2 + (g_3-g_3)z^3 + \dots $$
+    $$ G(z) + G(-z) = 2g_0 + 2g_2 z^2 + 2g_4 z^4 + \dots = 2(g_0 + g_2x^2 + g_4x^4 + ...)$$
+
+    \subsection*{b) Funkcja tworząca $G(z) - G(-z)$}
+
+    Postępujemy analogicznie, tym razem odejmując funkcje. W tym przypadku skrócą się wyrazy z parzystymi potęgami $z$:
+    $$ G(z) - G(-z) = (g_0 + g_1 z + g_2 z^2 + \dots) - (g_0 - g_1 z + g_2 z^2 - \dots) $$
+    $$ G(z) - G(-z) = (g_0-g_0) + (g_1-(-g_1))z + (g_2-g_2)z^2 + (g_3-(-g_3))z^3 + \dots $$
+    $$ G(z) - G(-z) = 2g_1 z + 2g_3 z^3 + 2g_5 z^5 + \dots = 2(g_1x + g_3x^3 + g_5x^5 + ...)$$
 \end{mdframed}
 
-\begin{zad}[Maciej Wełpa, Autor 2]
+
+
+
+\begin{zad}[Maciej Wełpa, Karol Sęk]
     Niech $a_n$ będzie liczbą trójek $(i,j,k)$ liczb całkowitych takich, że $i \geqslant 0, j \geqslant 1, k \geqslant 1$ oraz $i + 3j + 3k = n$. Znajdź funkcję tworzącą ciągu $(a_0,a_1,\dots)$ i wyznacz wzór na $a_n$.
 \end{zad}
 \begin{mdframed}
@@ -1503,7 +2064,32 @@ $D(n) = |X \cup Y| = (n-1)(D(n-1) + D(n-2))$
     Po wyznaczeniu tych stałych, każdy z ułamków prostych powinno przekształcić się z powrotem do szeregu potęgowego.
 \end{mdframed}
 \begin{mdframed}
-    Rozwiązanie Autora 2.
+    Rozważmy ciagi $b_n,c_n$ i $d_n$ takie, że\\
+    $$b_n = |\{i \in \mathbb{N} \cup \{0\}  | i = n\}|$$
+    $$c_n = |\{j \in \mathbb{N} | 3j = n\}$$
+    $$d_n = |\{k \in \mathbb{N} | 3k = n\}$$
+
+    Ciągowi $b_n$ odpowiada funkcja tworząca\\
+    $$ B(x) = 1 + x +x^2 + ... = \frac{1}{1-x}$$
+
+    Ciągowi $c_n$ oraz $d_n$ odpowiada funkcja tworząca\\
+    $$ C(x) = D(x) = x^3 + x^6 + x^9 + ... = \frac{x^3}{1-x^3}$$
+
+    Poszukujemy następującego ciągu
+    $$o_n = \sum_{i+3j+3k=n}1 = \sum_{i+j+k=n}1*c_j*d_k$$
+
+    Zauważmy, że ciąg $b_n$ jest równy ciągowi stałemu o wartości $1$\\
+    Stąd:
+    $$ \sum_{i+j+k=n}b_i*c_j*d_k$$
+
+    Okazuje się, że jest to wprost z definicji splot ciągów $b_n \star c_n \star d_n$\\
+
+    Funkcja tworząca $o_n$ jest iloczynem funkcji tworzących ciągów w splocie\\
+
+    $$O(x) = B(x)*C(x)*D(x) = \frac{x^6}{(1-x)(1-x^3)^2}$$
+
+    Wyznaczenie ciągu $o_n$ jest już trywialne.
+
 \end{mdframed}
 
 \begin{zad}[Krzysztof Wójtowicz, Autor 2]
@@ -1538,9 +2124,9 @@ $D(n) = |X \cup Y| = (n-1)(D(n-1) + D(n-2))$
     \textbf{Wyjaśnienie właściwości funkcji tworzącej:} \newline
     Niech $a(x)$ będzie funkcją tworzącą ciągu $(a_0, a_1, a_2, \ldots)$, czyli $a(x) = \sum_{n=0}^{\infty} a_n x^n$.
     Rozważmy funkcję $\frac{1}{1-x}$, która jest funkcją tworzącą ciągu $(1, 1, 1, \ldots)$, czyli $\frac{1}{1-x} = \sum_{n=0}^{\infty} 1 \cdot x^n$.
-    Iloczyn dwóch funkcji tworzących odpowiada splotowi ciągów, dla których są one funkcjami tworzącymi. 
+    Iloczyn dwóch funkcji tworzących odpowiada splotowi ciągów, dla których są one funkcjami tworzącymi.
     Zatem, współczynniki $c_n$ w rozwinięciu $a(x) \cdot \frac{1}{1-x}$ będą wynosić:
-    
+
     Rozważmy iloczyn dwóch szeregów potęgowych: $\sum_{i=0}^{\infty} a_i x^i$ oraz $\sum_{i=0}^{\infty} x^i$.
     Zgodnie z definicją iloczynu Cauchy'ego, ich iloczyn jest nowym szeregiem, którego $n$-ty (lub w tym przypadku $i$-ty) współczynnik jest sumą:
     $$ \left( \sum_{i=0}^{\infty} a_i x^i \right) \cdot \left( \sum_{i=0}^{\infty} x^i \right) = \sum_{i=0}^{\infty} \left( \sum_{j=0}^{i} a_j x^j \cdot x^{i-j} \right) $$
@@ -1623,19 +2209,12 @@ $D(n) = |X \cup Y| = (n-1)(D(n-1) + D(n-2))$
     $$ a(x) = 1 + 2xa(x) + \frac{3}{1-x} $$
     $$ a(x)(1-2x) = 1 + \frac{3}{1-x} $$
     $$ a(x) = \frac{1 + \frac{3}{1-x}}{(1-2x)} $$
-
-
-
-
-
-
-
 \end{mdframed}
 \begin{mdframed}
     Rozwiązanie Autora 2.
 \end{mdframed}
 
-\begin{zad}[Konstanty Sobczyński (i-iii), Julian Sowiński (iv-vi), Maciej Wełpa (vii-ix), Autor 2]
+\begin{zad}[Konstanty Sobczyński (i-iii), Julian Sowiński (iv-vi), Maciej Wełpa (vii-ix), Autor 2: Mateusz Rabantek(iv-vi), Mateusz Rabantek(vii-ix)]
     Rozwiąż równania rekurencyjne:
     \begin{enumerate}
         \item $a_0=4, a_1=4, a_{n+2}=a_{n+1}+6a_n$,
@@ -1650,6 +2229,10 @@ $D(n) = |X \cup Y| = (n-1)(D(n-1) + D(n-2))$
     \end{enumerate}
 \end{zad}
 \begin{mdframed}
+    \textbf{Rozwiązania Rekurencji Liniowych za Pomocą Funkcji Tworzących}
+
+    Poniżej przedstawiono rozwiązania podanych rekurencji liniowych z wykorzystaniem funkcji tworzących,
+    odwzorowując styl i kolejność kroków z przedstawionych zdjęć. \newline\newline
     \textbf{Rozwiązania Rekurencji Liniowych za Pomocą Funkcji Tworzących}
 
     Poniżej przedstawiono rozwiązania podanych rekurencji liniowych z wykorzystaniem funkcji tworzących, odwzorowując styl i kolejność kroków z przedstawionych zdjęć. \newline\newline
@@ -1716,10 +2299,115 @@ $D(n) = |X \cup Y| = (n-1)(D(n-1) + D(n-2))$
     $$ a(x) -xa(x) -x^2a(x) = x + \frac{1}{1-x} $$
     $$ a(x)(1-x-x^2) = x + \frac{1}{1-x} $$
     $$ a(x) = \frac{x + \frac{1}{1-x}}{1-x-x^2} $$
+    \textbf{Przykład (iv)} \newline
+    Dana jest rekurencja:
+    $a_0 = 0, a_1 = 1,$
+    $a_{n+2} = 2a_{n+1} - a_n \quad \text{dla } n \ge 0.$
 
+    Definiujemy funkcję tworzącą $a(x) = \sum_{n=0}^{\infty} a_n x^n$.
+    Rozpisujemy $a(x)$, podstawiając warunki początkowe i rekurencję:
+    $$ a(x) = a_0 + a_1 x + \sum_{n=2}^{\infty} a_n x^n = 0 + x + \sum_{n=2}^{\infty} (2a_{n-1} - a_{n-2}) x^n $$
+    Rozbijamy sumę i wyciągamy odpowiednie potęgi $x$:
+    $$ a(x) = x + 2\sum_{n=2}^{\infty} a_{n-1}x^n - \sum_{n=2}^{\infty} a_{n-2}x^n $$
+    $$ a(x) = x + 2x\sum_{n=2}^{\infty} a_{n-1}x^{n-1} - x^2\sum_{n=2}^{\infty} a_{n-2}x^{n-2} $$
+    Wyrażamy sumy przez $a(x)$ i warunek początkowy $a_0 = 0$:
+    $$ \sum_{n=2}^{\infty} a_{n-1}x^{n-1} = \sum_{k=1}^{\infty} a_k x^k = a(x) - a_0 = a(x) $$
+    $$ \sum_{n=2}^{\infty} a_{n-2}x^{n-2} = \sum_{k=0}^{\infty} a_k x^k = a(x) $$
+    Podstawiamy z powrotem do równania:
+    $$ a(x) = x + 2x \cdot a(x) - x^2 \cdot a(x) $$
+    Przenosimy wszystkie wyrazy zawierające $a(x)$ na lewą stronę:
+    $$ a(x) - 2x a(x) + x^2 a(x) = x $$
+    $$ a(x) (1 - 2x + x^2) = x $$
+    Zauważamy, że mianownik to wzór skróconego mnożenia:
+    $$ a(x) (1 - x)^2 = x $$
+    Ostateczna postać funkcji tworzącej $a(x)$:
+    $$ a(x) = \frac{x}{(1 - x)^2} $$
+    Nie musimy stosować ułamków prostych. Możemy od razu skorzystać ze znanego rozwinięcia w szereg potęgowy:
+    $$ \frac{1}{(1-x)^2} = \sum_{n=0}^{\infty} (n+1)x^n $$
+    Mnożąc ten szereg przez $x$, otrzymujemy naszą funkcję tworzącą:
+    $$ a(x) = x \cdot \frac{1}{(1-x)^2} = x \sum_{n=0}^{\infty} (n+1)x^n = \sum_{n=0}^{\infty} (n+1)x^{n+1} $$
+    Aby znaleźć współczynnik przy $x^n$, musimy zmienić indeks sumowania. Niech $k=n+1$. Gdy $n=0$, to $k=1$.
+    $$ a(x) = \sum_{k=1}^{\infty} k x^k $$
+    Ponieważ dla $k=0$ wyraz $k x^k$ jest równy 0, możemy bez zmiany wartości sumy zacząć sumowanie od $k=0$:
+    $$ a(x) = \sum_{k=0}^{\infty} k x^k = \sum_{n=0}^{\infty} n x^n $$
+    Porównując to z definicją $a(x) = \sum_{n=0}^{\infty} a_n x^n$, otrzymujemy bezpośrednio wzór jawny na $n$-ty wyraz ciągu:
+    $$ a_n = n $$
+    \textbf{Przykład (v)} \newline
+    Dana jest rekurencja:
+    $a_0 = 0, a_1 = 1,$
+    $a_{n+2} = a_{n+1} - a_n \quad \text{dla } n \ge 0.$
 
+    Definiujemy funkcję tworzącą $a(x) = \sum_{n=0}^{\infty} a_n x^n$.
+    Rozpisujemy $a(x)$, podstawiając warunki początkowe i rekurencję:
+    $$ a(x) = a_0 + a_1 x + \sum_{n=2}^{\infty} a_n x^n = 0 + x + \sum_{n=2}^{\infty} (a_{n-1} - a_{n-2}) x^n $$
+    Rozbijamy sumę i wyciągamy odpowiednie potęgi $x$:
+    $$ a(x) = x + \sum_{n=2}^{\infty} a_{n-1}x^n - \sum_{n=2}^{\infty} a_{n-2}x^n $$
+    $$ a(x) = x + x\sum_{n=2}^{\infty} a_{n-1}x^{n-1} - x^2\sum_{n=2}^{\infty} a_{n-2}x^{n-2} $$
+    Wyrażamy sumy przez $a(x)$ i warunek początkowy $a_0 = 0$:
+    $$ \sum_{n=2}^{\infty} a_{n-1}x^{n-1} = \sum_{k=1}^{\infty} a_k x^k = a(x) - a_0 = a(x) $$
+    $$ \sum_{n=2}^{\infty} a_{n-2}x^{n-2} = \sum_{k=0}^{\infty} a_k x^k = a(x) $$
+    Podstawiamy z powrotem do równania:
+    $$ a(x) = x + x \cdot a(x) - x^2 \cdot a(x) $$
+    Przenosimy wszystkie wyrazy zawierające $a(x)$ na lewą stronę:
+    $$ a(x) - x a(x) + x^2 a(x) = x $$
+    $$ a(x) (1 - x + x^2) = x $$
+    Ostateczna postać funkcji tworzącej $a(x)$:
+    $$ a(x) = \frac{x}{1 - x + x^2} $$
+    Aby łatwo rozwinąć tę funkcję w szereg, stosujemy trik polegający na pomnożeniu licznika i mianownika przez $(1+x)$, aby w mianowniku otrzymać sumę sześcianów:
+    $$ a(x) = \frac{x(1+x)}{(1 - x + x^2)(1+x)} = \frac{x+x^2}{1+x^3} $$
+    Teraz możemy potraktować to jako szereg geometryczny:
+    $$ a(x) = (x+x^2) \cdot \frac{1}{1 - (-x^3)} = (x+x^2) \sum_{k=0}^{\infty} (-x^3)^k = (x+x^2) \sum_{k=0}^{\infty} (-1)^k x^{3k} $$
+    Rozdzielamy na dwie sumy:
+    $$ a(x) = \sum_{k=0}^{\infty} (-1)^k x^{3k+1} + \sum_{k=0}^{\infty} (-1)^k x^{3k+2} $$
+    Z tej postaci odczytujemy wzór jawny na $a_n$. Współczynniki $a_n$ są niezerowe tylko wtedy, gdy potęga $n$ jest postaci $3k+1$ lub $3k+2$.
+    Ostateczny wzór na $n$-ty wyraz ciągu jest więc określony w zależności od reszty z dzielenia $n$ przez 3:
+    $$
+    a_n =
+    \begin{cases}
+    0 & \text{dla } n \equiv 0 \pmod{3} \\
+    (-1)^{(n-1)/3} & \text{dla } n \equiv 1 \pmod{3} \\
+    (-1)^{(n-2)/3} & \text{dla } n \equiv 2 \pmod{3}
+    \end{cases}
+    $$
+    \textbf{Przykład (vi)} \newline
+    Dana rekurencja:
+    $a_0 = 1, a_1 = 5, a_2 = 11,$
+    $a_{n+3} = 3a_{n+2} + 2a_{n+1} -2a_n \quad \text{dla } n \ge 0.$
 
-
+    Definiujemy funkcję tworzącą $a(x) = \sum_{n=0}^{\infty} a_n x^n$.
+    Wyrażamy $a(x)$ przez jej początkowe wyrazy i sumę opartą na rekurencji:
+    $$ a(x) = a_0 + a_1 x + a_2 x^2 + \sum_{n=3}^{\infty} (3a_{n-1} + 2a_{n-2} - 2a_{n-3}) x^n $$
+    Podstawiamy wartości początkowe i przekształcamy sumy:
+    $$ a(x) = 1 + 5x + 11x^2 + 3x\sum_{n=3}^{\infty}a_{n-1}x^{n-1} + 2x^2\sum_{n=3}^{\infty}a_{n-2}x^{n-2} - 2x^3\sum_{n=3}^{\infty}a_{n-3}x^{n-3} $$
+    Sumy te możemy wyrazić przez funkcję $a(x)$ i jej początkowe wyrazy:
+    \begin{itemize}
+        \item $ \sum_{n=3}^{\infty}a_{n-1}x^{n-1} = \sum_{k=2}^{\infty}a_{k}x^{k} = a(x) - a_0 - a_1x = a(x) - 1 - 5x $
+        \item $ \sum_{n=3}^{\infty}a_{n-2}x^{n-2} = \sum_{k=1}^{\infty}a_{k}x^{k} = a(x) - a_0 = a(x) - 1 $
+        \item $ \sum_{n=3}^{\infty}a_{n-3}x^{n-3} = \sum_{k=0}^{\infty}a_{k}x^{k} = a(x) $
+    \end{itemize}
+    Podstawiamy te wyrażenia z powrotem do równania na $a(x)$:
+    $$ a(x) = 1 + 5x + 11x^2 + 3x(a(x) - 1 - 5x) + 2x^2(a(x) - 1) - 2x^3 a(x) $$
+    Upraszczamy i grupujemy wyrazy z $a(x)$:
+    $$ a(x) = 1 + 5x + 11x^2 + 3xa(x) - 3x - 15x^2 + 2x^2a(x) - 2x^2 - 2x^3a(x) $$
+    $$ a(x) = (1 + 2x - 6x^2) + a(x)(3x + 2x^2 - 2x^3) $$
+    Przenosimy wszystkie wyrazy zawierające $a(x)$ na lewą stronę:
+    $$ a(x) (1 - 3x - 2x^2 + 2x^3) = 1 + 2x - 6x^2 $$
+    Ostateczna postać funkcji tworzącej $a(x)$:
+    $$ a(x) = \frac{1 + 2x - 6x^2}{1 - 3x - 2x^2 + 2x^3} $$
+    Mianownik faktoryzuje się w oparciu o pierwiastki równania charakterystycznego $r^3 - 3r^2 - 2r + 2 = 0$, którymi są $r_1=-1$, $r_2=2+\sqrt{2}$, $r_3=2-\sqrt{2}$. Daje to faktoryzację mianownika funkcji tworzącej:
+    $$ 1 - 3x - 2x^2 + 2x^3 = (1+x)(1-(2+\sqrt{2})x)(1-(2-\sqrt{2})x) $$
+    Rozkład na ułamki proste ma postać:
+    $$ a(x) = \frac{A}{1+x} + \frac{B}{1-(2+\sqrt{2})x} + \frac{C}{1-(2-\sqrt{2})x} $$
+    Po żmudnych, ale prostych obliczeniach, otrzymujemy wartości stałych:
+    $$ A = -1, \quad B = 1, \quad C = 1 $$
+    Zatem:
+    $$ a(x) = \frac{-1}{1+x} + \frac{1}{1-(2+\sqrt{2})x} + \frac{1}{1-(2-\sqrt{2})x} $$
+    Przekształcamy każdy człon z powrotem na szereg potęgowy, używając wzoru $\frac{1}{1-u} = \sum_{n=0}^{\infty} u^n$:
+    $$ a(x) = - \sum_{n=0}^{\infty} (-x)^n + \sum_{n=0}^{\infty} ((2+\sqrt{2})x)^n + \sum_{n=0}^{\infty} ((2-\sqrt{2})x)^n $$
+    Grupując współczynniki przy $x^n$, otrzymujemy jawny wzór na $a_n$:
+    $$ a_n = -(-1)^n + (2+\sqrt{2})^n + (2-\sqrt{2})^n $$
+    Co można zapisać jako:
+    $$ a_n = (-1)^{n+1} + (2+\sqrt{2})^n + (2-\sqrt{2})^n $$
     \textbf{Przykład (vii)} \newline
     Dana rekurencja:
     $a_0 = 1, a_1 = 1,$
@@ -1837,11 +2525,551 @@ $D(n) = |X \cup Y| = (n-1)(D(n-1) + D(n-2))$
     $$ a_n = 2^{n-1} + 2^{2n-1} $$
 \end{mdframed}
 \begin{mdframed}
-    Rozwiązanie Autora 2.
+    %rozwiązanie: Mateusz Rabantek
+    \textbf{Rozwiązanie podpunktu (iv)}
+
+    Dane równanie rekurencyjne:
+    \[
+    a_0 = 0, \quad a_1 = 1, \quad a_{n+2} = 2a_{n+1} - a_n.
+    \]
+
+    Funkcja tworząca $G(x)$ dla ciągu $\{a_n\}$ to:
+    \[
+    G(x) = \sum_{n=0}^{\infty} a_n x^n.
+    \]
+
+    Mnożymy równanie rekurencyjne przez $x^{n+2}$ i sumujemy od $n=0$ do nieskończoności:
+    \[
+    \sum_{n=0}^{\infty} a_{n+2} x^{n+2} = 2 \sum_{n=0}^{\infty} a_{n+1} x^{n+2} - \sum_{n=0}^{\infty} a_n x^{n+2}.
+    \]
+
+    Zamieniamy indeksy:
+    \[
+    G(x) - a_0 - a_1 x = 2x (G(x) - a_0) - x^2 G(x).
+    \]
+
+    Podstawiamy wartości początkowe $a_0 = 0$ i $a_1 = 1$:
+    \[
+    G(x) - x = 2x G(x) - x^2 G(x).
+    \]
+
+    Przenosimy wyrażenia:
+    \[
+    G(x) - 2x G(x) + x^2 G(x) = x.
+    \]
+
+    Wyciągamy $G(x)$ przed nawias:
+    \[
+    G(x) (1 - 2x + x^2) = x.
+    \]
+
+    Rozkładamy mianownik:
+    \[
+    1 - 2x + x^2 = (1 - x)^2.
+    \]
+
+    Otrzymujemy:
+    \[
+    G(x) = \frac{x}{(1 - x)^2}.
+    \]
+
+    Wykorzystujemy znane rozwinięcie:
+    \[
+    \frac{1}{(1 - x)^2} = \sum_{n=0}^{\infty} (n+1) x^n.
+    \]
+
+    Mnożymy przez $x$:
+    \[
+    G(x) = x \cdot \frac{1}{(1 - x)^2} = \sum_{n=0}^{\infty} (n+1) x^{n+1} = \sum_{n=1}^{\infty} n x^n.
+    \]
+
+    Porównując współczynniki, otrzymujemy:
+    \[
+    a_n = n \quad \text{dla} \quad n \geq 0.
+    \]
+
+    \textbf{Odpowiedź}
+    \[
+    \boxed{a_n = n}.
+    \]
+
+    \textbf{Rozwiązanie podpunktu (v)}
+
+    Niech $G(x) = \sum_{n=0}^{\infty} a_n x^n$ będzie funkcją tworzącą ciągu $(a_n)$.
+
+    Wyprowadzenie równania funkcyjnego
+
+    Z relacji rekurencyjnej $a_{n+2} = a_{n+1} - a_n$ dla $n \geq 0$ mamy:
+    \[
+    \sum_{n=0}^{\infty} a_{n+2} x^n = \sum_{n=0}^{\infty} a_{n+1} x^n - \sum_{n=0}^{\infty} a_n x^n
+    \]
+    Przekształcenie sum
+
+    Lewa strona:
+    \begin{align}
+    \sum_{n=0}^{\infty} a_{n+2} x^n &= \frac{1}{x^2} \sum_{n=0}^{\infty} a_{n+2} x^{n+2} \\
+    &= \frac{1}{x^2} \sum_{k=2}^{\infty} a_k x^k \\
+    &= \frac{1}{x^2}(G(x) - a_0 - a_1 x)
+    \end{align}
+
+    Prawa strona:
+    \begin{align}
+    \sum_{n=0}^{\infty} a_{n+1} x^n - \sum_{n=0}^{\infty} a_n x^n &= \frac{1}{x}\sum_{n=0}^{\infty} a_{n+1} x^{n+1} - G(x) \\
+    &= \frac{1}{x}(G(x) - a_0) - G(x)
+    \end{align}
+
+    Podstawienie warunków początkowych
+
+    Podstawiając $a_0 = 0$ i $a_1 = 1$:
+    \[
+    \frac{G(x) - x}{x^2} = \frac{G(x)}{x} - G(x)
+    \]
+    Rozwiązanie równania funkcyjnego
+
+    Mnożąc przez $x^2$:
+    \begin{align}
+    G(x) - x &= xG(x) - x^2G(x) \\
+    G(x) - x &= G(x)(x - x^2) \\
+    G(x) - G(x)(x - x^2) &= x \\
+    G(x)(1 - x + x^2) &= x
+    \end{align}
+
+    Stąd:
+    \boxed{G(x) = \frac{x}{1 - x + x^2}}
+
+
+    Analiza mianownika
+
+    Mianownik $1 - x + x^2 = 0$ ma pierwiastki:
+    \[
+    x = \frac{1 \pm \sqrt{1-4}}{2} = \frac{1 \pm i\sqrt{3}}{2}
+    \]
+    Oznaczmy $\omega = e^{i\pi/3} = \frac{1 + i\sqrt{3}}{2}$ i $\omega^2 = e^{-i\pi/3} = \frac{1 - i\sqrt{3}}{2}$.
+
+    Są to pierwiastki trzeciego stopnia z jedności różne od 1, więc:
+    \begin{align}
+    \omega^3 &= 1 \\
+    1 + \omega + \omega^2 &= 0 \\
+    1 - x + x^2 &= (1 - \omega x)(1 - \omega^2 x)
+    \end{align}
+
+    Rozwinięcie w szereg
+
+    Korzystając z analizy pierwiastków i właściwości funkcji okresowych, otrzymujemy:
+
+    \[
+    a_n = \begin{cases}
+    0 & \text{gdy } n \equiv 0 \pmod{6} \\
+    1 & \text{gdy } n \equiv 1 \pmod{6} \\
+    1 & \text{gdy } n \equiv 2 \pmod{6} \\
+    0 & \text{gdy } n \equiv 3 \pmod{6} \\
+    -1 & \text{gdy } n \equiv 4 \pmod{6} \\
+    -1 & \text{gdy } n \equiv 5 \pmod{6}
+    \end{cases}
+    \]
+
+
+    \textbf{Rozwiązanie podpunktu (vi)}
+
+    Dane równanie rekurencyjne:
+    \[
+    a_0 = 1,\quad a_1 = 5,\quad a_2 = 11,\quad a_{n+3} = 3a_{n+2} + 2a_{n+1} - 2a_n \quad \text{dla } n \geq 0.
+    \]
+
+    Definiujemy funkcję tworzącą:
+    \[
+    A(x) = \sum_{n=0}^{\infty} a_n x^n.
+    \]
+
+    Zastosowanie rekurencji
+    \begin{align*}
+    A(x) &= 1 + 5x + 11x^2 + \sum_{n=3}^{\infty} (3a_{n-1} + 2a_{n-2} - 2a_{n-3}) x^n \\
+    &= 1 + 5x + 11x^2 + 3x(A(x) - 1 - 5x) + 2x^2(A(x) - 1) - 2x^3 A(x)
+    \end{align*}
+
+    Rozwiązanie dla $A(x)$
+    \begin{align*}
+    A(x) &= \frac{1 + 2x - 6x^2}{1 - 3x - 2x^2 + 2x^3} \\
+    &= \frac{1 + 2x - 6x^2}{(1 + x)(1 - (2 + \sqrt{2})x)(1 - (2 - \sqrt{2})x)}
+    \end{align*}
+
+    Rozkład na ułamki proste
+    \[
+    A(x) = \frac{-1}{1 + x} + \frac{1}{1 - (2 + \sqrt{2})x} + \frac{1}{1 - (2 - \sqrt{2})x}
+    \]
+
+    Rozwinięcie w szereg
+    \begin{align*}
+    A(x) &= -\sum_{n=0}^{\infty} (-1)^n x^n + \sum_{n=0}^{\infty} (2 + \sqrt{2})^n x^n + \sum_{n=0}^{\infty} (2 - \sqrt{2})^n x^n \\
+    &= \sum_{n=0}^{\infty} \left[ -(-1)^n + (2 + \sqrt{2})^n + (2 - \sqrt{2})^n \right] x^n
+    \end{align*}
+
+    \textbf{Odpowiedź}
+    \[
+    \boxed{a_n = (-1)^{n+1} + (2 + \sqrt{2})^n + (2 - \sqrt{2})^n}
+    \]
+
+
+    \textbf{Rozwiązanie podpunktu (vii)}
+    \begin{align*}
+    a_0 &= 1, \\
+    a_1 &= 1, \\
+    a_{n+2} &= a_{n+1} + 2a_n + (-1)^n \quad \text{dla} \quad n \geq 0
+    \end{align*}
+
+    Definicja funkcji tworzącej
+    Niech funkcja tworząca ciągu $\{a_n\}$ będzie dana wzorem:
+    \[ G(x) = \sum_{n=0}^\infty a_n x^n \]
+        
+    Zastosowanie równania rekurencyjnego
+    Mnożymy równanie przez $x^{n+2}$ i sumujemy:
+    \[ \sum_{n=0}^\infty a_{n+2} x^{n+2} = \sum_{n=0}^\infty a_{n+1} x^{n+2} + 2 \sum_{n=0}^\infty a_n x^{n+2} + \sum_{n=0}^\infty (-1)^n x^{n+2} \]
+        
+    Wyrażamy sumy przez $G(x)$:
+    \[ G(x) - a_0 - a_1 x = x(G(x) - a_0) + 2x^2 G(x) + x^2 \sum_{n=0}^\infty (-x)^n \]
+        
+    Obliczenie sumy szeregu geometrycznego
+    \[ \sum_{n=0}^\infty (-x)^n = \frac{1}{1 + x} \quad \text{dla} \quad |x| < 1 \]
+        
+    Podstawiamy wartości początkowe:
+    \[ G(x) - 1 - x = x(G(x) - 1) + 2x^2 G(x) + \frac{x^2}{1 + x} \]
+        
+    Rozwiązanie równania dla $G(x)$
+    \begin{align*}
+    G(x) - x G(x) - 2x^2 G(x) &= 1 + x - x + \frac{x^2}{1 + x} \\
+    G(x)(1 - x - 2x^2) &= 1 + \frac{x^2}{1 + x} \\
+    G(x) &= \frac{1 + \frac{x^2}{1 + x}}{1 - x - 2x^2} = \frac{1 + x + x^2}{(1 + x)(1 - x - 2x^2)}
+    \end{align*}
+        
+    Rozkład mianownika
+    \[ 1 - x - 2x^2 = (1 + x)(1 - 2x) \]
+    Zatem:
+    \[ G(x) = \frac{1 + x + x^2}{(1 + x)^2 (1 - 2x)} \]
+        
+    Rozkład na ułamki proste
+    \[ \frac{1 + x + x^2}{(1 + x)^2 (1 - 2x)} = \frac{A}{1 + x} + \frac{B}{(1 + x)^2} + \frac{C}{1 - 2x} \]
+        
+    Rozwiązujemy:
+    \begin{align*}
+    1 + x + x^2 &= A(1 + x)(1 - 2x) + B(1 - 2x) + C(1 + x)^2 \\
+    \text{Dla } x = -1 &: 1 = 3B \Rightarrow B = \frac{1}{3} \\
+    \text{Dla } x = \frac{1}{2} &: \frac{7}{4} = \frac{9}{4}C \Rightarrow C = \frac{7}{9} \\
+    \text{Dla } x = 0 &: 1 = A + B + C \Rightarrow A = -\frac{1}{9}
+    \end{align*}
+        
+    Rozwinięcie w szereg
+    \begin{align*}
+    G(x) &= -\frac{1}{9}\cdot\frac{1}{1 + x} + \frac{1}{3}\cdot\frac{1}{(1 + x)^2} + \frac{7}{9}\cdot\frac{1}{1 - 2x} \\
+    &= -\frac{1}{9} \sum_{n=0}^\infty (-1)^n x^n + \frac{1}{3} \sum_{n=0}^\infty (n+1)(-1)^n x^n + \frac{7}{9} \sum_{n=0}^\infty 2^n x^n
+    \end{align*}
+        
+    Wyznaczenie wzoru na $a_n$
+    \[ a_n = -\frac{1}{9}(-1)^n + \frac{1}{3}(n+1)(-1)^n + \frac{7}{9}2^n \]
+    \[ a_n = (-1)^n\left(\frac{n+1}{3} - \frac{1}{9}\right) + \frac{7}{9}2^n = \frac{(-1)^n(3n + 2) + 7\cdot 2^n}{9} \]
+
+    \textbf{Odpowiedź}
+    \[ \boxed{a_n = \frac{(-1)^n (3n + 2) + 7 \cdot 2^n}{9}} \]
+
+    \textbf{Rozwiązanie podpunktu (viii)}
+    Dane równanie rekurencyjne:
+    \[
+    a_{0} = 1, \quad a_{1} = 1, \quad a_{n+2} = a_{n+1} + 6a_{n} - n
+    \]
+
+    Funkcja tworząca $A(x)$ dla ciągu $\{a_n\}$ to:
+    \[
+    A(x) = \sum_{n=0}^{\infty} a_n x^n
+    \]
+
+    Mnożymy równanie przez $x^{n}$ i sumujemy od $n=0$ do $\infty$:
+    \[
+    \sum_{n=0}^{\infty} a_{n+2} x^n = \sum_{n=0}^{\infty} a_{n+1} x^n + 6 \sum_{n=0}^{\infty} a_n x^n - \sum_{n=0}^{\infty} n x^n
+    \]
+
+    \[
+    \frac{A(x) - a_0 - a_1 x}{x^2} = \frac{A(x) - a_0}{x} + 6 A(x) - \frac{x}{(1-x)^2}
+    \]
+
+    Podstawiamy $a_0 = 1$ i $a_1 = 1$:
+    \[
+    \frac{A(x) - 1 - x}{x^2} = \frac{A(x) - 1}{x} + 6 A(x) - \frac{x}{(1-x)^2}
+    \]
+
+    Po przekształceniach otrzymujemy:
+    \[
+    A(x) = \frac{1}{(1 - x - 6 x^2)} - \frac{x^3}{(1-x)^2 (1 - x - 6 x^2)}
+    \]
+
+    Rozkładamy mianowniki:
+    \[
+    1 - x - 6 x^2 = (1 - 3x)(1 + 2x)
+    \]
+    Następnie rozkładamy oba składniki na ułamki proste.
+
+    Po rozkładzie i rozwinięciu w szereg otrzymujemy rozwiązanie:
+
+    \[
+    a_n = -\frac{39}{20} \cdot 3^n + \frac{17}{45} \cdot (-2)^n - \frac{6n + 7}{36}
+    \]
+
+    \textbf{Odpowiedź}
+    \[
+    \boxed{a_n = -\frac{39}{20} \cdot 3^n + \frac{17}{45} \cdot (-2)^n - \frac{n}{6} - \frac{7}{36}}
+    \]
+
+
+    \textbf{Rozwiązanie podpunktu (ix)}
+    \begin{align}
+    a_0 &= 1 \\
+    a_1 &= 1 \\
+    a_{n+1} &= 2a_n + 4^n \quad \text{dla } n \geq 0
+    \end{align}
+    Niech $A(x) = \sum_{n=0}^{\infty} a_n x^n$ będzie funkcją tworzącą ciągu $(a_n)$.
+        
+    Z równania $a_{n+1} = 2a_n + 4^n$ dla $n \geq 0$ otrzymujemy:
+    \begin{equation}
+    \sum_{n=0}^{\infty} a_{n+1} x^n = 2\sum_{n=0}^{\infty} a_n x^n + \sum_{n=0}^{\infty} 4^n x^n
+    \end{equation}
+        
+    Lewa strona:
+    \begin{align}
+    \sum_{n=0}^{\infty} a_{n+1} x^n &= \sum_{n=1}^{\infty} a_n x^{n-1} \\
+    &= \frac{1}{x}\sum_{n=1}^{\infty} a_n x^n \\
+    &= \frac{1}{x}(A(x) - a_0) \\
+    &= \frac{A(x) - 1}{x}
+    \end{align}
+        
+    Prawa strona:
+    \begin{align}
+    2\sum_{n=0}^{\infty} a_n x^n + \sum_{n=0}^{\infty} 4^n x^n &= 2A(x) + \sum_{n=0}^{\infty} (4x)^n \\
+    &= 2A(x) + \frac{1}{1-4x}
+    \end{align}
+        
+    Równanie funkcjonalne
+    \begin{equation}
+    \frac{A(x) - 1}{x} = 2A(x) + \frac{1}{1-4x}
+    \end{equation}
+        
+    Mnożąc przez $x$:
+    \begin{equation}
+    A(x) - 1 = 2xA(x) + \frac{x}{1-4x}
+    \end{equation}
+        
+    \begin{align}
+    A(x) - 2xA(x) &= 1 + \frac{x}{1-4x} \\
+    A(x)(1 - 2x) &= 1 + \frac{x}{1-4x} \\
+    A(x) &= \frac{1 + \frac{x}{1-4x}}{1-2x}
+    \end{align}
+        
+    Upraszczając:
+    \begin{align}
+    A(x) &= \frac{1}{1-2x} + \frac{x}{(1-4x)(1-2x)}
+    \end{align}
+        
+    Rozkład na ułamki proste
+    \begin{equation}
+    \frac{x}{(1-4x)(1-2x)} = \frac{A}{1-4x} + \frac{B}{1-2x}
+    \end{equation}
+        
+    Mamy:
+    \begin{equation}
+    x = A(1-2x) + B(1-4x)
+    \end{equation}
+        
+    Podstawiając $x = \frac{1}{4}$:
+    \begin{equation}
+    \frac{1}{4} = A\left(1-\frac{1}{2}\right) = \frac{A}{2} \Rightarrow A = \frac{1}{2}
+    \end{equation}
+        
+    Podstawiając $x = \frac{1}{2}$:
+    \begin{equation}
+    \frac{1}{2} = B(1-2) = -B \Rightarrow B = -\frac{1}{2}
+    \end{equation}
+        
+    Zatem:
+    \begin{equation}
+    \frac{x}{(1-4x)(1-2x)} = \frac{1/2}{1-4x} - \frac{1/2}{1-2x}
+    \end{equation}
+        
+    Funkcja tworząca w postaci końcowej
+    \begin{align}
+    A(x) &= \frac{1}{1-2x} + \frac{1/2}{1-4x} - \frac{1/2}{1-2x} \\
+    &= \frac{1/2}{1-2x} + \frac{1/2}{1-4x} \\
+    &= \frac{1}{2} \cdot \frac{1}{1-2x} + \frac{1}{2} \cdot \frac{1}{1-4x}
+    \end{align}
+
+    \begin{align}
+    \frac{1}{1-2x} &= \sum_{n=0}^{\infty} (2x)^n = \sum_{n=0}^{\infty} 2^n x^n \\
+    \frac{1}{1-4x} &= \sum_{n=0}^{\infty} (4x)^n = \sum_{n=0}^{\infty} 4^n x^n
+    \end{align}
+        
+    Zatem:
+    \begin{align}
+    A(x) &= \frac{1}{2}\sum_{n=0}^{\infty} 2^n x^n + \frac{1}{2}\sum_{n=0}^{\infty} 4^n x^n \\
+    &= \sum_{n=0}^{\infty} \left(\frac{2^n}{2} + \frac{4^n}{2}\right) x^n \\
+    &= \sum_{n=0}^{\infty} \frac{2^n + 4^n}{2} x^n
+    \end{align}
+        
+    \textbf{Odpowiedź}
+    \begin{equation}
+    \boxed{a_n = \frac{2^n + 4^n}{2}}
+    \end{equation}
+    
 \end{mdframed}
 
 \begin{zad}[Karol Wójcik, Autor 2]
-    Polecenie
+    Przedstaw w postaci zwartej splot liczb Fibonacciego, czyli:
+    \[\sum_{k=0}^{n}F_k\cdot F_{n-k}\]
+\end{zad}
+\begin{mdframed}
+    % Rozwiązanie: Karol Wójcik
+    Funkcja generująca liczb Fibonacciego to:
+\[
+F(z) = \frac{1}{\sqrt{5}} \left( \frac{1}{1 - \phi z} - \frac{1}{1 - \hat{\phi} z} \right),
+\]
+gdzie \( \phi = \frac{1 + \sqrt{5}}{2} \), \( \hat{\phi} = \frac{1 - \sqrt{5}}{2} \).
+
+Ponieważ splot odpowiada mnożeniu funkcji generujących, interesuje nas współczynnik przy \( z^n \) w \( F(z)^2 \):
+\[
+F(z)^2 = \left( \frac{1}{\sqrt{5}} \left( \frac{1}{1 - \phi z} - \frac{1}{1 - \hat{\phi} z} \right) \right)^2 = \frac{1}{5} \left( \frac{1}{(1 - \phi z)^2} + \frac{1}{(1 - \hat{\phi} z)^2} - \frac{2}{(1 - \phi z)(1 - \hat{\phi} z)} \right)
+\]
+
+Z rozwinięć:
+\[
+\frac{1}{(1 - az)^2} = \sum_{n=0}^\infty (n + 1) a^n z^n, \quad \frac{1}{(1 - \phi z)(1 - \hat{\phi} z)} = \sum_{n=0}^\infty F_{n+1} z^n
+\]
+
+otrzymujemy:
+\[
+F(z)^2 = \sum_{n=0}^\infty \left( \frac{1}{5} \left[ (n+1)(\phi^n + \hat{\phi}^n) - 2F_{n+1} \right] \right) z^n
+\]
+
+Zatem współczynnik przy \( z^n \) to:
+\[
+\sum_{k=0}^{n} F_k F_{n-k} = \frac{2n F_{n+1} - (n+1) F_n}{5}
+\]
+
+\end{mdframed}
+\begin{mdframed}
+    Rozwiązanie Autora 2.
+\end{mdframed}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section{Zestaw 9}          % Zestaw 9
+\begin{zad}
+    Udowodnij, że:
+    \begin{enumerate}
+        \item  $P(n, k)$ jest równe liczbie podziałów liczby $n$ o największym składniku równym $k$;
+        \item liczba podziałów liczby $n$ na parami różne składniki jest równa liczbie podziałów liczby $n$ na nieparzyste składniki;
+        \item $P(n + k, k)$ jest równe liczbie podziałów $n$, w których żaden ze składników nie przekracza $k$;
+        \item liczba podziałów samosprzężonych (dwa podziały są sprzężone jeśli ich diagramy Ferrersa są symetryczne względem “przekątnej”) liczby $n$ jest równa liczbie podziałów liczby $n$ na parami różne składniki nieparzyste.
+    \end{enumerate}
+\end{zad}
+\begin{mdframed}
+    \begin{enumerate}
+        \item
+              \begin{proof}
+                  Istnieje bijekcja pomiędzy pierwszymi a drugimi, wystarczy wykonać transpozycje diagramu Ferrersa.
+              \end{proof}
+
+        \item
+              \begin{proof}
+                  Istnieje bijekcja pomiędzy tymi dwoma zbiorami na diagramie Ferrersa:
+                  Aby przejść z lewej do prawej dokonujemy transpozycji i usuwamy pierwszy wiersz.
+              \end{proof}
+
+    \end{enumerate}
+\end{mdframed}
+\begin{mdframed}
+    Rozwiązanie Autora 2.
+\end{mdframed}
+
+\begin{zad}[Konstanty Sobczyński (1-3), Julian Sowiński (4-6), Autor 2]
+    Znajdź funkcje tworzące dla następujących ciągów:
+    \begin{enumerate}
+        \item $p(n | \text{wszystkie podziały} n)$
+        \item $p(n | \text{składniki podziału są parami różne})$
+        \item $p(n | \text{każdy składnik jest nieparzysty})$
+        \item $p(n | \text{każdy składnik jest parzysty})$
+        \item $p(n | \text{każdy składnik jest ograniczony przez} m )$
+        \item $p(n | \text{każdy składnik może występować co najwyżej} m \text{razy})$
+    \end{enumerate}
+\end{zad}
+\begin{mdframed}
+    \subsection*{4) p(n | każdy składnik jest parzysty)}
+    
+    Chcemy znaleźć funkcję tworzącą dla podziałów liczby $n$, w których mogą występować \textbf{jedynie składniki parzyste}, czyli liczby ze zbioru $\{2, 4, 6, 8, \dots\}$.
+    
+    Dla każdego składnika parzystego $k=2j$ (gdzie $j \ge 1$), możemy go użyć dowolną liczbę razy. Odpowiadają temu następujące szeregi geometryczne:
+    \begin{itemize}
+        \item Dla składnika 2: $(1 + x^2 + x^4 + x^6 + \dots) = \frac{1}{1-x^2}$
+        \item Dla składnika 4: $(1 + x^4 + x^8 + x^{12} + \dots) = \frac{1}{1-x^4}$
+        \item Dla składnika 6: $(1 + x^6 + x^{12} + x^{18} + \dots) = \frac{1}{1-x^6}$
+        \item i tak dalej...
+    \end{itemize}
+    
+    Funkcja tworząca jest iloczynem tych szeregów dla wszystkich parzystych liczb naturalnych.
+    $$ P(x) = \left(\frac{1}{1-x^2}\right) \left(\frac{1}{1-x^4}\right) \left(\frac{1}{1-x^6}\right) \cdots $$
+    Możemy to zapisać zwięźle za pomocą znaku iloczynu, sumując po wszystkich liczbach parzystych $2k$ dla $k \ge 1$:
+    $$ P(x) = \prod_{k=1}^{\infty} \frac{1}{1-x^{2k}} $$
+
+    \subsection*{5) p(n | każdy składnik jest ograniczony przez m)}
+
+    W tym przypadku składniki podziału mogą być \textbf{jedynie liczbami ze zbioru $\{1, 2, 3, \dots, m\}$}. Każdą z tych liczb możemy używać dowolną liczbę razy.
+    
+    Tworzymy iloczyn szeregów geometrycznych, ale tylko dla składników od 1 do $m$:
+    $$ P(x) = (1+x+x^2+\dots)(1+x^2+x^4+\dots)\cdots(1+x^m+x^{2m}+\dots) $$
+    Upraszczając każdy z tych szeregów, otrzymujemy:
+    $$ P(x) = \left(\frac{1}{1-x}\right) \left(\frac{1}{1-x^2}\right) \cdots \left(\frac{1}{1-x^m}\right) $$
+    Co w notacji iloczynowej zapisujemy jako:
+    $$ P(x) = \prod_{k=1}^{m} \frac{1}{1-x^k} $$
+
+    \subsection*{6) p(n | każdy składnik może występować co najwyżej m razy)}
+
+    Tutaj ograniczenie dotyczy \textbf{liczby wystąpień} każdego składnika. Dowolna liczba naturalna $k$ może być składnikiem podziału, ale może pojawić się w sumie co najwyżej $m$ razy.
+    
+    Dla każdego składnika $k$ tworzymy wielomian, który reprezentuje możliwość użycia go od 0 do $m$ razy:
+    \begin{itemize}
+        \item Dla składnika 1: $(1 + x^1 + x^2 + \dots + x^m)$
+        \item Dla składnika 2: $(1 + x^2 + x^4 + \dots + x^{2m})$
+        \item Dla składnika 3: $(1 + x^3 + x^6 + \dots + x^{3m})$
+        \item Dla składnika k: $(1 + x^k + x^{2k} + \dots + x^{km})$
+    \end{itemize}
+    
+    Każdy z tych wielomianów jest skończonym szeregiem geometrycznym, który możemy uprościć za pomocą wzoru $\sum_{i=0}^{m} r^i = \frac{1-r^{m+1}}{1-r}$. Dla składnika $k$, $r=x^k$:
+    $$ 1 + x^k + x^{2k} + \dots + x^{km} = \frac{1 - (x^k)^{m+1}}{1-x^k} = \frac{1 - x^{k(m+1)}}{1-x^k} $$
+    
+    Całkowita funkcja tworząca jest iloczynem takich wyrażeń dla wszystkich możliwych składników $k \ge 1$:
+    $$ P(x) = \left(\frac{1-x^{1(m+1)}}{1-x^1}\right) \left(\frac{1-x^{2(m+1)}}{1-x^2}\right) \left(\frac{1-x^{3(m+1)}}{1-x^3}\right) \cdots $$
+    Zapisując to w zwartej formie iloczynowej, otrzymujemy:
+    $$ P(x) = \prod_{k=1}^{\infty} \frac{1 - x^{k(m+1)}}{1-x^k} $$
+\end{mdframed}
+\begin{mdframed}
+    Rozwiązanie Autora 2.
+\end{mdframed}
+
+
+
+\begin{zad}
+    Wykaż, że:
+    \[(1+x)(1+x^3)(1+x^5) \cdot ... = 1 + \sum_{k = 1}^{\infty}\frac{x^{k^2}}{(1-x^2)(1-x^4)\cdot ... \cdot (1-x^{2k})}\]
 \end{zad}
 \begin{mdframed}
     Rozwiązanie Autora 1.
@@ -1850,17 +3078,360 @@ $D(n) = |X \cup Y| = (n-1)(D(n-1) + D(n-2))$
     Rozwiązanie Autora 2.
 \end{mdframed}
 
-% \section{Zestaw}          % Zestaw 9
-% Nothing here. Tylko work in progress...
-% \section{Zestaw}          % Zestaw 10
-% Nothing here. Tylko work in progress...
-% \section{Zestaw}          % Zestaw 11
-% Nothing here. Tylko work in progress...
-% \section{Zestaw}          % Zestaw 12
-% Nothing here. Tylko work in progress...
+\begin{zad}
+    Niech $P(x)$ będzie funkcją tworząca ciągu $p(n)$, gdzie $p(n)$ jest ilością wszystkich podziałów $n$. Wykaż, że:
+    \[P(x) = 1 + \sum_{k=1}^{\infty}\frac{x^{k^2}}{(1-x)^2(1-x^2)^2\cdot ... \cdot (1-x^k)^2}\]
+\end{zad}
+\begin{mdframed}
+    Rozwiązanie Autora 1.
+\end{mdframed}
+\begin{mdframed}
+    Rozwiązanie Autora 2.
+\end{mdframed}
+
+\begin{zad}
+    Nich $f(n)[g(n)]$ oznaczają liczbę podziałów $n$ z parzystą [nieparzystą] liczba składników parzystych. Niech $k(n)$ oznacza liczbę podziałów samosprzeżonych $n$. Wykaż, że:
+    \[f(n) - g(n) = k(n)\]
+\end{zad}
+\begin{mdframed}
+    Rozwiązanie Autora 1.
+\end{mdframed}
+\begin{mdframed}
+    Rozwiązanie Autora 2.
+\end{mdframed}
+
+
+\begin{zad}
+    Znajdź funkcję tworzącą dla ciągu:
+    \[a_n = \sum_{m>0}^{}\sum_{k_1+k_2+...+k_m = n, k_i>0}^{}k_1 \cdot ... \cdot k_m\]
+\end{zad}
+\begin{mdframed}
+    Rozwiązanie Autora 1.
+\end{mdframed}
+\begin{mdframed}
+    Rozwiązanie Autora 2.
+\end{mdframed}
+
+\begin{zad}
+    Przy ustalonym $k \in \N$, niech $B_k(x) = \sum_{k=0}^{\infty}S(n, k)x^n$ będzie funkcją
+    tworzącą dla liczb Stirlinga drugiego rodzaju $S(n, k)$. Wykaż, że:
+    \[B_k(x) = \frac{x^k}{(1-x)(1-2x) \cdot ... \cdot (1-kx)}\]
+\end{zad}
+\begin{mdframed}
+    Rozwiązanie Autora 1.
+\end{mdframed}
+\begin{mdframed}
+    Rozwiązanie Autora 2.
+\end{mdframed}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section{Zestaw 10}          % Zestaw 10
+Sytuacja taka sama jak w 7 zestawie.
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section{Zestaw 11}          % Zestaw 11
+
+\begin{zad}[Autor 1, Mateusz Rabantek]
+    Wykaż równoważność następujących zdań: dla grafu $T$
+    \begin{enumerate}
+        \item $T$ jest drzewem;
+        \item dowolne dwa wierzchołki T sa połączone unikalną ścieżką;
+        \item $T$ jest minimalnie spójny, tzn. $T$ jest spójny ale $T - e$ jest niespójny dla dowolnej krawędzi $e \in T$;
+        \item $T$ jest maksymalnie acykliczny, tzn $T$ nie zawiera cyklu ale $T+ xy$ zawiera cykl dla dowolnych niepołączonych wierzchołków $x,y \in T$.
+    \end{enumerate}
+\end{zad}\begin{mdframed}
+    Rozwiązanie Autora 1.
+\end{mdframed}
+\begin{mdframed}
+    %rozwiązanie: Mateusz Rabantek
+    \textbf{1 $\Leftrightarrow$ 2}
+    \item 1 $\Rightarrow$ 2 
+    \item Załóżmy, że $T$ jest drzewem (jest spójny i acykliczny) i, że istnieją wierzchołki u i v połączone dwoma rożnymi ścieżkami. Otrzymujemy wtedy cykl w $T$. Sprzeczność \qedsymbol
+    \item 1 $\Leftarrow$ 2
+    \item Załóżmy, że w $T$ między każdymi dwoma wierzchołkami istnieje dokładnie jedna ścieżka (T jest spójny). Załóżmy, że w T istnieje cykl przechodzący przez wierzchołki 
+            u, w i v. W tym cyklu u i v połączone są dwoma różnymi ścieżkami, jedna przechodzi przez w, druga nie. Sprzeczność.
+            \qedsymbol
+    \newline
+    \newline
+    \textbf{1 $\Leftrightarrow$ 3}
+    \item 1 $\Rightarrow$ 3
+    \item Załóżmy, że $T$ - drzewo i po usunięciu krawędzi $e$ o końcach $u$ i $v$ nadal jest spójny.
+        Zatem między u i v istnieje ścieżka $S$ w grafie $T-e$. Stąd wynika, że $S$ i $e$ tworzą cykl w $T$. Sprzeczność. \qedsymbol
+    \item 1 $\Leftarrow$ 3
+    \item Załóżmy, że $T$ - graf minimalnie spójny (tj. po usunięciu dowolnej krawędzi zwiększa się liczba składowych T).
+        Załóżmy, że $T$ - cykliczny, po usunięciu krawędzi z cyklu w $T$ liczba składowych się nie zwiększy. Sprzeczność.
+        \qedsymbol
+    \newline
+    \newline
+    \textbf{1 $\Leftrightarrow$ 4}
+    \item 1 $\Rightarrow$ 4
+    \item Załóżmy, że $T$ - drzewo i po połączeniu dowolnych dwóch wierzchołków $u$ i $v$ nie utworzymy cyklu. Oznacza to, że w grafie $T$ te wierzchołki nie były połączone ścieżką. Sprzeczność. \qedsymbol
+    \item 1 $\Leftarrow$ 4
+    \item Załóżmy, że $T$ - graf maksymalnie acykliczny. Załóżmy, że $T$ nie jest spójny. Wybierzmy dwa wierzchołki $u$ i $v$ nie połączone krawędzią. Wtedy po połączeniu tych wierzchołków krawędzią $e$ nie otrzymujemy cyklu. Sprzeczność. \qedsymbol
+\end{mdframed}
+
+
+\begin{zad}
+    Niech $T$ będzie ukorzenionym drzewem. Podział zbioru wierzchołków $V(T)$ na zbiory $P_1, ... P_t$ nazywamy
+    heavy-light decomposition drzewa $T$, jeżeli spełnione są następujące warunki:
+    \begin{enumerate}
+        \item  $P_i$ jest ścieżką w $T$ zawartą w pewnej ścieżce od korzenia do liścia drzewa $T$,
+        \item  jeżeli pewna ścieżka od korzenia do liścia drzewa $T$ przecina się niepusto z $n$ ścieżkami
+              ze zbioru $\left\{P_1, ..., P_t\right\}$ to $|V(T)| \geq 2^n-1$.
+    \end{enumerate}
+    Wykaż, że $T$ posiada heavy-light dekompozycję.
+\end{zad}
+\begin{mdframed}
+    Rozwiązanie Autora 1.
+\end{mdframed}
+\begin{mdframed}
+    Rozwiązanie Autora 2.
+\end{mdframed}
+
+
+\begin{zad}[Karol Wójcik, Autor 2]
+    Udowodnij, że dowolne drzewo $T$ ma przynajmniej $\Delta(T)$ liści.
+\end{zad}
+\begin{mdframed}
+    % Rozwiązanie: Karol Wójcik
+    Niech $l$ - liczba liści w drzewie t
+    \newline\newline
+    Niech T będzie drzewem o $n$ wierzchołkach, wtedy liczba krawędzi to $n-1$
+    \newline\newline
+    Z HSL:
+    \[
+    \sum deg(v) = 2(n-l-1) + l + \Delta(T)
+    \]
+    \[
+    2(n-1) \geqslant l + 2(n-l-1) + \Delta(T)
+    \]
+    \[
+    2n-2 \geqslant l + 2n - 2 -2l + \Delta(T)
+    \]
+    \[
+    l \geqslant \Delta(T)
+    \]
+\end{mdframed}
+\begin{mdframed}
+    Rozwiązanie Autora 2.
+\end{mdframed}
+
+\begin{zad}
+    Niech $\T$ będzie dowolnym podzbiorem poddrzew drzewa $T$. Pokaż, że
+    \begin{enumerate}
+        \item jeśli każde dwa drzewa w $\T$ mają niepuste przecięcie (wierzchołkowo) to istnieje
+              wierzchołek należący do wszystkich drzew w $\T$.
+
+        \item dla dowolnego $k \geq 1$ zachodzi: $\T$ zawiera $k$ rozłącznych wierzchołkowo drzew albo
+              istnieje zbiór co najwyżej $k-1$ 1 wierzchołków drzewa $\T$ przecinający niepusto każde
+              drzewo w $\T$.
+    \end{enumerate}
+\end{zad}
+\begin{mdframed}
+    Rozwiązanie Autora 1.
+\end{mdframed}
+\begin{mdframed}
+    Rozwiązanie Autora 2.
+\end{mdframed}
+
+
+
+\begin{zad}
+    Niech $d \in \N, V = \left\{0,1\right\}^d$ i $G_d=(V,E)$ będzie grafem, w którym krawędzie
+    są pomiędzy ciągami różniącymi się na dokładnie jednej pozycji. Graf $G_d$ nazywamy
+    $d$-wymiarową kostką. Dla grafu $G_d$ wyznacz:
+    \begin{enumerate}
+        \item liczbę krawędzi
+        \item średnicę (maksymalną długość najkrótszej ścieżki pomiędzy dwoma wierzchołkami)
+        \item talię (najmniejszy rozmiar cyklu)
+        \item obwód (największy rozmiar cyklu)
+    \end{enumerate}
+    Zbadaj, kiedy $G_d$ ma cykl Hamiltona, Eulera?
+\end{zad}
+\begin{mdframed}
+    Rozwiązanie Autora 1.
+\end{mdframed}
+\begin{mdframed}
+    Rozwiązanie Autora 2.
+\end{mdframed}
+
+
+\begin{zad}[Autor 1, Karol Sęk]
+    Pokaż, że $rad(G) \leq diam(G) \leq 2 rad(G)$ dla dowolnego grafu $G$. Wskaż grafy świadczące równości.
+\end{zad}
+\begin{mdframed}
+    Rozwiązanie Autora 1.
+\end{mdframed}
+\begin{mdframed}
+    Załóżmy, że graf jest spójny, bez tego założenia pojęcie promienia grafu nie ma sensu.
+
+    Wprost z definicji promienia i średnicy grafu $rad(G) \leq diam(G)$\\
+
+    Równość spełniona dla następującego grafu:\\
+    $$V(G) = \{1,2\}$$
+    $$E(G) =\{\{1,2\}\}$$
+    $$rad(G) = 1$$
+    $$diam(G)= 1$$
+
+
+    Niech $x,y \in V(G)$ $x \neq y$ takie, że $dist(x,y) = diam(G)$  (1)
+
+    Niech $z \in V(G)$ $z\neq y$ $z\neq x$ takie, że $ \forall_{w \in V(G)}dist(w,z) \leq rad(G)$ (2) \\
+
+    Na podstawie spójności grafu, istnieją ścieżki od x do z i od z do y, spelniają one nierównośc:
+    $$dist(x,y) \leq dist(x,z) + dist(z,y)$$
+
+    z (2) 
+    $$dist(x,z) + dist(z,y)  \leq rad(G) + rad(G) = 2rad(G)$$
+
+    z (1)
+    $$dist(x,y) = diam(G)$$
+
+    Łącząc te obserwacje:
+
+    $$diam(G) = dist(x,y) \leq dist(x,z) + dist(z,y)  \leq 2rad(G)$$
+
+    $$diam(G) \leq 2rad(G)$$
+
+    Równość spełniona dla następującego grafu:\\
+
+    $$V(G) = \{1,2,3\}$$
+    $$E(G) =\{\{1,2\},\{2,3\}\}$$
+    $$rad(G) = 1$$ 
+    $$diam(G)= 2$$
+
+
+\end{mdframed}
+
+
+
+\begin{zad} (Wiktor Szymonek)
+    Wykaż, że dla każdego grafu $G$ zachodzi: $G$ jest spójny lub $\bar{G}$ (dopełnienie $G$) jest spójny.
+\end{zad}
+\begin{mdframed}
+     % Rozwiązanie: Bartosz Wójcik
+
+     (1) Załóżmy, że graf $G$ jest niespójny. Wtedy $G$ można podzielić na 
+     składowe, $G_1$ i $G_2$ takie, że dla każdego $v \in G_1$ i $u \in G_2$ 
+     nie istnieje ścieżka od $u$ do $v$. Udowodnimy, że graf $\overline{G}$ jest 
+     spójny. Weźmy dowolne dwa $u, v \in G$. 
+     
+         Jeśli $u \in G_1$, a $v \in G_2$ to 
+     z założenia nie istnieje krawędź $uv$ w $G$, więc istnieje krawędź (ścieżka) w 
+     $\overline{G}$. 
+     
+         W przypadku gdy $u, v \in G_1$ weźmy $w \in G_2$. Według poprzedniego 
+     argumentu istnieje krawędź $uw$ i $wv$ w $\overline{G}$, a więc ścieżka $uwv$. 
+     
+         Pozostałe przypadki wynikają z symetrii oznaczeń. Udowdniliśmy, że dla każdego 
+     $u, v \in \overline{G}$ istniej ścieżka łączaca $u$ i $v$, więc graf $\overline{G}$ 
+     jest spójny.
+ 
+     (2) Jeśli $G$ jest spójny to teza spełniona.
+\end{mdframed}
+\begin{mdframed}
+    % Rozwiązanie: Karol Wójcik
+    Załóżmy, że $G$ jest niespójny.
+    Oznacza to, że:
+    $G = G_1 + G_2$
+    \newline
+    Udowodnię, że $\overline{G}$ jest spójny \\
+
+    Weźmy x,y $\in V(\overline{G}) $\\
+    Mamy dwa przypadki:
+    \newline
+    1. $x \in V(G_1)  y \in V(G_2)$
+    \newline
+    Wtedy xy jest krawędzią w $\overline{G}$
+    \newline\newline
+    2. $x$,$y$ $\in V(G_1) ($analogicznie gdy $ x,y \in V(G_2))$
+    Zauważmy, że \( \exists z \in V(G_2) \).\\
+Stąd \( xzy \) jest ścieżką w \( \overline{G} \).
+\newline\newline
+Z powyższych przypadków wynika, że $\overline{G}$ jest spójny
+\end{mdframed}
+\begin{mdframed}
+    % Rozwiązanie: Wiktor Szymonek
+    Jeśli $G$ jest spójny, teza zachodzi. Załóżmy zatem, że $G$ jest niespójny. Wówczas możemy wyróżnić w $G$ pewną ilość (większą niż 1) komponentów spójnych.
+    Niech \(K = \left\{G_{1},G_{2},\dots\right\}\) będzie zbiorem komponentów spójnych z $G$. Weźmy dowolne \(A,B \in K\) różne od siebie. Wówczas dla dowolnych \(x \in A\) , \(u \in B\) zachodzi 
+    \(xu \notin E(G) \implies xu \in E(\bar{G})\). Rozważmy teraz dowolne dwa wierzchołki w tym samym komponencie spójnym, B.S.O niech \(x,y \in A\) oraz \(u \in B\), wówczas \(xu,uy \notin E(G) \implies xu,uy \in E(\bar{G})\) zatem w $\bar{G}$ istnieje ścieżka $xuy$.
+    Stąd $\bar{G}$ jest spójny
+    \qed
+\end{mdframed}
+
+
+\begin{zad}
+    Niech $G$ będzie grafem o maksymalnym stopniu $\Delta$ i niech $\Delta = \Delta_1 + \Delta_2 +1$.
+    Pokaż, że $V(G)$ można podzielić na dwie części $X_1$ i $X_2$ takie, że $\Delta (G[X_1]) \leq \Delta_1$ i $\Delta (G[X_2]) \leq \Delta_2$.
+    Wskazówka: badaj najpierw przypadek $\Delta_1 = \Delta_2$.
+\end{zad}
+\begin{mdframed}
+    Rozwiązanie Autora 1.
+\end{mdframed}
+\begin{mdframed}
+    Rozwiązanie Autora 2.
+\end{mdframed}
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Zestaw}          % Zestaw 12
+\begin{zad} [Bartosz Wójcik]
+    Niech $G = (V, E, w)$ będzie ważonym grafem o funkcji wag $w: E \rightarrow \R^+$.
+    Wykaż, że jeśli $w(e_1) \neq w(e_2)$ dla każdych dwóch krawędzi $e_1$ oraz $e_2$, to 
+    minimalne drzewo rozpinające w $G$ jest wyznaczone jednoznacznie.
+\end{zad}
+\begin{mdframed}
+    % Rozwiązanie: Bartosz Wójcik, zadanie 6
+    Załóżmy, że teza nie jest spełniona i istnieją dwa minimalne drzewa rozpinające $T_1$ i 
+    $T_2$. Jeśli drzewa $T_1$ i $T_2$ są różne to grafy te różnią się krawędziami. Weźmy krawędź 
+    $e_1$, która leży tylko w jednym z grafów (załóżmy, że w $T_1$). Dodajmy $e_1$ do $T_2$. W $T_2 + e_1$ 
+     istnieje teraz cykl (bo $T_2$ to drzewo), w którym jest krawędź $e_2$, która nie należy do $T_1$. Po usunięciu 
+     $e_2$ z $T_2 + e_1$ $T_2$ ma mniejszą sumę wag (bo $w(e_1) < w(e_2)$) oraz jest drzewem rozpinającym. Jest to sprzeczne 
+     z załóżeniami, że $T_2$ było minimalnym drzewm rozpinającym.
+\end{mdframed}
+\begin{mdframed}
+    Rozwiązanie Autora 2.
+\end{mdframed}
 % \section{Zestaw}          % Zestaw 13
 % Nothing here. Tylko work in progress...
-%
+
 
 
 
